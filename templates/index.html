@@ -3,18 +3,17 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Prince Singh</title>
+    <title>Prince Singh | Portfolio</title>
 
     <script src="https://cdn.tailwindcss.com"></script>
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
 
     <script src="https://unpkg.com/lucide@latest"></script>
-    <script src="https://unpkg.com/canvas-particles@latest/dist/canvas-particles.min.js"></script>
 
     <link
       rel="stylesheet"
       href="{{ url_for('static', filename='css/style.css') }}"
     />
+
     <link
       rel="icon"
       type="image/x-icon"
@@ -25,41 +24,45 @@
   <body class="antialiased">
     <canvas id="c"></canvas>
 
+    <!-- ================= HEADER ================= -->
     <header
       id="header"
       class="fixed top-0 left-0 right-0 z-50 transition-all duration-300"
     >
       <div class="container mx-auto px-4">
         <nav class="flex justify-between items-center py-4">
-          <a href="#" class="text-2xl font-bold text-blue-500"
-            >P.S<span class="text-blue-500"></span
-          ></a>
+          <a href="#home" class="text-2xl font-bold text-blue-400"> P.S </a>
 
           <div class="hidden md:flex items-center space-x-8 text-gray-300">
+            <a href="#home" class="hover:text-blue-400 transition-colors"
+              >Home</a
+            >
             <a href="#about" class="hover:text-blue-400 transition-colors"
               >About</a
             >
             <a
               href="#qualifications"
               class="hover:text-blue-400 transition-colors"
-              >Qualifications</a
             >
+              Qualifications
+            </a>
             <a
               href="#certificates"
               class="hover:text-blue-400 transition-colors"
-              >Certificates</a
             >
-            <a href="#projects" class="hover:text-blue-400 transition-colors"
-              >Projects</a
-            >
-            <a href="#contact" class="hover:text-blue-400 transition-colors"
-              >Contact Me</a
-            >
+              Certificates
+            </a>
+            <a href="#projects" class="hover:text-blue-400 transition-colors">
+              Projects
+            </a>
+            <a href="#contact" class="hover:text-blue-400 transition-colors">
+              Contact Me
+            </a>
           </div>
 
           <a
             href="#contact"
-            class="hidden md:inline-block bg-blue-600 hover:bg-blue-700 text-white font-medium py-2 px-4 rounded-lg transition-transform duration-300 hover:scale-105"
+            class="hidden md:inline-block bg-blue-600 hover:bg-blue-700 text-white font-medium py-2 px-5 rounded-lg transition-transform duration-300 hover:scale-105"
           >
             Hire Me
           </a>
@@ -76,139 +79,195 @@
       </div>
     </header>
 
-    <!-- Mobile Menu -->
+    <!-- ================= MOBILE MENU ================= -->
     <div
       id="mobile-menu"
-      class="hidden md:hidden fixed top-0 left-0 w-full h-full bg-gray-900/90 backdrop-blur-sm z-40"
+      class="hidden md:hidden fixed top-0 left-0 w-full h-full bg-gray-950/95 backdrop-blur-md z-40"
     >
       <div class="flex flex-col items-center justify-center h-full space-y-8">
         <a
-          href="#about"
-          class="text-2xl text-gray-300 hover:text-blue-400 transition-colors mobile-link"
-          >About</a
+          href="#home"
+          class="mobile-link text-2xl text-gray-300 hover:text-blue-400"
         >
+          Home
+        </a>
+        <a
+          href="#about"
+          class="mobile-link text-2xl text-gray-300 hover:text-blue-400"
+        >
+          About
+        </a>
         <a
           href="#qualifications"
-          class="text-2xl text-gray-300 hover:text-blue-400 transition-colors mobile-link"
-          >Qualifications</a
+          class="mobile-link text-2xl text-gray-300 hover:text-blue-400"
         >
+          Qualifications
+        </a>
         <a
           href="#certificates"
-          class="text-2xl text-gray-300 hover:text-blue-400 transition-colors mobile-link"
-          >Certificates</a
+          class="mobile-link text-2xl text-gray-300 hover:text-blue-400"
         >
+          Certificates
+        </a>
         <a
           href="#projects"
-          class="text-2xl text-gray-300 hover:text-blue-400 transition-colors mobile-link"
-          >Projects</a
+          class="mobile-link text-2xl text-gray-300 hover:text-blue-400"
         >
+          Projects
+        </a>
         <a
           href="#contact"
-          class="text-2xl text-gray-300 hover:text-blue-400 transition-colors mobile-link"
-          >Contact Me</a
+          class="mobile-link text-2xl text-gray-300 hover:text-blue-400"
         >
+          Contact Me
+        </a>
       </div>
     </div>
 
-    <main class="container mx-auto px-4 pt-24">
-      <!-- Hero Section -->
+    <main class="container mx-auto px-4 pt-24 relative z-10">
+      <!-- ================= HERO SECTION ================= -->
       <section
         id="home"
-        class="min-h-[80vh] flex flex-col md:flex-row items-center justify-between"
+        class="min-h-[85vh] flex flex-col md:flex-row items-center justify-between gap-12 relative"
       >
-        <div class="md:w-1/2 text-center md:text-left">
+        <!-- Hero Text -->
+        <div class="md:w-1/2 text-center md:text-left reveal">
+          <p
+            class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/10 border border-white/10 text-cyan-200 text-sm font-semibold mb-5"
+          >
+            <span
+              class="w-2 h-2 bg-green-400 rounded-full animate-pulse"
+            ></span>
+            Available for Projects
+          </p>
+
           <h1
-            class="text-4xl md:text-6xl font-extrabold text-white leading-tight mb-4 fade-in-up animation-delay-100"
+            class="text-4xl md:text-6xl font-extrabold text-white leading-tight mb-4"
           >
             Hi, I'm <span class="text-gradient">Prince Singh</span>
           </h1>
 
-          <h2 class="text-2xl md:text-3xl font-medium text-gray-300 mb-8">
-            I'm a <span id="typing-effect"></span>
+          <h2 class="text-2xl md:text-3xl font-medium text-gray-300 mb-6">
+            I'm a <span id="typing-effect" class="text-cyan-300"></span>
           </h2>
 
-          <p
-            class="text-lg text-gray-400 mb-8 max-w-xl mx-auto md:mx-0 fade-in-up animation-delay-300"
-          >
+          <p class="text-lg text-gray-400 mb-8 max-w-xl mx-auto md:mx-0">
             I build efficient and scalable Python applications that power
             reliable and high-performance systems. Passionate about clean code,
             problem-solving, and delivering impactful software solutions.
           </p>
 
-          <img
-            src="{{ url_for('static', filename='Images/shape.svg') }}"
-            class="max-w-none"
-            width="300"
-            height="200"
-            alt="Decorative geometric shape element with blue gradient"
-          />
-        </div>
-
-        <div
-          class="absolute bottom-[-40px] left-0 flex flex-col md:flex-row items-start space-y-4 md:space-y-0 md:space-x-4 z-50"
-        >
-          <a
-            href="#projects"
-            class="border border-green-500 text-green-400 hover:bg-green-500 hover:text-white font-bold py-3 px-8 rounded-lg transition-all duration-300 hover:scale-105 flex items-center gap-2"
+          <!-- Buttons -->
+          <div
+            class="flex flex-col sm:flex-row items-center justify-center md:justify-start gap-4 mb-8"
           >
-            View My Work
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              fill="none"
-              viewBox="0 0 24 24"
-              stroke="currentColor"
-              class="w-5 h-5"
-            >
-              <path
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                stroke-width="2"
-                d="M9 5l7 7-7 7"
-              />
-            </svg>
-          </a>
+            <a href="#projects" class="btn-primary">
+              View My Work
+              <i data-lucide="arrow-right" class="w-5 h-5"></i>
+            </a>
 
-          <div class="relative inline-block">
-            <button
-              id="resumeBtn"
-              class="border border-green-500 text-green-400 hover:bg-green-500 hover:text-green font-bold py-3 px-8 rounded-lg transition-all duration-300 hover:scale-105 flex items-center gap-2"
-            >
-              Resume
-              <i data-lucide="chevron-down" class="w-4 h-4"></i>
-            </button>
+            <div class="relative inline-block w-full sm:w-auto">
+              <button id="resumeBtn" type="button" class="btn-outline">
+                Resume
+                <i data-lucide="chevron-down" class="w-5 h-5"></i>
+              </button>
 
-            <div
-              id="resumeMenu"
-              class="hidden absolute left-0 mt-2 w-44 bg-gray-900 border border-gray-700 rounded-lg shadow-lg z-50"
-            >
-              <a
-                href="{{ url_for('static', filename='assets/resume.pdf') }}"
-                target="_blank"
-                class="border border-green block px-4 py-2 text-green-300 hover:bg-green-800 hover:text-white rounded-t-lg"
+              <div
+                id="resumeMenu"
+                class="hidden absolute left-0 mt-3 w-full sm:w-48 z-50"
               >
-                👁View Resume
-              </a>
-              <a
-                href="{{ url_for('static', filename='assets/resume.pdf') }}"
-                download
-                class="border border-green block px-4 py-2 text-green-300 hover:bg-green-800 hover:text-white rounded-b-lg"
-              >
-                Download Resume
-              </a>
+                <a
+                  href="{{ url_for('static', filename='assets/resume.pdf') }}"
+                  target="_blank"
+                  class="block px-5 py-3 text-gray-200 hover:bg-white/10 hover:text-white"
+                >
+                  👁 View Resume
+                </a>
+
+                <a
+                  href="{{ url_for('static', filename='assets/resume.pdf') }}"
+                  download
+                  class="block px-5 py-3 text-gray-200 hover:bg-white/10 hover:text-white"
+                >
+                  ⬇ Download Resume
+                </a>
+              </div>
             </div>
+          </div>
+
+          <!-- Social Icons Fixed -->
+          <div class="flex justify-center md:justify-start items-center gap-5">
+            <!-- GitHub -->
+            <a
+              href="https://github.com/Prince-singh001"
+              target="_blank"
+              rel="noopener noreferrer"
+              title="GitHub"
+              class="social-icon"
+            >
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 0 24 24"
+                fill="currentColor"
+                class="w-6 h-6"
+              >
+                <path
+                  d="M12 0C5.37 0 0 5.37 0 12a12 12 0 0 0 8.2 11.39c.6.11.82-.26.82-.58v-2.02c-3.34.73-4.04-1.42-4.04-1.42-.55-1.38-1.33-1.75-1.33-1.75-1.08-.74.08-.73.08-.73 1.2.08 1.83 1.22 1.83 1.22 1.06 1.82 2.79 1.3 3.47.99.11-.77.42-1.3.76-1.6-2.67-.31-5.47-1.33-5.47-5.9 0-1.3.47-2.37 1.22-3.2-.12-.3-.53-1.56.12-3.24 0 0 1-.32 3.3 1.22a11.5 11.5 0 0 1 6 0c2.3-1.54 3.3-1.22 3.3-1.22.65 1.68.24 2.94.12 3.24.76.83 1.22 1.9 1.22 3.2 0 4.58-2.8 5.58-5.48 5.89.43.38.82 1.1.82 2.23v3.3c0 .32.21.7.83.58A12 12 0 0 0 24 12c0-6.63-5.37-12-12-12Z"
+                />
+              </svg>
+            </a>
+
+            <!-- LinkedIn -->
+            <a
+              href="https://www.linkedin.com/in/prince-singh05/"
+              target="_blank"
+              rel="noopener noreferrer"
+              title="LinkedIn"
+              class="social-icon hover-blue"
+            >
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 0 24 24"
+                fill="currentColor"
+                class="w-6 h-6"
+              >
+                <path
+                  d="M20.45 20.45H16.9v-5.57c0-1.33-.03-3.04-1.85-3.04-1.85 0-2.13 1.45-2.13 2.95v5.66H9.37V9h3.4v1.56h.05c.47-.9 1.63-1.85 3.35-1.85 3.58 0 4.24 2.36 4.24 5.43v6.31ZM5.34 7.43a2.06 2.06 0 1 1 0-4.12 2.06 2.06 0 0 1 0 4.12ZM7.11 20.45H3.56V9h3.55v11.45ZM22.23 0H1.77A1.77 1.77 0 0 0 0 1.77v20.46C0 23.2.8 24 1.77 24h20.46A1.77 1.77 0 0 0 24 22.23V1.77A1.77 1.77 0 0 0 22.23 0Z"
+                />
+              </svg>
+            </a>
+
+            <!-- WhatsApp -->
+            <a
+              href="https://wa.me/919661261973"
+              target="_blank"
+              rel="noopener noreferrer"
+              title="WhatsApp"
+              class="social-icon hover-green"
+            >
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 0 24 24"
+                fill="currentColor"
+                class="w-6 h-6"
+              >
+                <path
+                  d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"
+                />
+              </svg>
+            </a>
           </div>
         </div>
 
-        <div
-          class="mt-12 md:mt-0 md:w-1/2 flex flex-col items-center fade-in-up fade-in-up-200ms"
-        >
+        <!-- Hero Image same as before -->
+        <div class="mt-12 md:mt-0 md:w-1/2 flex flex-col items-center reveal">
           <div
             class="relative w-80 h-92 flex items-center justify-center hero-image-container float-animation"
           >
             <img
               src="{{ url_for('static', filename='Images/me.png') }}"
               class="w-full h-full object-cover hero-image-shadow"
-              alt="Prince Singh, a Python developer, in professional headshot against neutral background"
+              alt="Prince Singh"
               onerror="
                 this.onerror = null;
                 this.src =
@@ -216,62 +275,22 @@
               "
             />
           </div>
-
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                viewBox="0 0 24 24"
-                fill="currentColor"
-                class="w-8 h-8"
-              >
-              
-              </svg>
-            </a>
-          </div>
         </div>
       </section>
 
-      <!-- About Section -->
+      <!-- ================= ABOUT SECTION ================= -->
       <section id="about" class="py-20 reveal">
         <h2 class="text-4xl font-bold text-center text-white mb-12">
           About <span class="text-gradient">Me</span>
         </h2>
-        <div class="flex justify-center md:justify-start items-center gap-5 mb-6">
-  <!-- GitHub -->
-  <a href="https://github.com/Prince-singh001" target="_blank" rel="noopener noreferrer"
-    title="Visit my GitHub profile"
-    class="text-gray-300 hover:text-white transition-transform duration-300 hover:scale-110">
-    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="w-8 h-8">
-      <path d="M12 0C5.37 0 0 5.37 0 12a12 12 0 0 0 8.2 11.39c.6.11.82-.26.82-.58v-2.02c-3.34.73-4.04-1.42-4.04-1.42-.55-1.38-1.33-1.75-1.33-1.75-1.08-.74.08-.73.08-.73 1.2.08 1.83 1.22 1.83 1.22 1.06 1.82 2.79 1.3 3.47.99.11-.77.42-1.3.76-1.6-2.67-.31-5.47-1.33-5.47-5.9 0-1.3.47-2.37 1.22-3.2-.12-.3-.53-1.56.12-3.24 0 0 1-.32 3.3 1.22a11.5 11.5 0 0 1 6 0c2.3-1.54 3.3-1.22 3.3-1.22.65 1.68.24 2.94.12 3.24.76.83 1.22 1.9 1.22 3.2 0 4.58-2.8 5.58-5.48 5.89.43.38.82 1.1.82 2.23v3.3c0 .32.21.7.83.58A12 12 0 0 0 24 12c0-6.63-5.37-12-12-12Z"/>
-    </svg>
-  </a>
-
-  <!-- LinkedIn -->
-  <a href="https://www.linkedin.com/in/prince-singh05/" target="_blank" rel="noopener noreferrer"
-    title="Visit my LinkedIn profile"
-    class="text-gray-300 hover:text-white transition-transform duration-300 hover:scale-110">
-    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="w-8 h-8">
-      <path d="M20.45 20.45H16.9v-5.57c0-1.33-.03-3.04-1.85-3.04-1.85 0-2.13 1.45-2.13 2.95v5.66H9.37V9h3.4v1.56h.05c.47-.9 1.63-1.85 3.35-1.85 3.58 0 4.24 2.36 4.24 5.43v6.31ZM5.34 7.43a2.06 2.06 0 1 1 0-4.12 2.06 2.06 0 0 1 0 4.12ZM7.11 20.45H3.56V9h3.55v11.45ZM22.23 0H1.77A1.77 1.77 0 0 0 0 1.77v20.46C0 23.2.8 24 1.77 24h20.46A1.77 1.77 0 0 0 24 22.23V1.77A1.77 1.77 0 0 0 22.23 0Z"/>
-    </svg>
-  </a>
-
-  <!-- WhatsApp -->
-  <a href="https://wa.me/919661261973" target="_blank" rel="noopener noreferrer"
-    title="Contact me on WhatsApp"
-    class="text-gray-300 hover:text-green-400 transition-transform duration-300 hover:scale-110">
-    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="w-8 h-8">
-      <path
-        d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z" />
-    </svg>
-  </a>
-</div>
 
         <div class="flex flex-col md:flex-row items-center gap-12">
-          <div class="md:w-2/3">
+          <div class="md:w-2/3 card">
             <h3 class="text-2xl font-semibold text-white mb-4">
               Get to know me!
             </h3>
 
-            <p class="text-gray-400 mb-4 leading-relaxed">
+            <p class="text-gray-300 mb-4 leading-relaxed">
               I'm a passionate Python Developer focused on developing robust,
               high-performance applications and backend systems. My interest in
               programming started with understanding how systems work
@@ -279,292 +298,265 @@
               are efficient, maintainable, and scalable.
             </p>
 
-            <p class="text-gray-400 mb-6 leading-relaxed">
-              I specialize in Python technologies such as Django, Flask, and
-              RESTful APIs, <br />
-              I’m always eager to learn new tools and frameworks to stay current
-              with industry trends.<br />
-              I thrive in collaborative environments and enjoy turning complex
-              problems into clean, efficient solutions. When I’m not coding, I
-              explore new tech articles, sharpen my problem-solving skills,<br />
-              or contribute to open-source Python projects. I am a Python
-              developer with strong knowledge of core Python, OOP principles,
-              backend development using Flask, RESTful APIs, and database
-              integration. I also have experience in data analysis and machine
-              learning using Pandas, NumPy, and Scikit-learn.
+            <p class="text-gray-300 mb-6 leading-relaxed">
+              I specialize in Python technologies such as Django, Flask, RESTful
+              APIs, database integration, data analysis, and machine learning
+              basics using Pandas, NumPy, and Scikit-learn. I enjoy turning
+              complex problems into clean, efficient solutions.
             </p>
 
             <a
               href="#contact"
               class="text-blue-400 font-semibold hover:underline"
-              >Let's connect!</a
             >
+              Let's connect!
+            </a>
           </div>
 
-          <div class="md:w-1/3 w-full">
-            <h3
-              class="text-2xl font-semibold text-white mb-4 text-center md:text-left"
-            >
-              My Skills
-            </h3>
-            <div class="flex flex-wrap justify-center md:justify-start gap-3">
-              <span
-                class="bg-gray-700 text-gray-300 text-sm font-medium px-4 py-2 rounded-full transition-transform hover:scale-110"
-                >Python</span
-              >
-              <span
-                class="bg-gray-700 text-gray-300 text-sm font-medium px-4 py-2 rounded-full transition-transform hover:scale-110"
-                >Matplotlib</span
-              >
-              <span
-                class="bg-gray-700 text-gray-300 text-sm font-medium px-4 py-2 rounded-full transition-transform hover:scale-110"
-                >Django</span
-              >
-              <span
-                class="bg-gray-700 text-gray-300 text-sm font-medium px-4 py-2 rounded-full transition-transform hover:scale-110"
-                >Flask</span
-              >
-              <span
-                class="bg-gray-700 text-gray-300 text-sm font-medium px-4 py-2 rounded-full transition-transform hover:scale-110"
-                >REST APIs</span
-              >
-              <span
-                class="bg-gray-700 text-gray-300 text-sm font-medium px-4 py-2 rounded-full transition-transform hover:scale-110"
-                >MySQL</span
-              >
-              <span
-                class="bg-gray-700 text-gray-300 text-sm font-medium px-4 py-2 rounded-full transition-transform hover:scale-110"
-                >SQLite</span
-              >
-              <span
-                class="bg-gray-700 text-gray-300 text-sm font-medium px-4 py-2 rounded-full transition-transform hover:scale-110"
-                >NumPy & Pandas</span
-              >
-              <span
-                class="bg-gray-700 text-gray-300 text-sm font-medium px-4 py-2 rounded-full transition-transform hover:scale-110"
-                >Git & GitHub</span
-              >
-              <span
-                class="bg-gray-700 text-gray-300 text-sm font-medium px-4 py-2 rounded-full transition-transform hover:scale-110"
-                >DSA WITH C/C++</span
-              >
-              <span
-                class="bg-gray-700 text-gray-300 text-sm font-medium px-4 py-2 rounded-full transition-transform hover:scale-110"
-                >OOPS</span
-              >
-              <span
-                class="bg-gray-700 text-gray-300 text-sm font-medium px-4 py-2 rounded-full transition-transform hover:scale-110"
-                >OpennCV</span
-              >
-              <span
-                class="bg-gray-700 text-gray-300 text-sm font-medium px-4 py-2 rounded-full transition-transform hover:scale-110"
-                >AI/ML</span
-              >
-              <span
-                class="bg-gray-700 text-gray-300 text-sm font-medium px-4 py-2 rounded-full transition-transform hover:scale-110"
-                >Deep Learning</span
-              >
-              <span
-                class="bg-gray-700 text-gray-300 text-sm font-medium px-4 py-2 rounded-full transition-transform hover:scale-110"
-                >Computer Vision</span
-              >
+          <div class="md:w-1/3 w-full card">
+            <h3 class="text-2xl font-semibold text-white mb-4">My Skills</h3>
+
+            <div class="flex flex-wrap gap-3">
+              <span class="skill-chip">Python</span>
+              <span class="skill-chip">Flask</span>
+              <span class="skill-chip">Django</span>
+              <span class="skill-chip">REST APIs</span>
+              <span class="skill-chip">MySQL</span>
+              <span class="skill-chip">SQLite</span>
+              <span class="skill-chip">NumPy</span>
+              <span class="skill-chip">Pandas</span>
+              <span class="skill-chip">GitHub</span>
+              <span class="skill-chip">HTML</span>
+              <span class="skill-chip">CSS</span>
+              <span class="skill-chip">JavaScript</span>
+              <span class="skill-chip">C/C++</span>
+              <span class="skill-chip">AI/ML</span>
+              <span class="skill-chip">OpenCV</span>
             </div>
           </div>
         </div>
       </section>
 
-      <!-- Skills -->
+      <!-- ================= QUALIFICATIONS ================= -->
       <section id="qualifications" class="py-20 reveal">
         <h2 class="text-4xl font-bold text-center text-white mb-16">
           Skills & <span class="text-gradient">Education</span>
         </h2>
 
         <div class="grid grid-cols-1 lg:grid-cols-2 gap-12">
-          <div class="glass-effect p-6 sm:p-8 rounded-xl h-full">
-            <div class="border-b border-gray-700 mb-6">
-              <nav class="-mb-px flex flex-wrap gap-6" aria-label="Tabs">
-                <button
-                  class="tab-button active py-4 px-1 border-b-2 font-medium text-lg"
-                  data-tab="backend"
-                >
-                  Full Stack
-                </button>
-                <button
-                  class="tab-button py-4 px-1 border-b-2 font-medium text-lg"
-                  data-tab="development"
-                >
-                  Python Dev
-                </button>
-                <button
-                  class="tab-button py-4 px-1 border-b-2 font-medium text-lg"
-                  data-tab="aiml"
-                >
-                  C / C++
-                </button>
-                <button
-                  class="tab-button py-4 px-1 border-b-2 font-medium text-lg"
-                  data-tab="tools"
-                >
-                  Tools
-                </button>
-              </nav>
+          <div class="card">
+            <div class="tabs-container">
+              <button class="tab-button active" data-tab="backend">
+                Full Stack
+              </button>
+              <button class="tab-button" data-tab="development">
+                Python Dev
+              </button>
+              <button class="tab-button" data-tab="aiml">C / C++</button>
+              <button class="tab-button" data-tab="tools">Tools</button>
             </div>
 
-            <div id="backend-panel" class="skills-panel active space-y-4">
+            <div id="backend-panel" class="skills-panel active space-y-5">
               <div class="skill">
-                <span class="font-medium text-white">HTML</span>
-                <div class="w-full bg-gray-700 rounded-full h-2.5 mt-1">
+                <div class="flex justify-between mb-2">
+                  <span>HTML</span><span>90%</span>
+                </div>
+                <div class="w-full bg-gray-800 rounded-full h-3">
                   <div
-                    class="skill-bar-fill h-2.5 rounded-full skill-html"
+                    class="skill-bar-fill h-3 rounded-full"
+                    data-width="90%"
+                    style="width: 90%"
                   ></div>
                 </div>
               </div>
 
               <div class="skill">
-                <span class="font-medium text-white">CSS</span>
-                <div class="w-full bg-gray-700 rounded-full h-2.5 mt-1">
-                  <div class="skill-bar-fill h-2.5 rounded-full skill-85"></div>
+                <div class="flex justify-between mb-2">
+                  <span>CSS</span><span>85%</span>
                 </div>
-              </div>
-
-              <div class="skill">
-                <span class="font-medium text-white">JavaScript</span>
-                <div class="w-full bg-gray-700 rounded-full h-2.5 mt-1">
-                  <div class="skill-bar-fill h-2.5 rounded-full skill-80"></div>
-                </div>
-              </div>
-
-              <div class="skill">
-                <span class="font-medium text-white">Django</span>
-                <div class="w-full bg-gray-700 rounded-full h-2.5 mt-1">
-                  <div class="skill-bar-fill h-2.5 rounded-full skill-75"></div>
-                </div>
-              </div>
-
-              <div class="skill">
-                <span class="font-medium text-white">Flask</span>
-                <div class="w-full bg-gray-700 rounded-full h-2.5 mt-1">
-                  <div class="skill-bar-fill h-2.5 rounded-full skill-85"></div>
-                </div>
-              </div>
-            </div>
-
-            <div id="development-panel" class="skills-panel space-y-4">
-              <div class="skill">
-                <span class="font-medium text-white">Python</span>
-                <div class="w-full bg-gray-700 rounded-full h-2.5 mt-1">
+                <div class="w-full bg-gray-800 rounded-full h-3">
                   <div
-                    class="skill-bar-fill h-2.5 rounded-full skill-python"
+                    class="skill-bar-fill h-3 rounded-full"
+                    data-width="85%"
+                    style="width: 85%"
                   ></div>
                 </div>
               </div>
 
               <div class="skill">
-                <span class="font-medium text-white">Pandas - NumPy</span>
-                <div class="w-full bg-gray-700 rounded-full h-2.5 mt-1">
+                <div class="flex justify-between mb-2">
+                  <span>JavaScript</span><span>80%</span>
+                </div>
+                <div class="w-full bg-gray-800 rounded-full h-3">
                   <div
-                    class="skill-bar-fill h-2.5 rounded-full skill-pandas"
+                    class="skill-bar-fill h-3 rounded-full"
+                    data-width="80%"
+                    style="width: 80%"
                   ></div>
                 </div>
               </div>
 
               <div class="skill">
-                <span class="font-medium text-white">REST APIs</span>
-                <div class="w-full bg-gray-700 rounded-full h-2.5 mt-1">
+                <div class="flex justify-between mb-2">
+                  <span>Flask</span><span>85%</span>
+                </div>
+                <div class="w-full bg-gray-800 rounded-full h-3">
                   <div
-                    class="skill-bar-fill h-2.5 rounded-full skill-rest"
+                    class="skill-bar-fill h-3 rounded-full"
+                    data-width="85%"
+                    style="width: 85%"
                   ></div>
                 </div>
               </div>
             </div>
 
-            <div id="aiml-panel" class="skills-panel space-y-4">
+            <div id="development-panel" class="skills-panel space-y-5">
               <div class="skill">
-                <span class="font-medium text-white">C / C++</span>
-                <div class="w-full bg-gray-700 rounded-full h-2.5 mt-1">
-                  <div class="skill-bar-fill h-2.5 rounded-full skill-75"></div>
+                <div class="flex justify-between mb-2">
+                  <span>Python</span><span>90%</span>
                 </div>
-              </div>
-
-              <div class="skill">
-                <span class="font-medium text-white">DSA</span>
-                <div class="w-full bg-gray-700 rounded-full h-2.5 mt-1">
-                  <div class="skill-bar-fill h-2.5 rounded-full skill-75"></div>
-                </div>
-              </div>
-            </div>
-
-            <div id="tools-panel" class="skills-panel space-y-4">
-              <div class="skill">
-                <span class="font-medium text-white">VS Code</span>
-                <div class="w-full bg-gray-700 rounded-full h-2.5 mt-1">
+                <div class="w-full bg-gray-800 rounded-full h-3">
                   <div
-                    class="skill-bar-fill h-2.5 rounded-full skill-vscode"
+                    class="skill-bar-fill h-3 rounded-full"
+                    data-width="90%"
+                    style="width: 90%"
                   ></div>
                 </div>
               </div>
 
               <div class="skill">
-                <span class="font-medium text-white">Git & GitHub</span>
-                <div class="w-full bg-gray-700 rounded-full h-2.5 mt-1">
+                <div class="flex justify-between mb-2">
+                  <span>Pandas / NumPy</span><span>78%</span>
+                </div>
+                <div class="w-full bg-gray-800 rounded-full h-3">
                   <div
-                    class="skill-bar-fill h-2.5 rounded-full skill-git"
+                    class="skill-bar-fill h-3 rounded-full"
+                    data-width="78%"
+                    style="width: 78%"
+                  ></div>
+                </div>
+              </div>
+
+              <div class="skill">
+                <div class="flex justify-between mb-2">
+                  <span>REST APIs</span><span>82%</span>
+                </div>
+                <div class="w-full bg-gray-800 rounded-full h-3">
+                  <div
+                    class="skill-bar-fill h-3 rounded-full"
+                    data-width="82%"
+                    style="width: 82%"
+                  ></div>
+                </div>
+              </div>
+            </div>
+
+            <div id="aiml-panel" class="skills-panel space-y-5">
+              <div class="skill">
+                <div class="flex justify-between mb-2">
+                  <span>C / C++</span><span>75%</span>
+                </div>
+                <div class="w-full bg-gray-800 rounded-full h-3">
+                  <div
+                    class="skill-bar-fill h-3 rounded-full"
+                    data-width="75%"
+                    style="width: 75%"
+                  ></div>
+                </div>
+              </div>
+
+              <div class="skill">
+                <div class="flex justify-between mb-2">
+                  <span>DSA</span><span>70%</span>
+                </div>
+                <div class="w-full bg-gray-800 rounded-full h-3">
+                  <div
+                    class="skill-bar-fill h-3 rounded-full"
+                    data-width="70%"
+                    style="width: 70%"
+                  ></div>
+                </div>
+              </div>
+            </div>
+
+            <div id="tools-panel" class="skills-panel space-y-5">
+              <div class="skill">
+                <div class="flex justify-between mb-2">
+                  <span>VS Code</span><span>90%</span>
+                </div>
+                <div class="w-full bg-gray-800 rounded-full h-3">
+                  <div
+                    class="skill-bar-fill h-3 rounded-full"
+                    data-width="90%"
+                    style="width: 90%"
+                  ></div>
+                </div>
+              </div>
+
+              <div class="skill">
+                <div class="flex justify-between mb-2">
+                  <span>Git & GitHub</span><span>80%</span>
+                </div>
+                <div class="w-full bg-gray-800 rounded-full h-3">
+                  <div
+                    class="skill-bar-fill h-3 rounded-full"
+                    data-width="80%"
+                    style="width: 80%"
                   ></div>
                 </div>
               </div>
             </div>
           </div>
 
-          <div class="glass-effect glow-yellow p-6 sm:p-8 rounded-xl h-full">
+          <div class="card glow-yellow">
             <h3
-              class="text-2xl font-semibold text-white mb-6 flex items-center"
+              class="text-2xl font-semibold text-white mb-8 flex items-center gap-3"
             >
               <i
                 data-lucide="graduation-cap"
-                class="w-6 h-6 mr-3 text-yellow-400"
+                class="w-6 h-6 text-yellow-400"
               ></i>
-              <hr />
               Education
             </h3>
 
             <div class="relative border-l-2 border-gray-700 pl-8 space-y-8">
-              <div class="relative">
+              <div class="relative timeline-item">
                 <span
-                  class="absolute -left-[42px] top-1.5 w-4 h-4 bg-blue-500 rounded-full border-4 border-gray-800"
+                  class="timeline-marker absolute -left-[42px] top-2"
                 ></span>
                 <p class="text-sm text-gray-400">2023 – 2027</p>
                 <h4 class="font-bold text-lg text-white mt-1">
-                  Bachelor of Technology(CSE-AIML)
+                  Bachelor of Technology - CSE AIML
                 </h4>
                 <p class="text-gray-400">
-                  Rajiv Gandhi Proudyogiki Vishwavidyalaya(R.G.P.V)-
-                  Bhopal-Madhya Pradesh
+                  Rajiv Gandhi Proudyogiki Vishwavidyalaya, Bhopal, Madhya
+                  Pradesh
                 </p>
               </div>
 
-              <div class="relative">
+              <div class="relative timeline-item">
                 <span
-                  class="absolute -left-[42px] top-1.5 w-4 h-4 bg-blue-500 rounded-full border-4 border-gray-800"
+                  class="timeline-marker absolute -left-[42px] top-2"
                 ></span>
                 <p class="text-sm text-gray-400">2021 – 2023</p>
                 <h4 class="font-bold text-lg text-white mt-1">
-                  Higher Secondary Education Board
+                  Higher Secondary Education
                 </h4>
                 <p class="text-gray-400">
-                  +2 Tapeswari Kunwar High School Dosma-Aurangabad-Bihar
+                  +2 Tapeswari Kunwar High School, Dosma, Aurangabad, Bihar
                 </p>
               </div>
 
-              <div class="relative">
+              <div class="relative timeline-item">
                 <span
-                  class="absolute -left-[42px] top-1.5 w-4 h-4 bg-blue-500 rounded-full border-4 border-gray-800"
+                  class="timeline-marker absolute -left-[42px] top-2"
                 ></span>
                 <p class="text-sm text-gray-400">2020 – 2021</p>
                 <h4 class="font-bold text-lg text-white mt-1">
-                  Secondary Education Board
+                  Secondary Education
                 </h4>
                 <p class="text-gray-400">
-                  Bright Life Public School Aurangabad-Bihar
+                  Bright Life Public School, Aurangabad, Bihar
                 </p>
               </div>
             </div>
@@ -572,7 +564,7 @@
         </div>
       </section>
 
-      <!-- Certificates -->
+      <!-- ================= CERTIFICATES ================= -->
       <section id="certificates" class="py-20 reveal">
         <h2 class="text-4xl font-bold text-center text-white mb-12">
           My <span class="text-gradient">Certificates</span>
@@ -582,7 +574,7 @@
           <div class="glass-effect rounded-xl overflow-hidden flex flex-col">
             <img
               src="{{ url_for('static', filename='Images/certificate 1.png') }}"
-              alt="Python Essentials certificate showing course completion, featuring Python branding and achievement badge"
+              alt="Python Essentials Certificate"
               class="w-full h-48 object-cover"
             />
             <div class="p-6 flex flex-col flex-grow">
@@ -606,7 +598,7 @@
           <div class="glass-effect rounded-xl overflow-hidden flex flex-col">
             <img
               src="{{ url_for('static', filename='Images/certificate2.png') }}"
-              alt="Introduction to Modern AI certificate demonstrating foundational knowledge of artificial intelligence and machine learning concepts"
+              alt="Modern AI Certificate"
               class="w-full h-48 object-cover"
             />
             <div class="p-6 flex flex-col flex-grow">
@@ -630,12 +622,12 @@
           <div class="glass-effect rounded-xl overflow-hidden flex flex-col">
             <img
               src="{{ url_for('static', filename='Images/certificate 3.png') }}"
-              alt="Oracle Cloud Infrastructure AI Associate certificate from Oracle, certifying AI and machine learning knowledge on cloud platform"
+              alt="Oracle Cloud Certificate"
               class="w-full h-48 object-cover"
             />
             <div class="p-6 flex flex-col flex-grow">
               <h3 class="text-xl font-bold text-white mb-2">
-                Oracle Cloud Infrastructure AI Associate-Oracle
+                Oracle Cloud Infrastructure AI Associate
               </h3>
               <p class="text-gray-400 mb-4 text-sm flex-grow">
                 Foundational knowledge of AI and ML concepts on Oracle Cloud.
@@ -650,82 +642,10 @@
               </a>
             </div>
           </div>
-
-          <div class="glass-effect rounded-xl overflow-hidden flex flex-col">
-            <img
-              src="{{ url_for('static', filename='Images/certificate 4.png') }}"
-              alt="Introduction to Data Science certificate from IBM covering foundational data science methods and applications"
-              class="w-full h-48 object-cover"
-            />
-            <div class="p-6 flex flex-col flex-grow">
-              <h3 class="text-xl font-bold text-white mb-2">
-                Introduction to Data Science-IBM
-              </h3>
-              <p class="text-gray-400 mb-4 text-sm flex-grow">
-                Basics of Data Science and its applications.
-              </p>
-              <a
-                href="{{ url_for('static', filename='Images/certificate 4.png') }}"
-                target="_blank"
-                class="inline-flex items-center text-blue-400 hover:text-blue-300 font-semibold mt-auto"
-              >
-                View Certificate
-                <i data-lucide="arrow-right" class="w-4 h-4 ml-2"></i>
-              </a>
-            </div>
-          </div>
-
-          <div class="glass-effect rounded-xl overflow-hidden flex flex-col">
-            <img
-              src="{{ url_for('static', filename='Images/cloud aws.png') }}"
-              alt="Machine Learning with Python certificate from AWS demonstrating proficiency in machine learning implementation using Python"
-              class="w-full h-48 object-cover"
-            />
-            <div class="p-6 flex flex-col flex-grow">
-              <h3 class="text-xl font-bold text-white mb-2">
-                AWS cloud Practitioner Essentials
-              </h3>
-              <p class="text-gray-400 mb-4 text-sm flex-grow">
-                Introduction to Machine Learning using Python.
-              </p>
-              <a
-                href="{{ url_for('static', filename='Images/cloud aws.pdf') }}"
-                target="_blank"
-                class="inline-flex items-center text-blue-400 hover:text-blue-300 font-semibold mt-auto"
-              >
-                View Certificate
-                <i data-lucide="arrow-right" class="w-4 h-4 ml-2"></i>
-              </a>
-            </div>
-          </div>
-
-          <div class="glass-effect rounded-xl overflow-hidden flex flex-col">
-            <img
-              src="{{ url_for('static', filename='Images/aws.png') }}"
-              alt="Cloud computing certificate from AWS covering cloud infrastructure and deployment concepts"
-              class="w-full h-48 object-cover"
-            />
-            <div class="p-6 flex flex-col flex-grow">
-              <h3 class="text-xl font-bold text-white mb-2">
-                AWS Foundation:Machine Learning
-              </h3>
-              <p class="text-gray-400 mb-4 text-sm flex-grow">
-                Basics of machine learning
-              </p>
-              <a
-                href="{{ url_for('static', filename='Images/cloud.pdf') }}"
-                target="_blank"
-                class="inline-flex items-center text-blue-400 hover:text-blue-300 font-semibold mt-auto"
-              >
-                View Certificate
-                <i data-lucide="arrow-right" class="w-4 h-4 ml-2"></i>
-              </a>
-            </div>
-          </div>
         </div>
       </section>
 
-      <!-- Projects -->
+      <!-- ================= PROJECTS ================= -->
       <section id="projects" class="py-20 reveal">
         <h2 class="text-4xl font-bold text-center text-white mb-12">
           My <span class="text-gradient">Projects</span>
@@ -737,58 +657,31 @@
           >
             <img
               src="{{ url_for('static', filename='Images/project1.png') }}"
-              alt="EMP Hub event management platform interface showing event creation and registration features with dark theme"
+              alt="EMP Hub Project"
               class="w-full h-48 object-cover"
             />
             <div class="p-6 flex flex-col flex-grow">
-              <h3
-                id="project-title-1"
-                class="text-xl font-bold text-white mb-2"
-              >
-                EMP_Hub -Event Meeting Policy Hub
+              <h3 class="text-xl font-bold text-white mb-2">
+                EMP Hub - Event Meeting Policy Hub
               </h3>
-              <p
-                id="project-desc-1"
-                class="text-gray-400 mb-4 text-sm flex-grow"
-              >
-                A comprehensive event management platform that streamlines event
-                planning, registration, and attendee engagement using Flask and
-                CSS.You can create and manage events, track registrations, and
-                engage with attendees through a user-friendly interface.
+              <p class="text-gray-400 mb-4 text-sm flex-grow">
+                A Flask-based event management platform for creating, managing,
+                and tracking events and policies.
               </p>
-              <div id="project-tech-1" class="flex flex-wrap gap-2 mb-4">
-                <span
-                  class="text-xs bg-blue-900/50 text-blue-300 py-1 px-3 rounded-full"
-                  >Python</span
-                >
-                <span
-                  class="text-xs bg-blue-900/50 text-blue-300 py-1 px-3 rounded-full"
-                  >Flask</span
-                >
-                <span
-                  class="text-xs bg-blue-900/50 text-blue-300 py-1 px-3 rounded-full"
-                  >HTML</span
-                >
-                <span
-                  class="text-xs bg-blue-900/50 text-blue-300 py-1 px-3 rounded-full"
-                  >JavaScript</span
-                >
-                <span
-                  class="text-xs bg-blue-900/50 text-blue-300 py-1 px-3 rounded-full"
-                  >CSS</span
-                >
+              <div class="flex flex-wrap gap-2 mb-4">
+                <span class="project-tag">Python</span>
+                <span class="project-tag">Flask</span>
+                <span class="project-tag">HTML</span>
+                <span class="project-tag">CSS</span>
+                <span class="project-tag">JavaScript</span>
               </div>
-              <div class="flex items-center justify-start mt-auto">
-                <a
-                  href="http://127.0.0.1:5500/Project.Policyhub/index.html"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  class="inline-flex items-center text-blue-400 hover:text-blue-300 font-semibold"
-                >
-                  Live Demo
-                  <i data-lucide="arrow-right" class="w-4 h-4 ml-2"></i>
-                </a>
-              </div>
+              <a
+                href="#"
+                class="inline-flex items-center text-blue-400 hover:text-blue-300 font-semibold mt-auto"
+              >
+                Live Demo
+                <i data-lucide="arrow-right" class="w-4 h-4 ml-2"></i>
+              </a>
             </div>
           </div>
 
@@ -797,62 +690,31 @@
           >
             <img
               src="{{ url_for('static', filename='Images/project 2.png') }}"
-              alt="Spend Smart expense tracking dashboard showing income, expenses, and financial overview"
+              alt="Spend Smart Project"
               class="w-full h-48 object-cover"
             />
-
             <div class="p-6 flex flex-col flex-grow">
-              <h3
-                id="project-title-2"
-                class="text-xl font-bold text-white mb-2"
-              >
-                Spend Smart
-              </h3>
-
-              <p
-                id="project-desc-2"
-                class="text-gray-400 mb-4 text-sm flex-grow"
-              >
-                Spend Smart is a full-stack expense management web application
-                that helps users track income and expenses, manage financial
-                records, and view overall spending insights through a clean and
-                user-friendly dashboard.
+              <h3 class="text-xl font-bold text-white mb-2">Spend Smart</h3>
+              <p class="text-gray-400 mb-4 text-sm flex-grow">
+                A MERN stack expense management web app that tracks income,
+                expenses, and financial records.
               </p>
-
-              <div id="project-tech-2" class="flex flex-wrap gap-2 mb-4">
-                <span
-                  class="text-xs bg-blue-900/50 text-blue-300 py-1 px-3 rounded-full"
-                  >React.js</span
-                >
-                <span
-                  class="text-xs bg-blue-900/50 text-blue-300 py-1 px-3 rounded-full"
-                  >Node.js</span
-                >
-                <span
-                  class="text-xs bg-blue-900/50 text-blue-300 py-1 px-3 rounded-full"
-                  >Express.js</span
-                >
-                <span
-                  class="text-xs bg-blue-900/50 text-blue-300 py-1 px-3 rounded-full"
-                  >MongoDB</span
-                >
-                <span
-                  class="text-xs bg-blue-900/50 text-blue-300 py-1 px-3 rounded-full"
-                  >Tailwind CSS</span
-                >
+              <div class="flex flex-wrap gap-2 mb-4">
+                <span class="project-tag">React.js</span>
+                <span class="project-tag">Node.js</span>
+                <span class="project-tag">Express.js</span>
+                <span class="project-tag">MongoDB</span>
+                <span class="project-tag">Tailwind</span>
               </div>
-
-              <div class="flex items-center justify-start mt-auto">
-                <a
-                  href="https://spend-smart-tawny-xi.vercel.app/"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  class="inline-flex items-center text-blue-400 hover:text-blue-300 font-semibold"
-                >
-                  Live Demo
-                  <i data-lucide="arrow-right" class="w-4 h-4 ml-2"></i>
-                </a>
-              </div>
+              <a
+                href="https://spend-smart-tawny-xi.vercel.app/"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="inline-flex items-center text-blue-400 hover:text-blue-300 font-semibold mt-auto"
+              >
+                Live Demo
+                <i data-lucide="arrow-right" class="w-4 h-4 ml-2"></i>
+              </a>
             </div>
           </div>
 
@@ -861,70 +723,47 @@
           >
             <img
               src="{{ url_for('static', filename='Images/ps.png') }}"
-              alt="Prince Singh portfolio website homepage featuring hero section with profile information and navigation"
+              alt="Portfolio Website"
               class="w-full h-48 object-cover"
             />
             <div class="p-6 flex flex-col flex-grow">
-              <h3
-                id="project-title-3"
-                class="text-xl font-bold text-white mb-2"
-              >
+              <h3 class="text-xl font-bold text-white mb-2">
                 My Portfolio Website
               </h3>
-              <p
-                id="project-desc-3"
-                class="text-gray-400 mb-4 text-sm flex-grow"
-              >
-                This portfolio represents my journey as a Python Developer,
-                featuring projects and skills focused on Python development. The
-                website uses HTML, CSS, and JavaScript for layout and
-                interactivity, while emphasizing my experience in building
-                efficient, scalable, and well-structured Python solutions.
+              <p class="text-gray-400 mb-4 text-sm flex-grow">
+                Responsive personal portfolio website using HTML, CSS,
+                JavaScript, Flask, animations, and glassmorphism UI.
               </p>
-              <div id="project-tech-3" class="flex flex-wrap gap-2 mb-4">
-                <span
-                  class="text-xs bg-blue-900/50 text-blue-300 py-1 px-3 rounded-full"
-                  >HTML</span
-                >
-                <span
-                  class="text-xs bg-blue-900/50 text-blue-300 py-1 px-3 rounded-full"
-                  >CSS</span
-                >
-                <span
-                  class="text-xs bg-blue-900/50 text-blue-300 py-1 px-3 rounded-full"
-                  >JavaScript</span
-                >
+              <div class="flex flex-wrap gap-2 mb-4">
+                <span class="project-tag">HTML</span>
+                <span class="project-tag">CSS</span>
+                <span class="project-tag">JavaScript</span>
+                <span class="project-tag">Flask</span>
               </div>
-              <div class="flex items-center justify-start mt-auto">
-                <a
-                  href="#"
-                  target="_blank"
-                  class="inline-flex items-center text-blue-400 hover:text-blue-300 font-semibold"
-                >
-                  Live Demo
-                  <i data-lucide="arrow-right" class="w-4 h-4 ml-2"></i>
-                </a>
-              </div>
+              <a
+                href="#home"
+                class="inline-flex items-center text-blue-400 hover:text-blue-300 font-semibold mt-auto"
+              >
+                View Project
+                <i data-lucide="arrow-right" class="w-4 h-4 ml-2"></i>
+              </a>
             </div>
           </div>
         </div>
       </section>
 
-      <!-- Contact -->
+      <!-- ================= CONTACT ================= -->
       <section id="contact" class="py-20 reveal">
         <h2 class="text-4xl font-bold text-center text-white mb-4">
           Connect with <span class="text-gradient">Me</span>
         </h2>
+
         <p class="text-center text-gray-400 mb-12 max-w-2xl mx-auto">
-          I'm a Python Developer eager to collaborate on exciting projects.
-          Whether you have a question, want to discuss Python, AI, or just say
-          hi, my inbox is always open!
-        </p>
-        <p class="text-center text-gray-400 mb-12 max-w-2xl mx-auto">
-          Fill out the form below, and I'll get back to you as soon as possible.
+          Have a project idea, question, collaboration opportunity, or just want
+          to say hello? Fill out the form and I will get back to you.
         </p>
 
-        <div class="max-w-xl mx-auto glass-effect rounded-xl p-8">
+        <div class="max-w-xl mx-auto card">
           <form action="https://api.web3forms.com/submit" method="POST">
             <input
               type="hidden"
@@ -938,8 +777,7 @@
                 type="text"
                 name="name"
                 required
-                placeholder="Justin Willer"
-                class="w-full bg-gray-800 border border-gray-700 rounded-lg py-2 px-4 text-white focus:outline-none focus:ring-2 focus:ring-green-500"
+                placeholder="Enter your name"
               />
             </div>
 
@@ -949,8 +787,7 @@
                 type="email"
                 name="email"
                 required
-                placeholder="mike@example.com"
-                class="w-full bg-gray-800 border border-gray-700 rounded-lg py-2 px-4 text-white focus:outline-none focus:ring-2 focus:ring-green-500"
+                placeholder="example@gmail.com"
               />
             </div>
 
@@ -959,34 +796,30 @@
               <textarea
                 name="message"
                 required
-                rows="4"
+                rows="5"
                 placeholder="Write your message here..."
-                class="w-full bg-gray-800 border border-gray-700 rounded-lg py-2 px-4 text-white focus:outline-none focus:ring-2 focus:ring-green-500"
               ></textarea>
             </div>
 
-            <button
-              type="submit"
-              class="w-full bg-green-600 hover:bg-green-700 text-white font-bold py-3 px-6 rounded-lg transition-transform duration-300 hover:scale-105"
-            >
+            <button type="submit" class="btn-primary w-full">
               Send Message
+              <i data-lucide="send" class="w-5 h-5"></i>
             </button>
           </form>
         </div>
       </section>
     </main>
 
-    <!-- Footer -->
-    <footer class="border-t border-gray-800 mt-20">
+    <!-- ================= FOOTER ================= -->
+    <footer class="border-t border-gray-800 mt-20 relative z-10">
       <div class="container mx-auto px-4 py-8 text-center text-gray-400">
         <div class="flex justify-center items-center gap-5 mb-4">
-          <!-- GitHub -->
           <a
             href="https://github.com/Prince-singh001"
             target="_blank"
             rel="noopener noreferrer"
-            title="Visit my GitHub profile"
-            class="text-gray-300 hover:text-white transition-transform duration-300 hover:scale-110"
+            title="GitHub"
+            class="footer-social-icon"
           >
             <svg
               xmlns="http://www.w3.org/2000/svg"
@@ -1000,13 +833,12 @@
             </svg>
           </a>
 
-          <!-- LinkedIn -->
           <a
             href="https://www.linkedin.com/in/prince-singh05/"
             target="_blank"
             rel="noopener noreferrer"
-            title="Visit my LinkedIn profile"
-            class="text-gray-300 hover:text-white transition-transform duration-300 hover:scale-110"
+            title="LinkedIn"
+            class="footer-social-icon hover-blue"
           >
             <svg
               xmlns="http://www.w3.org/2000/svg"
@@ -1020,13 +852,12 @@
             </svg>
           </a>
 
-          <!-- WhatsApp -->
           <a
             href="https://wa.me/919661261973"
             target="_blank"
             rel="noopener noreferrer"
-            title="Contact me on WhatsApp"
-            class="text-gray-300 hover:text-green-400 transition-transform duration-300 hover:scale-110"
+            title="WhatsApp"
+            class="footer-social-icon hover-green"
           >
             <svg
               xmlns="http://www.w3.org/2000/svg"
@@ -1047,12 +878,22 @@
       </div>
     </footer>
 
-    <script src="https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js"></script>
+    <button
+      id="backToTop"
+      type="button"
+      class="fixed right-5 bottom-5 z-50 w-12 h-12 rounded-full bg-blue-600 text-white flex items-center justify-center shadow-xl hover:bg-purple-600 transition-all"
+      aria-label="Back to top"
+    >
+      <i data-lucide="arrow-up" class="w-5 h-5"></i>
+    </button>
+
     <script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.12"></script>
     <script src="{{ url_for('static', filename='js/script.js') }}"></script>
 
     <script>
-      lucide.createIcons();
+      if (window.lucide) {
+        lucide.createIcons();
+      }
     </script>
   </body>
 </html>
