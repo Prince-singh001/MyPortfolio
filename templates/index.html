@@ -237,173 +237,215 @@
       </h2>
 
       <div class="grid grid-cols-1 lg:grid-cols-2 gap-12">
+        <!-- SKILLS COLUMN -->
         <div class="card">
-          <div class="tabs-container">
-            <button class="tab-button active" data-tab="backend">
+          <h3 class="text-2xl font-semibold text-white mb-6 flex items-center gap-3">
+            <i data-lucide="code-2" class="w-6 h-6 text-cyan-400"></i>
+            Technical Skills
+          </h3>
+
+          <div class="tabs-container mb-8">
+            <button class="tab-button active flex items-center text-sm" data-tab="aiml">
+              <i data-lucide="brain" class="w-4 h-4 mr-2"></i>
+              AI / ML
+            </button>
+            <button class="tab-button flex items-center text-sm" data-tab="web">
+              <i data-lucide="layout" class="w-4 h-4 mr-2"></i>
               Full Stack
             </button>
-            <button class="tab-button" data-tab="development">
-              Python
+            <button class="tab-button flex items-center text-sm" data-tab="languages">
+              <i data-lucide="braces" class="w-4 h-4 mr-2"></i>
+              Core Languages
             </button>
-            <button class="tab-button" data-tab="aiml">C++</button>
-            <button class="tab-button" data-tab="tools">Tools</button>
           </div>
 
-          <div id="backend-panel" class="skills-panel active space-y-5">
+          <!-- AI / ML Panel -->
+          <div id="aiml-panel" class="skills-panel active space-y-5">
             <div class="skill">
               <div class="flex justify-between mb-2">
-                <span>HTML</span><span>90%</span>
+                <span class="text-gray-300">Machine Learning (Scikit-Learn)</span>
+                <span class="text-cyan-400">88%</span>
               </div>
-              <div class="w-full bg-gray-800 rounded-full h-3">
-                <div class="skill-bar-fill h-3 rounded-full" data-width="90%" style="width: 90%"></div>
+              <div class="w-full bg-slate-800/80 rounded-full h-2.5">
+                <div class="skill-bar-fill h-2.5 rounded-full" data-width="88%" style="width: 88%"></div>
               </div>
             </div>
 
             <div class="skill">
               <div class="flex justify-between mb-2">
-                <span>CSS</span><span>85%</span>
+                <span class="text-gray-300">Deep Learning (TensorFlow & Keras)</span>
+                <span class="text-cyan-400">82%</span>
               </div>
-              <div class="w-full bg-gray-800 rounded-full h-3">
-                <div class="skill-bar-fill h-3 rounded-full" data-width="85%" style="width: 85%"></div>
-              </div>
-            </div>
-
-            <div class="skill">
-              <div class="flex justify-between mb-2">
-                <span>JavaScript</span><span>80%</span>
-              </div>
-              <div class="w-full bg-gray-800 rounded-full h-3">
-                <div class="skill-bar-fill h-3 rounded-full" data-width="80%" style="width: 80%"></div>
+              <div class="w-full bg-slate-800/80 rounded-full h-2.5">
+                <div class="skill-bar-fill h-2.5 rounded-full" data-width="82%" style="width: 82%"></div>
               </div>
             </div>
 
             <div class="skill">
               <div class="flex justify-between mb-2">
-                <span>Flask</span><span>85%</span>
+                <span class="text-gray-300">Computer Vision (OpenCV)</span>
+                <span class="text-cyan-400">80%</span>
               </div>
-              <div class="w-full bg-gray-800 rounded-full h-3">
-                <div class="skill-bar-fill h-3 rounded-full" data-width="85%" style="width: 85%"></div>
-              </div>
-            </div>
-          </div>
-
-          <div id="development-panel" class="skills-panel space-y-5">
-            <div class="skill">
-              <div class="flex justify-between mb-2">
-                <span>Python</span><span>90%</span>
-              </div>
-              <div class="w-full bg-gray-800 rounded-full h-3">
-                <div class="skill-bar-fill h-3 rounded-full" data-width="90%" style="width: 90%"></div>
+              <div class="w-full bg-slate-800/80 rounded-full h-2.5">
+                <div class="skill-bar-fill h-2.5 rounded-full" data-width="80%" style="width: 80%"></div>
               </div>
             </div>
 
             <div class="skill">
               <div class="flex justify-between mb-2">
-                <span>Pandas</span><span>78%</span>
+                <span class="text-gray-300">Data Analysis (Pandas & NumPy)</span>
+                <span class="text-cyan-400">85%</span>
               </div>
-              <div class="w-full bg-gray-800 rounded-full h-3">
-                <div class="skill-bar-fill h-3 rounded-full" data-width="78%" style="width: 78%"></div>
-              </div>
-            </div>
-
-            <div class="skill">
-              <div class="flex justify-between mb-2">
-                <span>NumPy</span><span>82%</span>
-              </div>
-              <div class="w-full bg-gray-800 rounded-full h-3">
-                <div class="skill-bar-fill h-3 rounded-full" data-width="82%" style="width: 82%"></div>
-              </div>
-            </div>
-
-            <div class="skill">
-              <div class="flex justify-between mb-2">
-                <span>Matplotlib / Seaborn</span><span>77%</span>
-              </div>
-              <div class="w-full bg-gray-800 rounded-full h-3">
-                <div class="skill-bar-fill h-3 rounded-full" data-width="77%" style="width: 77%"></div>
+              <div class="w-full bg-slate-800/80 rounded-full h-2.5">
+                <div class="skill-bar-fill h-2.5 rounded-full" data-width="85%" style="width: 85%"></div>
               </div>
             </div>
           </div>
 
-          <div id="aiml-  panel" class="skills-panel space-y-5">
+          <!-- Full Stack Panel -->
+          <div id="web-panel" class="skills-panel space-y-5">
             <div class="skill">
               <div class="flex justify-between mb-2">
-                <span>C++</span><span>75%</span>
+                <span class="text-gray-300">HTML5 & CSS3 (Tailwind CSS)</span>
+                <span class="text-cyan-400">90%</span>
               </div>
-              <div class="w-full bg-gray-800 rounded-full h-3">
-                <div class="skill-bar-fill h-3 rounded-full" data-width="75%" style="width: 75%"></div>
+              <div class="w-full bg-slate-800/80 rounded-full h-2.5">
+                <div class="skill-bar-fill h-2.5 rounded-full" data-width="90%" style="width: 90%"></div>
               </div>
             </div>
 
             <div class="skill">
               <div class="flex justify-between mb-2">
-                <span>DSA</span><span>75%</span>
+                <span class="text-gray-300">JavaScript (ES6+)</span>
+                <span class="text-cyan-400">80%</span>
               </div>
-              <div class="w-full bg-gray-800 rounded-full h-3">
-                <div class="skill-bar-fill h-3 rounded-full" data-width="75%" style="width: 75%"></div>
+              <div class="w-full bg-slate-800/80 rounded-full h-2.5">
+                <div class="skill-bar-fill h-2.5 rounded-full" data-width="80%" style="width: 80%"></div>
+              </div>
+            </div>
+
+            <div class="skill">
+              <div class="flex justify-between mb-2">
+                <span class="text-gray-300">Backend APIs (Flask & Django)</span>
+                <span class="text-cyan-400">85%</span>
+              </div>
+              <div class="w-full bg-slate-800/80 rounded-full h-2.5">
+                <div class="skill-bar-fill h-2.5 rounded-full" data-width="85%" style="width: 85%"></div>
+              </div>
+            </div>
+
+            <div class="skill">
+              <div class="flex justify-between mb-2">
+                <span class="text-gray-300">Databases (MySQL & MongoDB)</span>
+                <span class="text-cyan-400">80%</span>
+              </div>
+              <div class="w-full bg-slate-800/80 rounded-full h-2.5">
+                <div class="skill-bar-fill h-2.5 rounded-full" data-width="80%" style="width: 80%"></div>
               </div>
             </div>
           </div>
 
-          <div id="tools-panel" class="skills-panel space-y-5">
+          <!-- Core Languages Panel -->
+          <div id="languages-panel" class="skills-panel space-y-5">
             <div class="skill">
               <div class="flex justify-between mb-2">
-                <span>VS Code</span><span>90%</span>
+                <span class="text-gray-300">Python Programming</span>
+                <span class="text-cyan-400">90%</span>
               </div>
-              <div class="w-full bg-gray-800 rounded-full h-3">
-                <div class="skill-bar-fill h-3 rounded-full" data-width="90%" style="width: 90%"></div>
+              <div class="w-full bg-slate-800/80 rounded-full h-2.5">
+                <div class="skill-bar-fill h-2.5 rounded-full" data-width="90%" style="width: 90%"></div>
               </div>
             </div>
 
             <div class="skill">
               <div class="flex justify-between mb-2">
-                <span>Git & GitHub</span><span>80%</span>
+                <span class="text-gray-300">C++ Programming</span>
+                <span class="text-cyan-400">80%</span>
               </div>
-              <div class="w-full bg-gray-800 rounded-full h-3">
-                <div class="skill-bar-fill h-3 rounded-full" data-width="80%" style="width: 80%"></div>
+              <div class="w-full bg-slate-800/80 rounded-full h-2.5">
+                <div class="skill-bar-fill h-2.5 rounded-full" data-width="80%" style="width: 80%"></div>
+              </div>
+            </div>
+
+            <div class="skill">
+              <div class="flex justify-between mb-2">
+                <span class="text-gray-300">Data Structures & Algorithms</span>
+                <span class="text-cyan-400">78%</span>
+              </div>
+              <div class="w-full bg-slate-800/80 rounded-full h-2.5">
+                <div class="skill-bar-fill h-2.5 rounded-full" data-width="78%" style="width: 78%"></div>
+              </div>
+            </div>
+
+            <div class="skill">
+              <div class="flex justify-between mb-2">
+                <span class="text-gray-300">Git & GitHub (Version Control)</span>
+                <span class="text-cyan-400">85%</span>
+              </div>
+              <div class="w-full bg-slate-800/80 rounded-full h-2.5">
+                <div class="skill-bar-fill h-2.5 rounded-full" data-width="85%" style="width: 85%"></div>
               </div>
             </div>
           </div>
         </div>
 
+        <!-- EDUCATION COLUMN -->
         <div class="card glow-yellow">
           <h3 class="text-2xl font-semibold text-white mb-8 flex items-center gap-3">
             <i data-lucide="graduation-cap" class="w-6 h-6 text-yellow-400"></i>
             Education
           </h3>
 
-          <div class="relative border-l-2 border-gray-700 pl-8 space-y-8">
+          <div class="relative border-l-2 border-slate-700/80 pl-8 space-y-8">
             <div class="relative timeline-item">
               <span class="timeline-marker absolute -left-[42px] top-2"></span>
-              <p class="text-sm text-gray-400">2023 – 2027</p>
-              <h4 class="font-bold text-lg text-white mt-1">
+              <span
+                class="inline-block px-3 py-1 text-xs font-semibold rounded-full bg-blue-500/10 text-blue-300 border border-blue-500/20 mb-2">
+                2023 – 2027
+              </span>
+              <h4 class="font-bold text-lg text-white">
                 Bachelor of Technology - CSE AIML
               </h4>
-              <p class="text-gray-400">
-                Rajiv Gandhi Proudyogiki Vishwavidyalaya, Bhopal, Madhya
-                Pradesh
+              <p class="text-gray-400 text-sm mt-1">
+                Rajiv Gandhi Proudyogiki Vishwavidyalaya, Bhopal, Madhya Pradesh
+              </p>
+              <p class="text-gray-500 text-xs mt-2 italic leading-relaxed">
+                Focused on Artificial Intelligence & Machine Learning core algorithms, deep learning architectures, data
+                analysis, and mathematical modeling.
               </p>
             </div>
 
             <div class="relative timeline-item">
               <span class="timeline-marker absolute -left-[42px] top-2"></span>
-              <p class="text-sm text-gray-400">2021 – 2023</p>
-              <h4 class="font-bold text-lg text-white mt-1">
-                Higher Secondary Education
+              <span
+                class="inline-block px-3 py-1 text-xs font-semibold rounded-full bg-yellow-500/10 text-yellow-300 border border-yellow-500/20 mb-2">
+                2021 – 2023
+              </span>
+              <h4 class="font-bold text-lg text-white">
+                Higher Secondary Education (PCM)
               </h4>
-              <p class="text-gray-400">
+              <p class="text-gray-400 text-sm mt-1">
                 +2 Tapeswari Kunwar High School, Dosma, Aurangabad, Bihar
               </p>
+              <p class="text-gray-500 text-xs mt-2 italic leading-relaxed">
+                Completed science-stream schooling with a heavy concentration in Physics, Chemistry, and Mathematics.
+              </p>
             </div>
 
             <div class="relative timeline-item">
               <span class="timeline-marker absolute -left-[42px] top-2"></span>
-              <p class="text-sm text-gray-400">2020 – 2021</p>
-              <h4 class="font-bold text-lg text-white mt-1">
+              <span
+                class="inline-block px-3 py-1 text-xs font-semibold rounded-full bg-pink-500/10 text-pink-300 border border-pink-500/20 mb-2">
+                2020 – 2021
+              </span>
+              <h4 class="font-bold text-lg text-white">
                 Secondary Education
               </h4>
-              <p class="text-gray-400">
+              <p class="text-gray-400 text-sm mt-1">
                 Bright Life Public School, Aurangabad, Bihar
+              </p>
+              <p class="text-gray-500 text-xs mt-2 italic leading-relaxed">
+                Graduated with foundational skills and strong science/mathematics coursework.
               </p>
             </div>
           </div>
@@ -473,14 +515,16 @@
         </div>
 
         <div class="glass-effect rounded-xl overflow-hidden group flex flex-col">
-          <img src="{{ url_for('static', filename='Images/certificate 4.png') }}" alt="Deloitte Technology Job Simulation Certificate"
+          <img src="{{ url_for('static', filename='Images/certificate 4.png') }}"
+            alt="Deloitte Technology Job Simulation Certificate"
             class="w-full h-48 object-cover transition-transform duration-500 group-hover:scale-105" />
           <div class="p-6 flex flex-col flex-grow">
             <h3 class="text-xl font-bold text-white mb-2">
               Deloitte Technology Job Simulation
             </h3>
             <p class="text-gray-400 mb-4 text-sm flex-grow">
-              Completed practical tasks in coding and software development as part of the Deloitte Technology Job Simulation.
+              Completed practical tasks in coding and software development as part of the Deloitte Technology Job
+              Simulation.
             </p>
             <a href="{{ url_for('static', filename='Images/certificate 4.png') }}" target="_blank"
               class="inline-flex items-center text-blue-400 hover:text-blue-300 font-semibold mt-auto">
@@ -509,16 +553,18 @@
         </div>
 
         <div class="glass-effect rounded-xl overflow-hidden group flex flex-col">
-          <img src="{{ url_for('static', filename='Images/cloud aws.png') }}" alt="AWS Cloud Practitioner Essentials Certificate"
+          <img src="{{ url_for('static', filename='Images/cloud aws.png') }}"
+            alt="AWS Cloud Practitioner Essentials Certificate"
             class="w-full h-48 object-cover transition-transform duration-500 group-hover:scale-105" />
           <div class="p-6 flex flex-col flex-grow">
             <h3 class="text-xl font-bold text-white mb-2">
               AWS Cloud Practitioner Essentials
             </h3>
             <p class="text-gray-400 mb-4 text-sm flex-grow">
-              Acquired foundational knowledge of cloud concepts, security, architecture, and services on Amazon Web Services.
+              Acquired foundational knowledge of cloud concepts, security, architecture, and services on Amazon Web
+              Services.
             </p>
-            <a href="{{ url_for('static', filename='Images/cloud.pdf') }}" target="_blank"
+            <a href="{{ url_for('static', filename='Images/cloud aws.png') }}" target="_blank"
               class="inline-flex items-center text-blue-400 hover:text-blue-300 font-semibold mt-auto">
               View Certificate
               <i data-lucide="arrow-right" class="w-4 h-4 ml-2"></i>
