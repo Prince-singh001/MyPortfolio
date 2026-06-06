@@ -40,6 +40,11 @@
   --pink: #f472b6;
   --yellow: #facc15;
   --green: #22c55e;
+  --blue-light: #7dd3fc;
+  --violet: #8b5cf6;
+  --pink-dark: #ec4899;
+  --purple-dark: #7c3aed;
+  --pink-deep: #db2777;
 
   --border-soft: rgba(255, 255, 255, 0.14);
   --border-blue: rgba(96, 165, 250, 0.3);
@@ -344,7 +349,7 @@ header::after {
 ================================= */
 
 .text-gradient {
-  background: linear-gradient(90deg, #7dd3fc, #a78bfa, #f472b6, #facc15);
+  background: linear-gradient(90deg, var(--blue-light), var(--purple), var(--pink), var(--yellow));
   background-size: 220% auto;
   -webkit-background-clip: text;
   background-clip: text;
@@ -388,7 +393,7 @@ header::after {
 
 .btn-primary {
   color: #ffffff;
-  background: linear-gradient(135deg, #2563eb, #7c3aed, #db2777);
+  background: linear-gradient(135deg, var(--primary-dark), var(--purple-dark), var(--pink-deep));
   box-shadow: 0 12px 30px rgba(59, 130, 246, 0.36);
 }
 
@@ -455,7 +460,7 @@ body.menu-active {
   width: 0;
   height: 2px;
   border-radius: 999px;
-  background: linear-gradient(90deg, #38bdf8, #a78bfa, #f472b6);
+  background: linear-gradient(90deg, var(--cyan), var(--purple), var(--pink));
   transform: translateX(-50%);
   transition: width 0.3s ease;
 }
@@ -510,7 +515,7 @@ body.menu-active {
   left: 18%;
   width: 64%;
   height: 2px;
-  background: linear-gradient(90deg, #38bdf8, #a78bfa, #f472b6);
+  background: linear-gradient(90deg, var(--cyan), var(--purple), var(--pink));
   border-radius: 999px;
   transform: scaleX(0);
   transform-origin: center;
@@ -543,7 +548,7 @@ body.menu-active {
 .skill-bar-fill {
   height: 100%;
   border-radius: 999px;
-  background: linear-gradient(90deg, #38bdf8, #8b5cf6, #ec4899);
+  background: linear-gradient(90deg, var(--cyan), var(--violet), var(--pink-dark));
   background-size: 180% auto;
   animation:
     fadeInUp 0.8s ease,
@@ -603,7 +608,7 @@ body.menu-active {
   position: absolute;
   inset: -12px;
   border-radius: 34px;
-  background: linear-gradient(135deg, #38bdf8, #8b5cf6, #ec4899);
+  background: linear-gradient(135deg, var(--cyan), var(--violet), var(--pink-dark));
   z-index: -1;
   opacity: 0.35;
   filter: blur(16px);
@@ -635,7 +640,7 @@ body.menu-active {
 .timeline-marker {
   width: 14px;
   height: 14px;
-  background: linear-gradient(135deg, #38bdf8, #8b5cf6);
+  background: linear-gradient(135deg, var(--cyan), var(--violet));
   border-radius: 50%;
   border: 3px solid rgba(2, 52, 100, 0.85);
   animation: pulse 2s infinite;
@@ -655,19 +660,7 @@ body.menu-active {
   transform: translateX(7px);
 }
 
-/* ===============================
-   CERTIFICATE + PROJECT IMAGES
-================================= */
 
-article img {
-  transition:
-    transform 0.5s ease,
-    filter 0.5s ease;
-}
-
-article:hover img {
-  filter: brightness(1.08) saturate(1.08);
-}
 
 /* ===============================
    RESUME MENU
@@ -747,12 +740,12 @@ article:hover img {
 }
 
 ::-webkit-scrollbar-thumb {
-  background: linear-gradient(180deg, #38bdf8, #8b5cf6);
+  background: linear-gradient(180deg, var(--cyan), var(--violet));
   border-radius: 999px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: linear-gradient(180deg, #60a5fa, #ec4899);
+  background: linear-gradient(180deg, var(--primary), var(--pink-dark));
 }
 
 /* ===============================
@@ -766,7 +759,7 @@ select {
   color: var(--text-light);
   background: rgba(255, 255, 255, 0.08);
   border: 1px solid rgba(255, 255, 255, 0.14);
-  border-radius: 14px;
+  border-radius: var(--radius-sm);
   padding: 13px 15px;
   outline: none;
   resize: vertical;
