@@ -586,7 +586,7 @@
             class="w-full h-48 object-cover transition-transform duration-500 group-hover:scale-105" />
           <div class="p-6 flex flex-col flex-grow">
             <h3 class="text-xl font-bold text-white mb-2 group-hover:text-blue-400 transition-colors">
-              FoodScan - Food Classifier
+              SafeBite-AI
             </h3>
             <p class="text-gray-400 mb-4 text-sm flex-grow">
               An intelligent food recognition system utilizing a MobileNet CNN architecture trained on a custom food
@@ -596,6 +596,7 @@
               <span class="project-tag">Python</span>
               <span class="project-tag">MobileNet CNN</span>
               <span class="project-tag">TensorFlow</span>
+              <span class="project-tag">Dataset-real images</span>
               <span class="project-tag">Keras</span>
               <span class="project-tag">OpenCV</span>
             </div>
@@ -734,21 +735,31 @@
   </footer>
 
   <!-- ================= LIGHTBOX MODAL ================= -->
-  <div id="lightbox" class="fixed inset-0 z-[100] hidden items-center justify-center bg-slate-950/90 backdrop-blur-md opacity-0 transition-opacity duration-300">
-    <button id="lightbox-close" class="absolute top-6 right-6 text-white/70 hover:text-white transition-colors p-2 z-[110]" aria-label="Close lightbox">
+  <div id="lightbox"
+    class="fixed inset-0 z-[100] hidden items-center justify-center bg-slate-950/90 backdrop-blur-md opacity-0 transition-opacity duration-300">
+    <button id="lightbox-close"
+      class="absolute top-6 right-6 text-white/70 hover:text-white transition-colors p-2 z-[110]"
+      aria-label="Close lightbox">
       <i data-lucide="x" class="w-8 h-8"></i>
     </button>
-    
-    <button id="lightbox-prev" class="absolute left-6 top-1/2 -translate-y-1/2 text-white/70 hover:text-white transition-colors p-3 bg-white/5 rounded-full hover:bg-white/10 z-[110]" aria-label="Previous certificate">
+
+    <button id="lightbox-prev"
+      class="absolute left-6 top-1/2 -translate-y-1/2 text-white/70 hover:text-white transition-colors p-3 bg-white/5 rounded-full hover:bg-white/10 z-[110]"
+      aria-label="Previous certificate">
       <i data-lucide="chevron-left" class="w-8 h-8"></i>
     </button>
-    
-    <div class="max-w-[90vw] max-h-[80vh] flex flex-col items-center justify-center scale-95 transition-transform duration-300 z-[105]" id="lightbox-content">
-      <img id="lightbox-img" src="" alt="Certificate View" class="max-w-full max-h-[70vh] object-contain rounded-lg shadow-2xl border border-white/10" />
+
+    <div
+      class="max-w-[90vw] max-h-[80vh] flex flex-col items-center justify-center scale-95 transition-transform duration-300 z-[105]"
+      id="lightbox-content">
+      <img id="lightbox-img" src="" alt="Certificate View"
+        class="max-w-full max-h-[70vh] object-contain rounded-lg shadow-2xl border border-white/10" />
       <p id="lightbox-title" class="text-white text-lg font-semibold mt-4"></p>
     </div>
-    
-    <button id="lightbox-next" class="absolute right-6 top-1/2 -translate-y-1/2 text-white/70 hover:text-white transition-colors p-3 bg-white/5 rounded-full hover:bg-white/10 z-[110]" aria-label="Next certificate">
+
+    <button id="lightbox-next"
+      class="absolute right-6 top-1/2 -translate-y-1/2 text-white/70 hover:text-white transition-colors p-3 bg-white/5 rounded-full hover:bg-white/10 z-[110]"
+      aria-label="Next certificate">
       <i data-lucide="chevron-right" class="w-8 h-8"></i>
     </button>
   </div>
