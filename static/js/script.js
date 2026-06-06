@@ -1,7 +1,3 @@
-/* ===============================
-   PORTFOLIO MAIN JAVASCRIPT
-   Modern + Responsive + Attractive
-================================= */
 
 (() => {
   "use strict";
@@ -16,41 +12,27 @@
     }
   };
 
-  /* ===============================
-     DOM READY
-  ================================= */
+
 
   document.addEventListener("DOMContentLoaded", () => {
     initIcons();
 
-    /* ===============================
-       STICKY HEADER
-    ================================= */
+
 
     const header = document.getElementById("header");
-
-    const handleHeaderScroll = () => {
-      if (!header) return;
-
-      const isScrolled = window.scrollY > 40;
-      header.classList.toggle("glass-effect", isScrolled);
-      header.classList.toggle("header-scrolled", isScrolled);
-    };
-
-    handleHeaderScroll();
-    window.addEventListener("scroll", handleHeaderScroll, { passive: true });
-
-    /* ===============================
-       MOBILE MENU
-    ================================= */
-
+    const backToTop = document.getElementById("backToTop");
     const mobileBtn = document.getElementById("mobile-menu-button");
     const mobileMenu = document.getElementById("mobile-menu");
     const mobileLinks = document.querySelectorAll(".mobile-link");
+    const resumeBtn = document.getElementById("resumeBtn");
+    const resumeMenu = document.getElementById("resumeMenu");
+
+    let handleCanvasResize = null;
+
+
 
     const closeMobileMenu = () => {
       if (!mobileMenu || !mobileBtn) return;
-
       mobileMenu.classList.add("hidden");
       mobileMenu.classList.remove("menu-open");
       mobileBtn.setAttribute("aria-expanded", "false");
@@ -59,25 +41,84 @@
 
     const openMobileMenu = () => {
       if (!mobileMenu || !mobileBtn) return;
-
       mobileMenu.classList.remove("hidden");
       requestAnimationFrame(() => {
         mobileMenu.classList.add("menu-open");
       });
-
       mobileBtn.setAttribute("aria-expanded", "true");
       document.body.classList.add("menu-active");
     };
+
+    const closeResumeMenu = () => {
+      if (!resumeMenu || !resumeBtn) return;
+      resumeMenu.classList.add("hidden");
+      resumeMenu.classList.remove("resume-open");
+      resumeBtn.setAttribute("aria-expanded", "false");
+    };
+
+    /* ===============================
+       UNIFIED GLOBAL EVENT LISTENERS
+    ================================= */
+
+    // 1. Scroll Events (Sticky Header & Back to Top Toggle)
+    const handleScroll = () => {
+      if (header) {
+        const isScrolled = window.scrollY > 40;
+        header.classList.toggle("glass-effect", isScrolled);
+        header.classList.toggle("header-scrolled", isScrolled);
+      }
+      if (backToTop) {
+        backToTop.classList.toggle("show", window.scrollY > 450);
+      }
+    };
+    handleScroll();
+    window.addEventListener("scroll", handleScroll, { passive: true });
+
+    // 2. Resize Events (Mobile Menu Close & Canvas Resize Throttler)
+    window.addEventListener("resize", () => {
+      if (window.innerWidth >= 768) {
+        closeMobileMenu();
+      }
+      if (handleCanvasResize) {
+        handleCanvasResize();
+      }
+    }, { passive: true });
+
+    document.addEventListener("click", (event) => {
+      // Close mobile menu if click is outside mobile menu and button
+      if (mobileMenu && mobileBtn && !mobileMenu.classList.contains("hidden")) {
+        const clickedInsideMenu = mobileMenu.contains(event.target);
+        const clickedButton = mobileBtn.contains(event.target);
+        if (!clickedInsideMenu && !clickedButton) {
+          closeMobileMenu();
+        }
+      }
+
+      // Close resume menu if click is outside resume menu and button
+      if (resumeMenu && resumeBtn && !resumeMenu.classList.contains("hidden")) {
+        const clickedInsideResume = resumeMenu.contains(event.target);
+        const clickedResumeButton = resumeBtn.contains(event.target);
+        if (!clickedInsideResume && !clickedResumeButton) {
+          closeResumeMenu();
+        }
+      }
+    });
+
+    // 4. Document Keydown Events (Escape key to close active menus)
+    document.addEventListener("keydown", (event) => {
+      if (event.key === "Escape") {
+        closeMobileMenu();
+        closeResumeMenu();
+      }
+    });
+
 
     if (mobileBtn && mobileMenu) {
       mobileBtn.setAttribute("aria-label", "Toggle navigation menu");
       mobileBtn.setAttribute("aria-expanded", "false");
 
-      mobileBtn.addEventListener("click", (event) => {
-        event.stopPropagation();
-
+      mobileBtn.addEventListener("click", () => {
         const isOpen = !mobileMenu.classList.contains("hidden");
-
         if (isOpen) {
           closeMobileMenu();
         } else {
@@ -88,36 +129,9 @@
       mobileLinks.forEach((link) => {
         link.addEventListener("click", closeMobileMenu);
       });
-
-      document.addEventListener("click", (event) => {
-        const clickedInsideMenu = mobileMenu.contains(event.target);
-        const clickedButton = mobileBtn.contains(event.target);
-
-        if (!clickedInsideMenu && !clickedButton) {
-          closeMobileMenu();
-        }
-      });
-
-      window.addEventListener(
-        "resize",
-        () => {
-          if (window.innerWidth >= 768) {
-            closeMobileMenu();
-          }
-        },
-        { passive: true },
-      );
-
-      document.addEventListener("keydown", (event) => {
-        if (event.key === "Escape") {
-          closeMobileMenu();
-        }
-      });
     }
 
-    /* ===============================
-       SMOOTH ACTIVE NAV LINK
-    ================================= */
+
 
     const navLinks = document.querySelectorAll('a[href^="#"]');
 
@@ -180,11 +194,9 @@
     if (typingElement && typeof window.Typed !== "undefined") {
       new window.Typed("#typing-effect", {
         strings: [
+          "AI / ML Engineer",
           "Python Developer",
           "Full Stack Developer",
-          "Frontend Developer",
-          "Backend Developer",
-          "AI / ML Enthusiast",
         ],
         typeSpeed: 55,
         backSpeed: 28,
@@ -229,29 +241,15 @@
     }
 
     /* ===============================
-       RESUME DROPDOWN
+       RESUME DROPDOWN SETUP
     ================================= */
-
-    const resumeBtn = document.getElementById("resumeBtn");
-    const resumeMenu = document.getElementById("resumeMenu");
-
-    const closeResumeMenu = () => {
-      if (!resumeMenu || !resumeBtn) return;
-
-      resumeMenu.classList.add("hidden");
-      resumeMenu.classList.remove("resume-open");
-      resumeBtn.setAttribute("aria-expanded", "false");
-    };
 
     if (resumeBtn && resumeMenu) {
       resumeBtn.setAttribute("aria-haspopup", "true");
       resumeBtn.setAttribute("aria-expanded", "false");
 
-      resumeBtn.addEventListener("click", (event) => {
-        event.stopPropagation();
-
+      resumeBtn.addEventListener("click", () => {
         const isOpen = !resumeMenu.classList.contains("hidden");
-
         if (isOpen) {
           closeResumeMenu();
         } else {
@@ -260,18 +258,6 @@
             resumeMenu.classList.add("resume-open");
           });
           resumeBtn.setAttribute("aria-expanded", "true");
-        }
-      });
-
-      resumeMenu.addEventListener("click", (event) => {
-        event.stopPropagation();
-      });
-
-      document.addEventListener("click", closeResumeMenu);
-
-      document.addEventListener("keydown", (event) => {
-        if (event.key === "Escape") {
-          closeResumeMenu();
         }
       });
     }
@@ -309,9 +295,6 @@
       });
     }
 
-    /* ===============================
-       SKILL BAR ANIMATION
-    ================================= */
 
     const skillBars = document.querySelectorAll(".skill-bar-fill");
 
@@ -342,21 +325,7 @@
       skillBars.forEach((bar) => skillObserver.observe(bar));
     }
 
-    /* ===============================
-       BACK TO TOP BUTTON OPTIONAL
-    ================================= */
-
-    const backToTop = document.getElementById("backToTop");
-
     if (backToTop) {
-      const toggleBackToTop = () => {
-        backToTop.classList.toggle("show", window.scrollY > 450);
-      };
-
-      toggleBackToTop();
-
-      window.addEventListener("scroll", toggleBackToTop, { passive: true });
-
       backToTop.addEventListener("click", () => {
         window.scrollTo({
           top: 0,
@@ -365,9 +334,6 @@
       });
     }
 
-    /* ===============================
-       RESPONSIVE CANVAS PARTICLES
-    ================================= */
 
     const canvas = document.getElementById("c");
 
@@ -442,22 +408,25 @@
       }
 
       reset(initial = false) {
-        this.x = Math.random() * width;
-        this.y = Math.random() * height;
+        const randomX = Math.random() * width;
+        const randomY = Math.random() * height;
 
-        this.baseX = this.x;
-        this.baseY = this.y;
+        this.baseX = randomX;
+        this.baseY = randomY;
+
+        if (initial) {
+          this.x = randomX;
+          this.y = randomY;
+        } else {
+          this.x = Math.random() > 0.5 ? -10 : width + 10;
+          this.y = Math.random() * height;
+        }
 
         this.size = Math.random() * 2.2 + 0.6;
         this.speedX = (Math.random() - 0.5) * 0.22;
         this.speedY = (Math.random() - 0.5) * 0.22;
         this.density = Math.random() * 28 + 12;
         this.alpha = Math.random() * 0.35 + 0.25;
-
-        if (!initial) {
-          this.x = Math.random() > 0.5 ? -10 : width + 10;
-          this.y = Math.random() * height;
-        }
       }
 
       update() {
@@ -601,7 +570,7 @@
 
     let resizeTimer = null;
 
-    const handleResize = () => {
+    handleCanvasResize = () => {
       clearTimeout(resizeTimer);
 
       resizeTimer = setTimeout(() => {
@@ -614,7 +583,6 @@
     initParticles();
     startAnimation();
 
-    window.addEventListener("resize", handleResize, { passive: true });
     window.addEventListener("mousemove", handleMouseMove, { passive: true });
     window.addEventListener("mouseleave", handleMouseLeave, { passive: true });
     window.addEventListener("touchmove", handleTouchMove, { passive: true });

@@ -1,899 +1,652 @@
 <!doctype html>
 <html lang="en" class="scroll-smooth">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Prince Singh | Portfolio</title>
 
-    <script src="https://cdn.tailwindcss.com"></script>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Prince Singh | Portfolio</title>
 
-    <script src="https://unpkg.com/lucide@latest"></script>
+  <script src="https://cdn.tailwindcss.com"></script>
 
-    <link
-      rel="stylesheet"
-      href="{{ url_for('static', filename='css/style.css') }}"
-    />
+  <script src="https://unpkg.com/lucide@latest"></script>
 
-    <link
-      rel="icon"
-      type="image/x-icon"
-      href="{{ url_for('static', filename='Images/title.ico') }}"
-    />
-  </head>
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}" />
 
-  <body class="antialiased">
-    <canvas id="c"></canvas>
+  <link rel="icon" type="image/x-icon" href="{{ url_for('static', filename='Images/title.ico') }}" />
+</head>
 
-    <!-- ================= HEADER ================= -->
-    <header
-      id="header"
-      class="fixed top-0 left-0 right-0 z-50 transition-all duration-300"
-    >
-      <div class="container mx-auto px-4">
-        <nav class="flex justify-between items-center py-4">
-          <a href="#home" class="text-2xl font-bold text-blue-400"> P.S </a>
+<body class="antialiased">
+  <canvas id="c"></canvas>
 
-          <div class="hidden md:flex items-center space-x-8 text-gray-300">
-            <a href="#home" class="hover:text-blue-400 transition-colors"
-              >Home</a
-            >
-            <a href="#about" class="hover:text-blue-400 transition-colors"
-              >About</a
-            >
-            <a
-              href="#qualifications"
-              class="hover:text-blue-400 transition-colors"
-            >
-              Qualifications
-            </a>
-            <a
-              href="#certificates"
-              class="hover:text-blue-400 transition-colors"
-            >
-              Certificates
-            </a>
-            <a href="#projects" class="hover:text-blue-400 transition-colors">
-              Projects
-            </a>
-            <a href="#contact" class="hover:text-blue-400 transition-colors">
-              Contact Me
-            </a>
-          </div>
+  <!-- ================= HEADER ================= -->
+  <header id="header" class="fixed top-0 left-0 right-0 z-50 transition-all duration-300">
+    <div class="container mx-auto px-4">
+      <nav class="flex justify-between items-center py-4">
+        <a href="#home" class="text-2xl font-bold text-blue-400"> P.S </a>
 
-          <a
-            href="#contact"
-            class="hidden md:inline-block bg-blue-600 hover:bg-blue-700 text-white font-medium py-2 px-5 rounded-lg transition-transform duration-300 hover:scale-105"
-          >
-            Hire Me
+        <div class="hidden md:flex items-center space-x-8 text-gray-300">
+          <a href="#home" class="hover:text-blue-400 transition-colors">Home</a>
+          <a href="#about" class="hover:text-blue-400 transition-colors">About</a>
+          <a href="#qualifications" class="hover:text-blue-400 transition-colors">
+            Qualifications
+          </a>
+          <a href="#certificates" class="hover:text-blue-400 transition-colors">
+            Certificates
+          </a>
+          <a href="#projects" class="hover:text-blue-400 transition-colors">
+            Projects
+          </a>
+          <a href="#contact" class="hover:text-blue-400 transition-colors">
+            Contact Me
+          </a>
+        </div>
+
+        <a href="#contact"
+          class="hidden md:inline-block bg-blue-600 hover:bg-blue-700 text-white font-medium py-2 px-5 rounded-lg transition-transform duration-300 hover:scale-105">
+          Hire Me
+        </a>
+
+        <button id="mobile-menu-button" type="button" class="md:hidden text-white" aria-label="Toggle mobile menu">
+          <i data-lucide="menu"></i>
+        </button>
+      </nav>
+    </div>
+  </header>
+
+  <!-- ================= MOBILE MENU ================= -->
+  <div id="mobile-menu" class="hidden md:hidden fixed top-0 left-0 w-full h-full bg-gray-950/95 backdrop-blur-md z-40">
+    <div class="flex flex-col items-center justify-center h-full space-y-8">
+      <a href="#home" class="mobile-link text-2xl text-gray-300 hover:text-blue-400">
+        Home
+      </a>
+      <a href="#about" class="mobile-link text-2xl text-gray-300 hover:text-blue-400">
+        About
+      </a>
+      <a href="#qualifications" class="mobile-link text-2xl text-gray-300 hover:text-blue-400">
+        Qualifications
+      </a>
+      <a href="#certificates" class="mobile-link text-2xl text-gray-300 hover:text-blue-400">
+        Certificates
+      </a>
+      <a href="#projects" class="mobile-link text-2xl text-gray-300 hover:text-blue-400">
+        Projects
+      </a>
+      <a href="#contact" class="mobile-link text-2xl text-gray-300 hover:text-blue-400">
+        Contact Me
+      </a>
+    </div>
+  </div>
+
+  <main class="container mx-auto px-4 pt-24 relative z-10">
+    <!-- ================= HERO SECTION ================= -->
+    <section id="home" class="min-h-[85vh] flex flex-col md:flex-row items-center justify-between gap-12 relative">
+      <!-- Hero Text -->
+      <div class="md:w-1/2 text-center md:text-left reveal">
+        <p
+          class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/10 border border-white/10 text-cyan-200 text-sm font-semibold mb-5">
+          <span class="w-2 h-2 bg-green-400 rounded-full animate-pulse"></span>
+          Available for Projects
+        </p>
+
+        <h1 class="text-4xl md:text-6xl font-extrabold text-white leading-tight mb-4">
+          Hi, I'm <span class="text-gradient">Prince Singh</span>
+        </h1>
+
+        <h2 class="text-2xl md:text-3xl font-medium text-gray-300 mb-6">
+          I'm a <span id="typing-effect" class="text-cyan-300"></span>
+        </h2>
+
+        <p class="text-lg text-gray-400 mb-8 max-w-xl mx-auto md:mx-0">
+          I build intelligent algorithms, machine learning models, and efficient full-stack applications. Specialized in
+          Python and deep learning, with a passion for turning complex datasets into intelligent, scalable solutions.
+        </p>
+
+        <!-- Buttons -->
+        <div class="flex flex-col sm:flex-row items-center justify-center md:justify-start gap-4 mb-8">
+          <a href="#projects" class="btn-primary">
+            View My Work
+            <i data-lucide="arrow-right" class="w-5 h-5"></i>
           </a>
 
-          <button
-            id="mobile-menu-button"
-            type="button"
-            class="md:hidden text-white"
-            aria-label="Toggle mobile menu"
-          >
-            <i data-lucide="menu"></i>
-          </button>
-        </nav>
-      </div>
-    </header>
+          <div class="relative inline-block w-full sm:w-auto">
+            <button id="resumeBtn" type="button" class="btn-outline">
+              Resume
+              <i data-lucide="chevron-down" class="w-5 h-5"></i>
+            </button>
 
-    <!-- ================= MOBILE MENU ================= -->
-    <div
-      id="mobile-menu"
-      class="hidden md:hidden fixed top-0 left-0 w-full h-full bg-gray-950/95 backdrop-blur-md z-40"
-    >
-      <div class="flex flex-col items-center justify-center h-full space-y-8">
-        <a
-          href="#home"
-          class="mobile-link text-2xl text-gray-300 hover:text-blue-400"
-        >
-          Home
-        </a>
-        <a
-          href="#about"
-          class="mobile-link text-2xl text-gray-300 hover:text-blue-400"
-        >
-          About
-        </a>
-        <a
-          href="#qualifications"
-          class="mobile-link text-2xl text-gray-300 hover:text-blue-400"
-        >
-          Qualifications
-        </a>
-        <a
-          href="#certificates"
-          class="mobile-link text-2xl text-gray-300 hover:text-blue-400"
-        >
-          Certificates
-        </a>
-        <a
-          href="#projects"
-          class="mobile-link text-2xl text-gray-300 hover:text-blue-400"
-        >
-          Projects
-        </a>
-        <a
-          href="#contact"
-          class="mobile-link text-2xl text-gray-300 hover:text-blue-400"
-        >
-          Contact Me
-        </a>
-      </div>
-    </div>
+            <div id="resumeMenu" class="hidden absolute left-0 mt-3 w-full sm:w-48 z-50">
+              <a href="{{ url_for('static', filename='assets/resume.pdf') }}" target="_blank"
+                class="block px-5 py-3 text-gray-200 hover:bg-white/10 hover:text-white">
+                👁 View Resume
+              </a>
 
-    <main class="container mx-auto px-4 pt-24 relative z-10">
-      <!-- ================= HERO SECTION ================= -->
-      <section
-        id="home"
-        class="min-h-[85vh] flex flex-col md:flex-row items-center justify-between gap-12 relative"
-      >
-        <!-- Hero Text -->
-        <div class="md:w-1/2 text-center md:text-left reveal">
-          <p
-            class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/10 border border-white/10 text-cyan-200 text-sm font-semibold mb-5"
-          >
-            <span
-              class="w-2 h-2 bg-green-400 rounded-full animate-pulse"
-            ></span>
-            Available for Projects
-          </p>
-
-          <h1
-            class="text-4xl md:text-6xl font-extrabold text-white leading-tight mb-4"
-          >
-            Hi, I'm <span class="text-gradient">Prince Singh</span>
-          </h1>
-
-          <h2 class="text-2xl md:text-3xl font-medium text-gray-300 mb-6">
-            I'm a <span id="typing-effect" class="text-cyan-300"></span>
-          </h2>
-
-          <p class="text-lg text-gray-400 mb-8 max-w-xl mx-auto md:mx-0">
-            I build efficient and scalable Python applications that power
-            reliable and high-performance systems. Passionate about clean code,
-            problem-solving, and delivering impactful software solutions.
-          </p>
-
-          <!-- Buttons -->
-          <div
-            class="flex flex-col sm:flex-row items-center justify-center md:justify-start gap-4 mb-8"
-          >
-            <a href="#projects" class="btn-primary">
-              View My Work
-              <i data-lucide="arrow-right" class="w-5 h-5"></i>
-            </a>
-
-            <div class="relative inline-block w-full sm:w-auto">
-              <button id="resumeBtn" type="button" class="btn-outline">
-                Resume
-                <i data-lucide="chevron-down" class="w-5 h-5"></i>
-              </button>
-
-              <div
-                id="resumeMenu"
-                class="hidden absolute left-0 mt-3 w-full sm:w-48 z-50"
-              >
-                <a
-                  href="{{ url_for('static', filename='assets/resume.pdf') }}"
-                  target="_blank"
-                  class="block px-5 py-3 text-gray-200 hover:bg-white/10 hover:text-white"
-                >
-                  👁 View Resume
-                </a>
-
-                <a
-                  href="{{ url_for('static', filename='assets/resume.pdf') }}"
-                  download
-                  class="block px-5 py-3 text-gray-200 hover:bg-white/10 hover:text-white"
-                >
-                  ⬇ Download Resume
-                </a>
-              </div>
+              <a href="{{ url_for('static', filename='assets/resume.pdf') }}" download
+                class="block px-5 py-3 text-gray-200 hover:bg-white/10 hover:text-white">
+                ⬇ Download Resume
+              </a>
             </div>
-          </div>
-
-          <!-- Social Icons Fixed -->
-          <div class="flex justify-center md:justify-start items-center gap-5">
-            <!-- GitHub -->
-            <a
-              href="https://github.com/Prince-singh001"
-              target="_blank"
-              rel="noopener noreferrer"
-              title="GitHub"
-              class="social-icon"
-            >
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                viewBox="0 0 24 24"
-                fill="currentColor"
-                class="w-6 h-6"
-              >
-                <path
-                  d="M12 0C5.37 0 0 5.37 0 12a12 12 0 0 0 8.2 11.39c.6.11.82-.26.82-.58v-2.02c-3.34.73-4.04-1.42-4.04-1.42-.55-1.38-1.33-1.75-1.33-1.75-1.08-.74.08-.73.08-.73 1.2.08 1.83 1.22 1.83 1.22 1.06 1.82 2.79 1.3 3.47.99.11-.77.42-1.3.76-1.6-2.67-.31-5.47-1.33-5.47-5.9 0-1.3.47-2.37 1.22-3.2-.12-.3-.53-1.56.12-3.24 0 0 1-.32 3.3 1.22a11.5 11.5 0 0 1 6 0c2.3-1.54 3.3-1.22 3.3-1.22.65 1.68.24 2.94.12 3.24.76.83 1.22 1.9 1.22 3.2 0 4.58-2.8 5.58-5.48 5.89.43.38.82 1.1.82 2.23v3.3c0 .32.21.7.83.58A12 12 0 0 0 24 12c0-6.63-5.37-12-12-12Z"
-                />
-              </svg>
-            </a>
-
-            <!-- LinkedIn -->
-            <a
-              href="https://www.linkedin.com/in/prince-singh05/"
-              target="_blank"
-              rel="noopener noreferrer"
-              title="LinkedIn"
-              class="social-icon hover-blue"
-            >
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                viewBox="0 0 24 24"
-                fill="currentColor"
-                class="w-6 h-6"
-              >
-                <path
-                  d="M20.45 20.45H16.9v-5.57c0-1.33-.03-3.04-1.85-3.04-1.85 0-2.13 1.45-2.13 2.95v5.66H9.37V9h3.4v1.56h.05c.47-.9 1.63-1.85 3.35-1.85 3.58 0 4.24 2.36 4.24 5.43v6.31ZM5.34 7.43a2.06 2.06 0 1 1 0-4.12 2.06 2.06 0 0 1 0 4.12ZM7.11 20.45H3.56V9h3.55v11.45ZM22.23 0H1.77A1.77 1.77 0 0 0 0 1.77v20.46C0 23.2.8 24 1.77 24h20.46A1.77 1.77 0 0 0 24 22.23V1.77A1.77 1.77 0 0 0 22.23 0Z"
-                />
-              </svg>
-            </a>
-
-            <!-- WhatsApp -->
-            <a
-              href="https://wa.me/919661261973"
-              target="_blank"
-              rel="noopener noreferrer"
-              title="WhatsApp"
-              class="social-icon hover-green"
-            >
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                viewBox="0 0 24 24"
-                fill="currentColor"
-                class="w-6 h-6"
-              >
-                <path
-                  d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"
-                />
-              </svg>
-            </a>
           </div>
         </div>
 
-        <!-- Hero Image same as before -->
-        <div class="mt-12 md:mt-0 md:w-1/2 flex flex-col items-center reveal">
-          <div
-            class="relative w-80 h-92 flex items-center justify-center hero-image-container float-animation"
-          >
-            <img
-              src="{{ url_for('static', filename='Images/me.png') }}"
-              class="w-full h-full object-cover hero-image-shadow"
-              alt="Prince Singh"
-              onerror="
+        <!-- Social Icons Fixed -->
+        <div class="flex justify-center md:justify-start items-center gap-5">
+          <!-- GitHub -->
+          <a href="https://github.com/Prince-singh001" target="_blank" rel="noopener noreferrer" title="GitHub"
+            class="social-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="w-6 h-6">
+              <path
+                d="M12 0C5.37 0 0 5.37 0 12a12 12 0 0 0 8.2 11.39c.6.11.82-.26.82-.58v-2.02c-3.34.73-4.04-1.42-4.04-1.42-.55-1.38-1.33-1.75-1.33-1.75-1.08-.74.08-.73.08-.73 1.2.08 1.83 1.22 1.83 1.22 1.06 1.82 2.79 1.3 3.47.99.11-.77.42-1.3.76-1.6-2.67-.31-5.47-1.33-5.47-5.9 0-1.3.47-2.37 1.22-3.2-.12-.3-.53-1.56.12-3.24 0 0 1-.32 3.3 1.22a11.5 11.5 0 0 1 6 0c2.3-1.54 3.3-1.22 3.3-1.22.65 1.68.24 2.94.12 3.24.76.83 1.22 1.9 1.22 3.2 0 4.58-2.8 5.58-5.48 5.89.43.38.82 1.1.82 2.23v3.3c0 .32.21.7.83.58A12 12 0 0 0 24 12c0-6.63-5.37-12-12-12Z" />
+            </svg>
+          </a>
+
+          <!-- LinkedIn -->
+          <a href="https://www.linkedin.com/in/prince-singh05/" target="_blank" rel="noopener noreferrer"
+            title="LinkedIn" class="social-icon hover-blue">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="w-6 h-6">
+              <path
+                d="M20.45 20.45H16.9v-5.57c0-1.33-.03-3.04-1.85-3.04-1.85 0-2.13 1.45-2.13 2.95v5.66H9.37V9h3.4v1.56h.05c.47-.9 1.63-1.85 3.35-1.85 3.58 0 4.24 2.36 4.24 5.43v6.31ZM5.34 7.43a2.06 2.06 0 1 1 0-4.12 2.06 2.06 0 0 1 0 4.12ZM7.11 20.45H3.56V9h3.55v11.45ZM22.23 0H1.77A1.77 1.77 0 0 0 0 1.77v20.46C0 23.2.8 24 1.77 24h20.46A1.77 1.77 0 0 0 24 22.23V1.77A1.77 1.77 0 0 0 22.23 0Z" />
+            </svg>
+          </a>
+
+          <!-- WhatsApp -->
+          <a href="https://wa.me/919661261973" target="_blank" rel="noopener noreferrer" title="WhatsApp"
+            class="social-icon hover-green">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="w-6 h-6">
+              <path
+                d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z" />
+            </svg>
+          </a>
+        </div>
+      </div>
+
+      <!-- Hero Image same as before -->
+      <div class="mt-12 md:mt-0 md:w-1/2 flex flex-col items-center reveal">
+        <div class="relative w-80 h-92 flex items-center justify-center hero-image-container float-animation">
+          <img src="{{ url_for('static', filename='Images/me.png') }}"
+            class="w-full h-full object-cover hero-image-shadow" alt="Prince Singh" onerror="
                 this.onerror = null;
                 this.src =
                   'https://placehold.co/320x368/111827/d1d5db?text=Prince';
-              "
-            />
+              " />
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= ABOUT SECTION ================= -->
+    <section id="about" class="py-20 reveal">
+      <h2 class="text-4xl font-bold text-center text-white mb-12">
+        About <span class="text-gradient">Me</span>
+      </h2>
+
+      <div class="flex flex-col md:flex-row items-center gap-12">
+        <div class="md:w-2/3 card">
+          <h3 class="text-2xl font-semibold text-white mb-4">
+            Get to know me!
+          </h3>
+
+          <p class="text-gray-300 mb-4 leading-relaxed">
+            I'm a CSE AIML student and developer focused on building intelligent algorithms, predictive models, and
+            robust full-stack systems. With a strong foundation in computer science, I specialize in combining software
+            engineering best practices with state-of-the-art machine learning concepts.
+          </p>
+
+          <p class="text-gray-300 mb-6 leading-relaxed">
+            My technical expertise spans Python, C++, Deep Learning, Computer Vision, and full-stack web technologies
+            like Flask and React. I enjoy converting complex data into actionable insights and designing end-to-end
+            intelligent applications.
+          </p>
+
+          <a href="#contact" class="text-blue-400 font-semibold hover:underline">
+            Let's connect!
+          </a>
+        </div>
+
+        <div class="md:w-1/3 w-full card">
+          <h3 class="text-2xl font-semibold text-white mb-4">My Skills</h3>
+
+          <div class="flex flex-wrap gap-3">
+            <span class="skill-chip">Python</span>
+            <span class="skill-chip">Artificial Intelligence</span>
+            <span class="skill-chip">Machine Learning</span>
+            <span class="skill-chip">Deep Learning</span>
+            <span class="skill-chip">TensorFlow</span>
+            <span class="skill-chip">Scikit-Learn</span>
+            <span class="skill-chip">Flask</span>
+            <span class="skill-chip">Django</span>
+            <span class="skill-chip">REST APIs</span>
+            <span class="skill-chip">MySQL</span>
+            <span class="skill-chip">NumPy</span>
+            <span class="skill-chip">Pandas</span>
+            <span class="skill-chip">Matplotlib</span>
+            <span class="skill-chip">Seaborn</span>
+            <span class="skill-chip">Git & GitHub</span>
+            <span class="skill-chip">HTML</span>
+            <span class="skill-chip">CSS</span>
+            <span class="skill-chip">JavaScript</span>
+            <span class="skill-chip">C/C++</span>
+            <span class="skill-chip">OpenCV</span>
           </div>
         </div>
-      </section>
+      </div>
+    </section>
 
-      <!-- ================= ABOUT SECTION ================= -->
-      <section id="about" class="py-20 reveal">
-        <h2 class="text-4xl font-bold text-center text-white mb-12">
-          About <span class="text-gradient">Me</span>
-        </h2>
+    <!-- ================= QUALIFICATIONS ================= -->
+    <section id="qualifications" class="py-20 reveal">
+      <h2 class="text-4xl font-bold text-center text-white mb-16">
+        Skills & <span class="text-gradient">Education</span>
+      </h2>
 
-        <div class="flex flex-col md:flex-row items-center gap-12">
-          <div class="md:w-2/3 card">
-            <h3 class="text-2xl font-semibold text-white mb-4">
-              Get to know me!
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-12">
+        <div class="card">
+          <div class="tabs-container">
+            <button class="tab-button active" data-tab="backend">
+              Full Stack
+            </button>
+            <button class="tab-button" data-tab="development">
+              Python
+            </button>
+            <button class="tab-button" data-tab="aiml">C++</button>
+            <button class="tab-button" data-tab="tools">Tools</button>
+          </div>
+
+          <div id="backend-panel" class="skills-panel active space-y-5">
+            <div class="skill">
+              <div class="flex justify-between mb-2">
+                <span>HTML</span><span>90%</span>
+              </div>
+              <div class="w-full bg-gray-800 rounded-full h-3">
+                <div class="skill-bar-fill h-3 rounded-full" data-width="90%" style="width: 90%"></div>
+              </div>
+            </div>
+
+            <div class="skill">
+              <div class="flex justify-between mb-2">
+                <span>CSS</span><span>85%</span>
+              </div>
+              <div class="w-full bg-gray-800 rounded-full h-3">
+                <div class="skill-bar-fill h-3 rounded-full" data-width="85%" style="width: 85%"></div>
+              </div>
+            </div>
+
+            <div class="skill">
+              <div class="flex justify-between mb-2">
+                <span>JavaScript</span><span>80%</span>
+              </div>
+              <div class="w-full bg-gray-800 rounded-full h-3">
+                <div class="skill-bar-fill h-3 rounded-full" data-width="80%" style="width: 80%"></div>
+              </div>
+            </div>
+
+            <div class="skill">
+              <div class="flex justify-between mb-2">
+                <span>Flask</span><span>85%</span>
+              </div>
+              <div class="w-full bg-gray-800 rounded-full h-3">
+                <div class="skill-bar-fill h-3 rounded-full" data-width="85%" style="width: 85%"></div>
+              </div>
+            </div>
+          </div>
+
+          <div id="development-panel" class="skills-panel space-y-5">
+            <div class="skill">
+              <div class="flex justify-between mb-2">
+                <span>Python</span><span>90%</span>
+              </div>
+              <div class="w-full bg-gray-800 rounded-full h-3">
+                <div class="skill-bar-fill h-3 rounded-full" data-width="90%" style="width: 90%"></div>
+              </div>
+            </div>
+
+            <div class="skill">
+              <div class="flex justify-between mb-2">
+                <span>Pandas</span><span>78%</span>
+              </div>
+              <div class="w-full bg-gray-800 rounded-full h-3">
+                <div class="skill-bar-fill h-3 rounded-full" data-width="78%" style="width: 78%"></div>
+              </div>
+            </div>
+
+            <div class="skill">
+              <div class="flex justify-between mb-2">
+                <span>NumPy</span><span>82%</span>
+              </div>
+              <div class="w-full bg-gray-800 rounded-full h-3">
+                <div class="skill-bar-fill h-3 rounded-full" data-width="82%" style="width: 82%"></div>
+              </div>
+            </div>
+
+            <div class="skill">
+              <div class="flex justify-between mb-2">
+                <span>Matplotlib / Seaborn</span><span>77%</span>
+              </div>
+              <div class="w-full bg-gray-800 rounded-full h-3">
+                <div class="skill-bar-fill h-3 rounded-full" data-width="77%" style="width: 77%"></div>
+              </div>
+            </div>
+          </div>
+
+          <div id="aiml-  panel" class="skills-panel space-y-5">
+            <div class="skill">
+              <div class="flex justify-between mb-2">
+                <span>C++</span><span>75%</span>
+              </div>
+              <div class="w-full bg-gray-800 rounded-full h-3">
+                <div class="skill-bar-fill h-3 rounded-full" data-width="75%" style="width: 75%"></div>
+              </div>
+            </div>
+
+            <div class="skill">
+              <div class="flex justify-between mb-2">
+                <span>DSA</span><span>75%</span>
+              </div>
+              <div class="w-full bg-gray-800 rounded-full h-3">
+                <div class="skill-bar-fill h-3 rounded-full" data-width="75%" style="width: 75%"></div>
+              </div>
+            </div>
+          </div>
+
+          <div id="tools-panel" class="skills-panel space-y-5">
+            <div class="skill">
+              <div class="flex justify-between mb-2">
+                <span>VS Code</span><span>90%</span>
+              </div>
+              <div class="w-full bg-gray-800 rounded-full h-3">
+                <div class="skill-bar-fill h-3 rounded-full" data-width="90%" style="width: 90%"></div>
+              </div>
+            </div>
+
+            <div class="skill">
+              <div class="flex justify-between mb-2">
+                <span>Git & GitHub</span><span>80%</span>
+              </div>
+              <div class="w-full bg-gray-800 rounded-full h-3">
+                <div class="skill-bar-fill h-3 rounded-full" data-width="80%" style="width: 80%"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="card glow-yellow">
+          <h3 class="text-2xl font-semibold text-white mb-8 flex items-center gap-3">
+            <i data-lucide="graduation-cap" class="w-6 h-6 text-yellow-400"></i>
+            Education
+          </h3>
+
+          <div class="relative border-l-2 border-gray-700 pl-8 space-y-8">
+            <div class="relative timeline-item">
+              <span class="timeline-marker absolute -left-[42px] top-2"></span>
+              <p class="text-sm text-gray-400">2023 – 2027</p>
+              <h4 class="font-bold text-lg text-white mt-1">
+                Bachelor of Technology - CSE AIML
+              </h4>
+              <p class="text-gray-400">
+                Rajiv Gandhi Proudyogiki Vishwavidyalaya, Bhopal, Madhya
+                Pradesh
+              </p>
+            </div>
+
+            <div class="relative timeline-item">
+              <span class="timeline-marker absolute -left-[42px] top-2"></span>
+              <p class="text-sm text-gray-400">2021 – 2023</p>
+              <h4 class="font-bold text-lg text-white mt-1">
+                Higher Secondary Education
+              </h4>
+              <p class="text-gray-400">
+                +2 Tapeswari Kunwar High School, Dosma, Aurangabad, Bihar
+              </p>
+            </div>
+
+            <div class="relative timeline-item">
+              <span class="timeline-marker absolute -left-[42px] top-2"></span>
+              <p class="text-sm text-gray-400">2020 – 2021</p>
+              <h4 class="font-bold text-lg text-white mt-1">
+                Secondary Education
+              </h4>
+              <p class="text-gray-400">
+                Bright Life Public School, Aurangabad, Bihar
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= CERTIFICATES ================= -->
+    <section id="certificates" class="py-20 reveal">
+      <h2 class="text-4xl font-bold text-center text-white mb-12">
+        My <span class="text-gradient">Certificates</span>
+      </h2>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div class="glass-effect rounded-xl overflow-hidden flex flex-col">
+          <img src="{{ url_for('static', filename='Images/certificate 1.png') }}" alt="Python Essentials Certificate"
+            class="w-full h-48 object-cover" />
+          <div class="p-6 flex flex-col flex-grow">
+            <h3 class="text-xl font-bold text-white mb-2">
+              Python Essentials
             </h3>
-
-            <p class="text-gray-300 mb-4 leading-relaxed">
-              I'm a passionate Python Developer focused on developing robust,
-              high-performance applications and backend systems. My interest in
-              programming started with understanding how systems work
-              internally, and today I leverage Python to design solutions that
-              are efficient, maintainable, and scalable.
+            <p class="text-gray-400 mb-4 text-sm flex-grow">
+              Complete Python programming course from basics to advanced.
             </p>
-
-            <p class="text-gray-300 mb-6 leading-relaxed">
-              I specialize in Python technologies such as Django, Flask, RESTful
-              APIs, database integration, data analysis, and machine learning
-              basics using Pandas, NumPy, and Scikit-learn. I enjoy turning
-              complex problems into clean, efficient solutions.
-            </p>
-
-            <a
-              href="#contact"
-              class="text-blue-400 font-semibold hover:underline"
-            >
-              Let's connect!
+            <a href="{{ url_for('static', filename='Images/certificate 1.png') }}" target="_blank"
+              class="inline-flex items-center text-blue-400 hover:text-blue-300 font-semibold mt-auto">
+              View Certificate
+              <i data-lucide="arrow-right" class="w-4 h-4 ml-2"></i>
             </a>
           </div>
-
-          <div class="md:w-1/3 w-full card">
-            <h3 class="text-2xl font-semibold text-white mb-4">My Skills</h3>
-
-            <div class="flex flex-wrap gap-3">
-              <span class="skill-chip">Python</span>
-              <span class="skill-chip">Flask</span>
-              <span class="skill-chip">Django</span>
-              <span class="skill-chip">REST APIs</span>
-              <span class="skill-chip">MySQL</span>
-              <span class="skill-chip">SQLite</span>
-              <span class="skill-chip">NumPy</span>
-              <span class="skill-chip">Pandas</span>
-              <span class="skill-chip">GitHub</span>
-              <span class="skill-chip">HTML</span>
-              <span class="skill-chip">CSS</span>
-              <span class="skill-chip">JavaScript</span>
-              <span class="skill-chip">C/C++</span>
-              <span class="skill-chip">AI/ML</span>
-              <span class="skill-chip">OpenCV</span>
-            </div>
-          </div>
         </div>
-      </section>
 
-      <!-- ================= QUALIFICATIONS ================= -->
-      <section id="qualifications" class="py-20 reveal">
-        <h2 class="text-4xl font-bold text-center text-white mb-16">
-          Skills & <span class="text-gradient">Education</span>
-        </h2>
-
-        <div class="grid grid-cols-1 lg:grid-cols-2 gap-12">
-          <div class="card">
-            <div class="tabs-container">
-              <button class="tab-button active" data-tab="backend">
-                Full Stack
-              </button>
-              <button class="tab-button" data-tab="development">
-                Python Dev
-              </button>
-              <button class="tab-button" data-tab="aiml">C / C++</button>
-              <button class="tab-button" data-tab="tools">Tools</button>
-            </div>
-
-            <div id="backend-panel" class="skills-panel active space-y-5">
-              <div class="skill">
-                <div class="flex justify-between mb-2">
-                  <span>HTML</span><span>90%</span>
-                </div>
-                <div class="w-full bg-gray-800 rounded-full h-3">
-                  <div
-                    class="skill-bar-fill h-3 rounded-full"
-                    data-width="90%"
-                    style="width: 90%"
-                  ></div>
-                </div>
-              </div>
-
-              <div class="skill">
-                <div class="flex justify-between mb-2">
-                  <span>CSS</span><span>85%</span>
-                </div>
-                <div class="w-full bg-gray-800 rounded-full h-3">
-                  <div
-                    class="skill-bar-fill h-3 rounded-full"
-                    data-width="85%"
-                    style="width: 85%"
-                  ></div>
-                </div>
-              </div>
-
-              <div class="skill">
-                <div class="flex justify-between mb-2">
-                  <span>JavaScript</span><span>80%</span>
-                </div>
-                <div class="w-full bg-gray-800 rounded-full h-3">
-                  <div
-                    class="skill-bar-fill h-3 rounded-full"
-                    data-width="80%"
-                    style="width: 80%"
-                  ></div>
-                </div>
-              </div>
-
-              <div class="skill">
-                <div class="flex justify-between mb-2">
-                  <span>Flask</span><span>85%</span>
-                </div>
-                <div class="w-full bg-gray-800 rounded-full h-3">
-                  <div
-                    class="skill-bar-fill h-3 rounded-full"
-                    data-width="85%"
-                    style="width: 85%"
-                  ></div>
-                </div>
-              </div>
-            </div>
-
-            <div id="development-panel" class="skills-panel space-y-5">
-              <div class="skill">
-                <div class="flex justify-between mb-2">
-                  <span>Python</span><span>90%</span>
-                </div>
-                <div class="w-full bg-gray-800 rounded-full h-3">
-                  <div
-                    class="skill-bar-fill h-3 rounded-full"
-                    data-width="90%"
-                    style="width: 90%"
-                  ></div>
-                </div>
-              </div>
-
-              <div class="skill">
-                <div class="flex justify-between mb-2">
-                  <span>Pandas / NumPy</span><span>78%</span>
-                </div>
-                <div class="w-full bg-gray-800 rounded-full h-3">
-                  <div
-                    class="skill-bar-fill h-3 rounded-full"
-                    data-width="78%"
-                    style="width: 78%"
-                  ></div>
-                </div>
-              </div>
-
-              <div class="skill">
-                <div class="flex justify-between mb-2">
-                  <span>REST APIs</span><span>82%</span>
-                </div>
-                <div class="w-full bg-gray-800 rounded-full h-3">
-                  <div
-                    class="skill-bar-fill h-3 rounded-full"
-                    data-width="82%"
-                    style="width: 82%"
-                  ></div>
-                </div>
-              </div>
-            </div>
-
-            <div id="aiml-panel" class="skills-panel space-y-5">
-              <div class="skill">
-                <div class="flex justify-between mb-2">
-                  <span>C / C++</span><span>75%</span>
-                </div>
-                <div class="w-full bg-gray-800 rounded-full h-3">
-                  <div
-                    class="skill-bar-fill h-3 rounded-full"
-                    data-width="75%"
-                    style="width: 75%"
-                  ></div>
-                </div>
-              </div>
-
-              <div class="skill">
-                <div class="flex justify-between mb-2">
-                  <span>DSA</span><span>70%</span>
-                </div>
-                <div class="w-full bg-gray-800 rounded-full h-3">
-                  <div
-                    class="skill-bar-fill h-3 rounded-full"
-                    data-width="70%"
-                    style="width: 70%"
-                  ></div>
-                </div>
-              </div>
-            </div>
-
-            <div id="tools-panel" class="skills-panel space-y-5">
-              <div class="skill">
-                <div class="flex justify-between mb-2">
-                  <span>VS Code</span><span>90%</span>
-                </div>
-                <div class="w-full bg-gray-800 rounded-full h-3">
-                  <div
-                    class="skill-bar-fill h-3 rounded-full"
-                    data-width="90%"
-                    style="width: 90%"
-                  ></div>
-                </div>
-              </div>
-
-              <div class="skill">
-                <div class="flex justify-between mb-2">
-                  <span>Git & GitHub</span><span>80%</span>
-                </div>
-                <div class="w-full bg-gray-800 rounded-full h-3">
-                  <div
-                    class="skill-bar-fill h-3 rounded-full"
-                    data-width="80%"
-                    style="width: 80%"
-                  ></div>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <div class="card glow-yellow">
-            <h3
-              class="text-2xl font-semibold text-white mb-8 flex items-center gap-3"
-            >
-              <i
-                data-lucide="graduation-cap"
-                class="w-6 h-6 text-yellow-400"
-              ></i>
-              Education
+        <div class="glass-effect rounded-xl overflow-hidden flex flex-col">
+          <img src="{{ url_for('static', filename='Images/certificate2.png') }}" alt="Modern AI Certificate"
+            class="w-full h-48 object-cover" />
+          <div class="p-6 flex flex-col flex-grow">
+            <h3 class="text-xl font-bold text-white mb-2">
+              Introduction to Modern AI
             </h3>
-
-            <div class="relative border-l-2 border-gray-700 pl-8 space-y-8">
-              <div class="relative timeline-item">
-                <span
-                  class="timeline-marker absolute -left-[42px] top-2"
-                ></span>
-                <p class="text-sm text-gray-400">2023 – 2027</p>
-                <h4 class="font-bold text-lg text-white mt-1">
-                  Bachelor of Technology - CSE AIML
-                </h4>
-                <p class="text-gray-400">
-                  Rajiv Gandhi Proudyogiki Vishwavidyalaya, Bhopal, Madhya
-                  Pradesh
-                </p>
-              </div>
-
-              <div class="relative timeline-item">
-                <span
-                  class="timeline-marker absolute -left-[42px] top-2"
-                ></span>
-                <p class="text-sm text-gray-400">2021 – 2023</p>
-                <h4 class="font-bold text-lg text-white mt-1">
-                  Higher Secondary Education
-                </h4>
-                <p class="text-gray-400">
-                  +2 Tapeswari Kunwar High School, Dosma, Aurangabad, Bihar
-                </p>
-              </div>
-
-              <div class="relative timeline-item">
-                <span
-                  class="timeline-marker absolute -left-[42px] top-2"
-                ></span>
-                <p class="text-sm text-gray-400">2020 – 2021</p>
-                <h4 class="font-bold text-lg text-white mt-1">
-                  Secondary Education
-                </h4>
-                <p class="text-gray-400">
-                  Bright Life Public School, Aurangabad, Bihar
-                </p>
-              </div>
-            </div>
+            <p class="text-gray-400 mb-4 text-sm flex-grow">
+              Basics of Artificial Intelligence and its applications.
+            </p>
+            <a href="{{ url_for('static', filename='Images/certificate2.png') }}" target="_blank"
+              class="inline-flex items-center text-blue-400 hover:text-blue-300 font-semibold mt-auto">
+              View Certificate
+              <i data-lucide="arrow-right" class="w-4 h-4 ml-2"></i>
+            </a>
           </div>
         </div>
-      </section>
 
-      <!-- ================= CERTIFICATES ================= -->
-      <section id="certificates" class="py-20 reveal">
-        <h2 class="text-4xl font-bold text-center text-white mb-12">
-          My <span class="text-gradient">Certificates</span>
-        </h2>
-
-        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          <div class="glass-effect rounded-xl overflow-hidden flex flex-col">
-            <img
-              src="{{ url_for('static', filename='Images/certificate 1.png') }}"
-              alt="Python Essentials Certificate"
-              class="w-full h-48 object-cover"
-            />
-            <div class="p-6 flex flex-col flex-grow">
-              <h3 class="text-xl font-bold text-white mb-2">
-                Python Essentials
-              </h3>
-              <p class="text-gray-400 mb-4 text-sm flex-grow">
-                Complete Python programming course from basics to advanced.
-              </p>
-              <a
-                href="{{ url_for('static', filename='Images/certificate 1.png') }}"
-                target="_blank"
-                class="inline-flex items-center text-blue-400 hover:text-blue-300 font-semibold mt-auto"
-              >
-                View Certificate
-                <i data-lucide="arrow-right" class="w-4 h-4 ml-2"></i>
-              </a>
-            </div>
-          </div>
-
-          <div class="glass-effect rounded-xl overflow-hidden flex flex-col">
-            <img
-              src="{{ url_for('static', filename='Images/certificate2.png') }}"
-              alt="Modern AI Certificate"
-              class="w-full h-48 object-cover"
-            />
-            <div class="p-6 flex flex-col flex-grow">
-              <h3 class="text-xl font-bold text-white mb-2">
-                Introduction to Modern AI
-              </h3>
-              <p class="text-gray-400 mb-4 text-sm flex-grow">
-                Basics of Artificial Intelligence and its applications.
-              </p>
-              <a
-                href="{{ url_for('static', filename='Images/certificate2.png') }}"
-                target="_blank"
-                class="inline-flex items-center text-blue-400 hover:text-blue-300 font-semibold mt-auto"
-              >
-                View Certificate
-                <i data-lucide="arrow-right" class="w-4 h-4 ml-2"></i>
-              </a>
-            </div>
-          </div>
-
-          <div class="glass-effect rounded-xl overflow-hidden flex flex-col">
-            <img
-              src="{{ url_for('static', filename='Images/certificate 3.png') }}"
-              alt="Oracle Cloud Certificate"
-              class="w-full h-48 object-cover"
-            />
-            <div class="p-6 flex flex-col flex-grow">
-              <h3 class="text-xl font-bold text-white mb-2">
-                Oracle Cloud Infrastructure AI Associate
-              </h3>
-              <p class="text-gray-400 mb-4 text-sm flex-grow">
-                Foundational knowledge of AI and ML concepts on Oracle Cloud.
-              </p>
-              <a
-                href="{{ url_for('static', filename='Images/certificate 3.png') }}"
-                target="_blank"
-                class="inline-flex items-center text-blue-400 hover:text-blue-300 font-semibold mt-auto"
-              >
-                View Certificate
-                <i data-lucide="arrow-right" class="w-4 h-4 ml-2"></i>
-              </a>
-            </div>
+        <div class="glass-effect rounded-xl overflow-hidden flex flex-col">
+          <img src="{{ url_for('static', filename='Images/certificate 3.png') }}" alt="Oracle Cloud Certificate"
+            class="w-full h-48 object-cover" />
+          <div class="p-6 flex flex-col flex-grow">
+            <h3 class="text-xl font-bold text-white mb-2">
+              Oracle Cloud Infrastructure AI Associate
+            </h3>
+            <p class="text-gray-400 mb-4 text-sm flex-grow">
+              Foundational knowledge of AI and ML concepts on Oracle Cloud.
+            </p>
+            <a href="{{ url_for('static', filename='Images/certificate 3.png') }}" target="_blank"
+              class="inline-flex items-center text-blue-400 hover:text-blue-300 font-semibold mt-auto">
+              View Certificate
+              <i data-lucide="arrow-right" class="w-4 h-4 ml-2"></i>
+            </a>
           </div>
         </div>
-      </section>
-
-      <!-- ================= PROJECTS ================= -->
-      <section id="projects" class="py-20 reveal">
-        <h2 class="text-4xl font-bold text-center text-white mb-12">
-          My <span class="text-gradient">Projects</span>
-        </h2>
-
-        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          <div
-            class="glass-effect rounded-xl overflow-hidden group flex flex-col"
-          >
-            <img
-              src="{{ url_for('static', filename='Images/project1.png') }}"
-              alt="EMP Hub Project"
-              class="w-full h-48 object-cover"
-            />
-            <div class="p-6 flex flex-col flex-grow">
-              <h3 class="text-xl font-bold text-white mb-2">
-                EMP Hub - Event Meeting Policy Hub
-              </h3>
-              <p class="text-gray-400 mb-4 text-sm flex-grow">
-                A Flask-based event management platform for creating, managing,
-                and tracking events and policies.
-              </p>
-              <div class="flex flex-wrap gap-2 mb-4">
-                <span class="project-tag">Python</span>
-                <span class="project-tag">Flask</span>
-                <span class="project-tag">HTML</span>
-                <span class="project-tag">CSS</span>
-                <span class="project-tag">JavaScript</span>
-              </div>
-              <a
-                href="#"
-                class="inline-flex items-center text-blue-400 hover:text-blue-300 font-semibold mt-auto"
-              >
-                Live Demo
-                <i data-lucide="arrow-right" class="w-4 h-4 ml-2"></i>
-              </a>
-            </div>
-          </div>
-
-          <div
-            class="glass-effect rounded-xl overflow-hidden group flex flex-col"
-          >
-            <img
-              src="{{ url_for('static', filename='Images/project 2.png') }}"
-              alt="Spend Smart Project"
-              class="w-full h-48 object-cover"
-            />
-            <div class="p-6 flex flex-col flex-grow">
-              <h3 class="text-xl font-bold text-white mb-2">Spend Smart</h3>
-              <p class="text-gray-400 mb-4 text-sm flex-grow">
-                A MERN stack expense management web app that tracks income,
-                expenses, and financial records.
-              </p>
-              <div class="flex flex-wrap gap-2 mb-4">
-                <span class="project-tag">React.js</span>
-                <span class="project-tag">Node.js</span>
-                <span class="project-tag">Express.js</span>
-                <span class="project-tag">MongoDB</span>
-                <span class="project-tag">Tailwind</span>
-              </div>
-              <a
-                href="https://spend-smart-tawny-xi.vercel.app/"
-                target="_blank"
-                rel="noopener noreferrer"
-                class="inline-flex items-center text-blue-400 hover:text-blue-300 font-semibold mt-auto"
-              >
-                Live Demo
-                <i data-lucide="arrow-right" class="w-4 h-4 ml-2"></i>
-              </a>
-            </div>
-          </div>
-
-          <div
-            class="glass-effect rounded-xl overflow-hidden group flex flex-col"
-          >
-            <img
-              src="{{ url_for('static', filename='Images/ps.png') }}"
-              alt="Portfolio Website"
-              class="w-full h-48 object-cover"
-            />
-            <div class="p-6 flex flex-col flex-grow">
-              <h3 class="text-xl font-bold text-white mb-2">
-                My Portfolio Website
-              </h3>
-              <p class="text-gray-400 mb-4 text-sm flex-grow">
-                Responsive personal portfolio website using HTML, CSS,
-                JavaScript, Flask, animations, and glassmorphism UI.
-              </p>
-              <div class="flex flex-wrap gap-2 mb-4">
-                <span class="project-tag">HTML</span>
-                <span class="project-tag">CSS</span>
-                <span class="project-tag">JavaScript</span>
-                <span class="project-tag">Flask</span>
-              </div>
-              <a
-                href="#home"
-                class="inline-flex items-center text-blue-400 hover:text-blue-300 font-semibold mt-auto"
-              >
-                View Project
-                <i data-lucide="arrow-right" class="w-4 h-4 ml-2"></i>
-              </a>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <!-- ================= CONTACT ================= -->
-      <section id="contact" class="py-20 reveal">
-        <h2 class="text-4xl font-bold text-center text-white mb-4">
-          Connect with <span class="text-gradient">Me</span>
-        </h2>
-
-        <p class="text-center text-gray-400 mb-12 max-w-2xl mx-auto">
-          Have a project idea, question, collaboration opportunity, or just want
-          to say hello? Fill out the form and I will get back to you.
-        </p>
-
-        <div class="max-w-xl mx-auto card">
-          <form action="https://api.web3forms.com/submit" method="POST">
-            <input
-              type="hidden"
-              name="access_key"
-              value="f301e758-67e6-46d1-b89a-b17283f96420"
-            />
-
-            <div class="mb-4">
-              <label class="block text-gray-300 mb-2">Your Name</label>
-              <input
-                type="text"
-                name="name"
-                required
-                placeholder="Enter your name"
-              />
-            </div>
-
-            <div class="mb-4">
-              <label class="block text-gray-300 mb-2">Email</label>
-              <input
-                type="email"
-                name="email"
-                required
-                placeholder="example@gmail.com"
-              />
-            </div>
-
-            <div class="mb-4">
-              <label class="block text-gray-300 mb-2">Message</label>
-              <textarea
-                name="message"
-                required
-                rows="5"
-                placeholder="Write your message here..."
-              ></textarea>
-            </div>
-
-            <button type="submit" class="btn-primary w-full">
-              Send Message
-              <i data-lucide="send" class="w-5 h-5"></i>
-            </button>
-          </form>
-        </div>
-      </section>
-    </main>
-
-    <!-- ================= FOOTER ================= -->
-    <footer class="border-t border-gray-800 mt-20 relative z-10">
-      <div class="container mx-auto px-4 py-8 text-center text-gray-400">
-        <div class="flex justify-center items-center gap-5 mb-4">
-          <a
-            href="https://github.com/Prince-singh001"
-            target="_blank"
-            rel="noopener noreferrer"
-            title="GitHub"
-            class="footer-social-icon"
-          >
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              viewBox="0 0 24 24"
-              fill="currentColor"
-              class="w-6 h-6"
-            >
-              <path
-                d="M12 0C5.37 0 0 5.37 0 12a12 12 0 0 0 8.2 11.39c.6.11.82-.26.82-.58v-2.02c-3.34.73-4.04-1.42-4.04-1.42-.55-1.38-1.33-1.75-1.33-1.75-1.08-.74.08-.73.08-.73 1.2.08 1.83 1.22 1.83 1.22 1.06 1.82 2.79 1.3 3.47.99.11-.77.42-1.3.76-1.6-2.67-.31-5.47-1.33-5.47-5.9 0-1.3.47-2.37 1.22-3.2-.12-.3-.53-1.56.12-3.24 0 0 1-.32 3.3 1.22a11.5 11.5 0 0 1 6 0c2.3-1.54 3.3-1.22 3.3-1.22.65 1.68.24 2.94.12 3.24.76.83 1.22 1.9 1.22 3.2 0 4.58-2.8 5.58-5.48 5.89.43.38.82 1.1.82 2.23v3.3c0 .32.21.7.83.58A12 12 0 0 0 24 12c0-6.63-5.37-12-12-12Z"
-              />
-            </svg>
-          </a>
-
-          <a
-            href="https://www.linkedin.com/in/prince-singh05/"
-            target="_blank"
-            rel="noopener noreferrer"
-            title="LinkedIn"
-            class="footer-social-icon hover-blue"
-          >
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              viewBox="0 0 24 24"
-              fill="currentColor"
-              class="w-6 h-6"
-            >
-              <path
-                d="M20.45 20.45H16.9v-5.57c0-1.33-.03-3.04-1.85-3.04-1.85 0-2.13 1.45-2.13 2.95v5.66H9.37V9h3.4v1.56h.05c.47-.9 1.63-1.85 3.35-1.85 3.58 0 4.24 2.36 4.24 5.43v6.31ZM5.34 7.43a2.06 2.06 0 1 1 0-4.12 2.06 2.06 0 0 1 0 4.12ZM7.11 20.45H3.56V9h3.55v11.45ZM22.23 0H1.77A1.77 1.77 0 0 0 0 1.77v20.46C0 23.2.8 24 1.77 24h20.46A1.77 1.77 0 0 0 24 22.23V1.77A1.77 1.77 0 0 0 22.23 0Z"
-              />
-            </svg>
-          </a>
-
-          <a
-            href="https://wa.me/919661261973"
-            target="_blank"
-            rel="noopener noreferrer"
-            title="WhatsApp"
-            class="footer-social-icon hover-green"
-          >
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              viewBox="0 0 24 24"
-              fill="currentColor"
-              class="w-6 h-6"
-            >
-              <path
-                d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"
-              />
-            </svg>
-          </a>
-        </div>
-
-        <p class="text-sm text-gray-300">
-          © 2026 Prince Singh. All Rights Reserved.
-        </p>
       </div>
-    </footer>
+    </section>
 
-    <button
-      id="backToTop"
-      type="button"
-      class="fixed right-5 bottom-5 z-50 w-12 h-12 rounded-full bg-blue-600 text-white flex items-center justify-center shadow-xl hover:bg-purple-600 transition-all"
-      aria-label="Back to top"
-    >
-      <i data-lucide="arrow-up" class="w-5 h-5"></i>
-    </button>
+    <!-- ================= PROJECTS ================= -->
+    <section id="projects" class="py-20 reveal">
+      <h2 class="text-4xl font-bold text-center text-white mb-12">
+        My <span class="text-gradient">Projects</span>
+      </h2>
 
-    <script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.12"></script>
-    <script src="{{ url_for('static', filename='js/script.js') }}"></script>
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div class="glass-effect rounded-xl overflow-hidden group flex flex-col">
+          <img src="{{ url_for('static', filename='Images/foodscan.png') }}" alt="FoodScan Project"
+            class="w-full h-48 object-cover transition-transform duration-500 group-hover:scale-105" />
+          <div class="p-6 flex flex-col flex-grow">
+            <h3 class="text-xl font-bold text-white mb-2 group-hover:text-blue-400 transition-colors">
+              FoodScan - Food Classifier
+            </h3>
+            <p class="text-gray-400 mb-4 text-sm flex-grow">
+              An intelligent food recognition system utilizing a MobileNet CNN architecture trained on a custom food
+              dataset to classify food items and estimate their nutritional values.
+            </p>
+            <div class="flex flex-wrap gap-2 mb-4">
+              <span class="project-tag">Python</span>
+              <span class="project-tag">MobileNet CNN</span>
+              <span class="project-tag">TensorFlow</span>
+              <span class="project-tag">Keras</span>
+              <span class="project-tag">OpenCV</span>
+            </div>
+            <a href="https://github.com/Prince-singh001" target="_blank" rel="noopener noreferrer"
+              class="inline-flex items-center text-blue-400 hover:text-blue-300 font-semibold mt-auto">
+              GitHub Repository
+              <i data-lucide="arrow-right" class="w-4 h-4 ml-2"></i>
+            </a>
+          </div>
+        </div>
 
-    <script>
-      if (window.lucide) {
-        lucide.createIcons();
-      }
-    </script>
-  </body>
+        <div class="glass-effect rounded-xl overflow-hidden group flex flex-col">
+          <img src="{{ url_for('static', filename='Images/project 2.png') }}" alt="Spend Smart Project"
+            class="w-full h-48 object-cover" />
+          <div class="p-6 flex flex-col flex-grow">
+            <h3 class="text-xl font-bold text-white mb-2">Spend Smart</h3>
+            <p class="text-gray-400 mb-4 text-sm flex-grow">
+              A MERN stack expense management web app that tracks income,
+              expenses, and financial records.
+            </p>
+            <div class="flex flex-wrap gap-2 mb-4">
+              <span class="project-tag">React.js</span>
+              <span class="project-tag">Node.js</span>
+              <span class="project-tag">Express.js</span>
+              <span class="project-tag">MongoDB</span>
+              <span class="project-tag">Tailwind</span>
+            </div>
+            <a href="https://spend-smart-tawny-xi.vercel.app/" target="_blank" rel="noopener noreferrer"
+              class="inline-flex items-center text-blue-400 hover:text-blue-300 font-semibold mt-auto">
+              Live Demo
+              <i data-lucide="arrow-right" class="w-4 h-4 ml-2"></i>
+            </a>
+          </div>
+        </div>
+
+        <div class="glass-effect rounded-xl overflow-hidden group flex flex-col">
+          <img src="{{ url_for('static', filename='Images/ai_gesture.png') }}" alt="AI Hand Gesture Controller"
+            class="w-full h-48 object-cover transition-transform duration-500 group-hover:scale-105" />
+          <div class="p-6 flex flex-col flex-grow">
+            <h3 class="text-xl font-bold text-white mb-2 group-hover:text-blue-400 transition-colors">
+              AI Hand Gesture Controller
+            </h3>
+            <p class="text-gray-400 mb-4 text-sm flex-grow">
+              A computer vision application using MediaPipe and OpenCV to track hand movements in real-time, mapping
+              gestures to system controls for a touchless UI.
+            </p>
+            <div class="flex flex-wrap gap-2 mb-4">
+              <span class="project-tag">Python</span>
+              <span class="project-tag">OpenCV</span>
+              <span class="project-tag">MediaPipe</span>
+              <span class="project-tag">NumPy</span>
+              <span class="project-tag">PyAutoGUI</span>
+            </div>
+            <a href="https://github.com/Prince-singh001" target="_blank" rel="noopener noreferrer"
+              class="inline-flex items-center text-blue-400 hover:text-blue-300 font-semibold mt-auto">
+              GitHub Repository
+              <i data-lucide="arrow-right" class="w-4 h-4 ml-2"></i>
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= CONTACT ================= -->
+    <section id="contact" class="py-20 reveal">
+      <h2 class="text-4xl font-bold text-center text-white mb-4">
+        Connect with <span class="text-gradient">Me</span>
+      </h2>
+
+      <p class="text-center text-gray-400 mb-12 max-w-2xl mx-auto">
+        Have a project idea, question, collaboration opportunity, or just want
+        to say hello? Fill out the form and I will get back to you.
+      </p>
+
+      <div class="max-w-xl mx-auto card">
+        <form action="https://api.web3forms.com/submit" method="POST">
+          <input type="hidden" name="access_key" value="f301e758-67e6-46d1-b89a-b17283f96420" />
+
+          <div class="mb-4">
+            <label class="block text-gray-300 mb-2">Your Name</label>
+            <input type="text" name="name" required placeholder="Enter your name" />
+          </div>
+
+          <div class="mb-4">
+            <label class="block text-gray-300 mb-2">Email</label>
+            <input type="email" name="email" required placeholder="example@gmail.com" />
+          </div>
+
+          <div class="mb-4">
+            <label class="block text-gray-300 mb-2">Message</label>
+            <textarea name="message" required rows="5" placeholder="Write your message here..."></textarea>
+          </div>
+
+          <button type="submit" class="btn-primary w-full">
+            Send Message
+            <i data-lucide="send" class="w-5 h-5"></i>
+          </button>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <!-- ================= FOOTER ================= -->
+  <footer class="border-t border-gray-800 mt-20 relative z-10">
+    <div class="container mx-auto px-4 py-8 text-center text-gray-400">
+      <div class="flex justify-center items-center gap-5 mb-4">
+        <a href="https://github.com/Prince-singh001" target="_blank" rel="noopener noreferrer" title="GitHub"
+          class="footer-social-icon">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="w-6 h-6">
+            <path
+              d="M12 0C5.37 0 0 5.37 0 12a12 12 0 0 0 8.2 11.39c.6.11.82-.26.82-.58v-2.02c-3.34.73-4.04-1.42-4.04-1.42-.55-1.38-1.33-1.75-1.33-1.75-1.08-.74.08-.73.08-.73 1.2.08 1.83 1.22 1.83 1.22 1.06 1.82 2.79 1.3 3.47.99.11-.77.42-1.3.76-1.6-2.67-.31-5.47-1.33-5.47-5.9 0-1.3.47-2.37 1.22-3.2-.12-.3-.53-1.56.12-3.24 0 0 1-.32 3.3 1.22a11.5 11.5 0 0 1 6 0c2.3-1.54 3.3-1.22 3.3-1.22.65 1.68.24 2.94.12 3.24.76.83 1.22 1.9 1.22 3.2 0 4.58-2.8 5.58-5.48 5.89.43.38.82 1.1.82 2.23v3.3c0 .32.21.7.83.58A12 12 0 0 0 24 12c0-6.63-5.37-12-12-12Z" />
+          </svg>
+        </a>
+
+        <a href="https://www.linkedin.com/in/prince-singh05/" target="_blank" rel="noopener noreferrer" title="LinkedIn"
+          class="footer-social-icon hover-blue">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="w-6 h-6">
+            <path
+              d="M20.45 20.45H16.9v-5.57c0-1.33-.03-3.04-1.85-3.04-1.85 0-2.13 1.45-2.13 2.95v5.66H9.37V9h3.4v1.56h.05c.47-.9 1.63-1.85 3.35-1.85 3.58 0 4.24 2.36 4.24 5.43v6.31ZM5.34 7.43a2.06 2.06 0 1 1 0-4.12 2.06 2.06 0 0 1 0 4.12ZM7.11 20.45H3.56V9h3.55v11.45ZM22.23 0H1.77A1.77 1.77 0 0 0 0 1.77v20.46C0 23.2.8 24 1.77 24h20.46A1.77 1.77 0 0 0 24 22.23V1.77A1.77 1.77 0 0 0 22.23 0Z" />
+          </svg>
+        </a>
+
+        <a href="https://wa.me/919661261973" target="_blank" rel="noopener noreferrer" title="WhatsApp"
+          class="footer-social-icon hover-green">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="w-6 h-6">
+            <path
+              d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z" />
+          </svg>
+        </a>
+      </div>
+
+      <p class="text-sm text-gray-300">
+        © 2026 Prince Singh. All Rights Reserved.
+      </p>
+    </div>
+  </footer>
+
+  <button id="backToTop" type="button"
+    class="fixed right-5 bottom-5 z-50 w-12 h-12 rounded-full bg-blue-600 text-white flex items-center justify-center shadow-xl hover:bg-purple-600 transition-all"
+    aria-label="Back to top">
+    <i data-lucide="arrow-up" class="w-5 h-5"></i>
+  </button>
+
+  <script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.12"></script>
+  <script src="{{ url_for('static', filename='js/script.js') }}"></script>
+
+  <script>
+    if (window.lucide) {
+      lucide.createIcons();
+    }
+  </script>
+</body>
+
 </html>
