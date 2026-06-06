@@ -460,115 +460,111 @@
       </h2>
 
       <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-        <div class="glass-effect rounded-xl overflow-hidden group flex flex-col reveal">
-          <img src="{{ url_for('static', filename='Images/certificate 1.png') }}" alt="Python Essentials Certificate"
-            class="w-full h-48 object-cover transition-transform duration-500 group-hover:scale-105" />
-          <div class="p-6 flex flex-col flex-grow">
-            <h3 class="text-xl font-bold text-white mb-2">
+        <div class="cert-card glass-effect reveal group">
+          <img src="{{ url_for('static', filename='Images/certificate 1.png') }}" alt="Python Essentials Certificate" />
+          <div class="cert-card-overlay">
+            <h3 class="cert-card-title">
               Python Essentials
             </h3>
-            <p class="text-gray-400 mb-4 text-sm flex-grow">
-              Complete Python programming course from basics to advanced.
-            </p>
-            <a href="{{ url_for('static', filename='Images/certificate 1.png') }}" target="_blank"
-              class="inline-flex items-center text-blue-400 hover:text-blue-300 font-semibold mt-auto">
-              View Certificate
-              <i data-lucide="arrow-right" class="w-4 h-4 ml-2"></i>
-            </a>
+            <div class="cert-card-details">
+              <p class="cert-card-desc">
+                Complete Python programming course from basics to advanced.
+              </p>
+              <a href="{{ url_for('static', filename='Images/certificate 1.png') }}" target="_blank" class="cert-card-link">
+                View Certificate
+                <i data-lucide="arrow-right" class="w-4 h-4 ml-2"></i>
+              </a>
+            </div>
           </div>
         </div>
 
-        <div class="glass-effect rounded-xl overflow-hidden group flex flex-col reveal">
-          <img src="{{ url_for('static', filename='Images/certificate2.png') }}" alt="Modern AI Certificate"
-            class="w-full h-48 object-cover transition-transform duration-500 group-hover:scale-105" />
-          <div class="p-6 flex flex-col flex-grow">
-            <h3 class="text-xl font-bold text-white mb-2">
+        <div class="cert-card glass-effect reveal group">
+          <img src="{{ url_for('static', filename='Images/certificate2.png') }}" alt="Modern AI Certificate" />
+          <div class="cert-card-overlay">
+            <h3 class="cert-card-title">
               Introduction to Modern AI
             </h3>
-            <p class="text-gray-400 mb-4 text-sm flex-grow">
-              Basics of Artificial Intelligence and its applications.
-            </p>
-            <a href="{{ url_for('static', filename='Images/certificate2.png') }}" target="_blank"
-              class="inline-flex items-center text-blue-400 hover:text-blue-300 font-semibold mt-auto">
-              View Certificate
-              <i data-lucide="arrow-right" class="w-4 h-4 ml-2"></i>
-            </a>
+            <div class="cert-card-details">
+              <p class="cert-card-desc">
+                Basics of Artificial Intelligence and its applications.
+              </p>
+              <a href="{{ url_for('static', filename='Images/certificate2.png') }}" target="_blank" class="cert-card-link">
+                View Certificate
+                <i data-lucide="arrow-right" class="w-4 h-4 ml-2"></i>
+              </a>
+            </div>
           </div>
         </div>
 
-        <div class="glass-effect rounded-xl overflow-hidden group flex flex-col reveal">
-          <img src="{{ url_for('static', filename='Images/certificate 3.png') }}" alt="Oracle Cloud Certificate"
-            class="w-full h-48 object-cover transition-transform duration-500 group-hover:scale-105" />
-          <div class="p-6 flex flex-col flex-grow">
-            <h3 class="text-xl font-bold text-white mb-2">
+        <div class="cert-card glass-effect reveal group">
+          <img src="{{ url_for('static', filename='Images/certificate 3.png') }}" alt="Oracle Cloud Certificate" />
+          <div class="cert-card-overlay">
+            <h3 class="cert-card-title">
               Oracle Cloud Infrastructure AI Associate
             </h3>
-            <p class="text-gray-400 mb-4 text-sm flex-grow">
-              Foundational knowledge of AI and ML concepts on Oracle Cloud.
-            </p>
-            <a href="{{ url_for('static', filename='Images/certificate 3.png') }}" target="_blank"
-              class="inline-flex items-center text-blue-400 hover:text-blue-300 font-semibold mt-auto">
-              View Certificate
-              <i data-lucide="arrow-right" class="w-4 h-4 ml-2"></i>
-            </a>
+            <div class="cert-card-details">
+              <p class="cert-card-desc">
+                Foundational knowledge of AI and ML concepts on Oracle Cloud.
+              </p>
+              <a href="{{ url_for('static', filename='Images/certificate 3.png') }}" target="_blank" class="cert-card-link">
+                View Certificate
+                <i data-lucide="arrow-right" class="w-4 h-4 ml-2"></i>
+              </a>
+            </div>
           </div>
         </div>
 
-        <div class="glass-effect rounded-xl overflow-hidden group flex flex-col reveal">
-          <img src="{{ url_for('static', filename='Images/certificate 4.png') }}"
-            alt="Deloitte Technology Job Simulation Certificate"
-            class="w-full h-48 object-cover transition-transform duration-500 group-hover:scale-105" />
-          <div class="p-6 flex flex-col flex-grow">
-            <h3 class="text-xl font-bold text-white mb-2">
+        <div class="cert-card glass-effect reveal group">
+          <img src="{{ url_for('static', filename='Images/certificate 4.png') }}" alt="Deloitte Technology Job Simulation Certificate" />
+          <div class="cert-card-overlay">
+            <h3 class="cert-card-title">
               Deloitte Technology Job Simulation
             </h3>
-            <p class="text-gray-400 mb-4 text-sm flex-grow">
-              Completed practical tasks in coding and software development as part of the Deloitte Technology Job
-              Simulation.
-            </p>
-            <a href="{{ url_for('static', filename='Images/certificate 4.png') }}" target="_blank"
-              class="inline-flex items-center text-blue-400 hover:text-blue-300 font-semibold mt-auto">
-              View Certificate
-              <i data-lucide="arrow-right" class="w-4 h-4 ml-2"></i>
-            </a>
+            <div class="cert-card-details">
+              <p class="cert-card-desc">
+                Completed practical tasks in coding and software development as part of the Deloitte Technology Job Simulation.
+              </p>
+              <a href="{{ url_for('static', filename='Images/certificate 4.png') }}" target="_blank" class="cert-card-link">
+                View Certificate
+                <i data-lucide="arrow-right" class="w-4 h-4 ml-2"></i>
+              </a>
+            </div>
           </div>
         </div>
 
-        <div class="glass-effect rounded-xl overflow-hidden group flex flex-col reveal">
-          <img src="{{ url_for('static', filename='Images/aws.png') }}" alt="AWS Machine Learning Basics Certificate"
-            class="w-full h-48 object-cover transition-transform duration-500 group-hover:scale-105" />
-          <div class="p-6 flex flex-col flex-grow">
-            <h3 class="text-xl font-bold text-white mb-2">
+        <div class="cert-card glass-effect reveal group">
+          <img src="{{ url_for('static', filename='Images/aws.png') }}" alt="AWS Machine Learning Basics Certificate" />
+          <div class="cert-card-overlay">
+            <h3 class="cert-card-title">
               AWS Foundations: Machine Learning Basics
             </h3>
-            <p class="text-gray-400 mb-4 text-sm flex-grow">
-              Foundational training on core machine learning concepts, algorithms, and applications on AWS.
-            </p>
-            <a href="{{ url_for('static', filename='Images/aws.pdf') }}" target="_blank"
-              class="inline-flex items-center text-blue-400 hover:text-blue-300 font-semibold mt-auto">
-              View Certificate
-              <i data-lucide="arrow-right" class="w-4 h-4 ml-2"></i>
-            </a>
+            <div class="cert-card-details">
+              <p class="cert-card-desc">
+                Foundational training on core machine learning concepts, algorithms, and applications on AWS.
+              </p>
+              <a href="{{ url_for('static', filename='Images/aws.pdf') }}" target="_blank" class="cert-card-link">
+                View Certificate
+                <i data-lucide="arrow-right" class="w-4 h-4 ml-2"></i>
+              </a>
+            </div>
           </div>
         </div>
 
-        <div class="glass-effect rounded-xl overflow-hidden group flex flex-col reveal">
-          <img src="{{ url_for('static', filename='Images/cloud_aws.png') }}"
-            alt="AWS Cloud Practitioner Essentials Certificate"
-            class="w-full h-48 object-cover transition-transform duration-500 group-hover:scale-105" />
-          <div class="p-6 flex flex-col flex-grow">
-            <h3 class="text-xl font-bold text-white mb-2">
+        <div class="cert-card glass-effect reveal group">
+          <img src="{{ url_for('static', filename='Images/cloud_aws.png') }}" alt="AWS Cloud Practitioner Essentials Certificate" />
+          <div class="cert-card-overlay">
+            <h3 class="cert-card-title">
               AWS Cloud Practitioner Essentials
             </h3>
-            <p class="text-gray-400 mb-4 text-sm flex-grow">
-              Acquired foundational knowledge of cloud concepts, security, architecture, and services on Amazon Web
-              Services.
-            </p>
-            <a href="{{ url_for('static', filename='Images/cloud_aws.png') }}" target="_blank"
-              class="inline-flex items-center text-blue-400 hover:text-blue-300 font-semibold mt-auto">
-              View Certificate
-              <i data-lucide="arrow-right" class="w-4 h-4 ml-2"></i>
-            </a>
+            <div class="cert-card-details">
+              <p class="cert-card-desc">
+                Acquired foundational knowledge of cloud concepts, security, architecture, and services on Amazon Web Services.
+              </p>
+              <a href="{{ url_for('static', filename='Images/cloud_aws.png') }}" target="_blank" class="cert-card-link">
+                View Certificate
+                <i data-lucide="arrow-right" class="w-4 h-4 ml-2"></i>
+              </a>
+            </div>
           </div>
         </div>
       </div>
