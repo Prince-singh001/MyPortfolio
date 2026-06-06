@@ -1002,6 +1002,28 @@ footer {
   }
 }
 
+/* ===============================
+   PREMIUM MICRO-ANIMATIONS & LIGHTBOX
+================================= */
+
+/* Global Link/Button SVG Arrow Shift on Hover */
+.glass-effect a svg,
+.btn-primary svg,
+.btn-outline svg {
+  transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.glass-effect:hover a svg,
+.btn-primary:hover svg,
+.btn-outline:hover svg {
+  transform: translateX(5px);
+}
+
+/* Lightbox Image Crossfade Transition */
+#lightbox-img {
+  transition: opacity 0.2s ease-in-out;
+}
+
 @media (prefers-reduced-motion: reduce) {
   *,
   *::before,

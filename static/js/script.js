@@ -595,5 +595,116 @@
         startAnimation();
       }
     });
+
+    /* ===============================
+       CERTIFICATE LIGHTBOX
+    ================================= */
+    const lightbox = document.getElementById("lightbox");
+    const lightboxImg = document.getElementById("lightbox-img");
+    const lightboxTitle = document.getElementById("lightbox-title");
+    const lightboxClose = document.getElementById("lightbox-close");
+    const lightboxPrev = document.getElementById("lightbox-prev");
+    const lightboxNext = document.getElementById("lightbox-next");
+    const lightboxContent = document.getElementById("lightbox-content");
+
+    const certificateCards = document.querySelectorAll("#certificates .glass-effect");
+    let currentCertIndex = 0;
+    const certificatesData = [];
+
+    certificateCards.forEach((card, index) => {
+      const img = card.querySelector("img");
+      const title = card.querySelector("h3");
+      const viewBtn = card.querySelector("a");
+
+      if (img && title && viewBtn) {
+        const titleText = title.textContent.trim();
+        const imgSrc = img.getAttribute("src") || viewBtn.getAttribute("href");
+        
+        certificatesData.push({
+          imgSrc: imgSrc,
+          titleText: titleText,
+        });
+
+        // Open lightbox on button click
+        viewBtn.addEventListener("click", (e) => {
+          e.preventDefault();
+          openLightbox(index);
+        });
+      }
+    });
+
+    const openLightbox = (index) => {
+      if (!lightbox || !lightboxImg || !lightboxTitle) return;
+      currentCertIndex = index;
+      updateLightboxContent();
+      
+      lightbox.classList.remove("hidden");
+      lightbox.classList.add("flex");
+      
+      requestAnimationFrame(() => {
+        lightbox.classList.remove("opacity-0");
+        if (lightboxContent) {
+          lightboxContent.classList.remove("scale-95");
+          lightboxContent.classList.add("scale-100");
+        }
+      });
+      document.body.style.overflow = "hidden";
+    };
+
+    const closeLightbox = () => {
+      if (!lightbox) return;
+      lightbox.classList.add("opacity-0");
+      if (lightboxContent) {
+        lightboxContent.classList.remove("scale-100");
+        lightboxContent.classList.add("scale-95");
+      }
+      
+      setTimeout(() => {
+        lightbox.classList.remove("flex");
+        lightbox.classList.add("hidden");
+        document.body.style.overflow = "";
+      }, 300);
+    };
+
+    const updateLightboxContent = () => {
+      const cert = certificatesData[currentCertIndex];
+      if (!cert || !lightboxImg || !lightboxTitle) return;
+      
+      lightboxImg.style.opacity = "0";
+      setTimeout(() => {
+        lightboxImg.setAttribute("src", cert.imgSrc);
+        lightboxTitle.textContent = cert.titleText;
+        lightboxImg.style.opacity = "1";
+      }, 150);
+    };
+
+    const nextCert = () => {
+      currentCertIndex = (currentCertIndex + 1) % certificatesData.length;
+      updateLightboxContent();
+    };
+
+    const prevCert = () => {
+      currentCertIndex = (currentCertIndex - 1 + certificatesData.length) % certificatesData.length;
+      updateLightboxContent();
+    };
+
+    if (lightbox) {
+      if (lightboxClose) lightboxClose.addEventListener("click", closeLightbox);
+      if (lightboxNext) lightboxNext.addEventListener("click", nextCert);
+      if (lightboxPrev) lightboxPrev.addEventListener("click", prevCert);
+      
+      lightbox.addEventListener("click", (e) => {
+        if (e.target === lightbox) {
+          closeLightbox();
+        }
+      });
+
+      document.addEventListener("keydown", (e) => {
+        if (lightbox.classList.contains("hidden")) return;
+        if (e.key === "Escape") closeLightbox();
+        if (e.key === "ArrowRight") nextCert();
+        if (e.key === "ArrowLeft") prevCert();
+      });
+    }
   });
 })();

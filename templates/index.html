@@ -454,13 +454,13 @@
     </section>
 
     <!-- ================= CERTIFICATES ================= -->
-    <section id="certificates" class="py-20 reveal">
+    <section id="certificates" class="py-20">
       <h2 class="text-4xl font-bold text-center text-white mb-12">
         My <span class="text-gradient">Certificates</span>
       </h2>
 
       <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-        <div class="glass-effect rounded-xl overflow-hidden group flex flex-col">
+        <div class="glass-effect rounded-xl overflow-hidden group flex flex-col reveal">
           <img src="{{ url_for('static', filename='Images/certificate 1.png') }}" alt="Python Essentials Certificate"
             class="w-full h-48 object-cover transition-transform duration-500 group-hover:scale-105" />
           <div class="p-6 flex flex-col flex-grow">
@@ -478,7 +478,7 @@
           </div>
         </div>
 
-        <div class="glass-effect rounded-xl overflow-hidden group flex flex-col">
+        <div class="glass-effect rounded-xl overflow-hidden group flex flex-col reveal">
           <img src="{{ url_for('static', filename='Images/certificate2.png') }}" alt="Modern AI Certificate"
             class="w-full h-48 object-cover transition-transform duration-500 group-hover:scale-105" />
           <div class="p-6 flex flex-col flex-grow">
@@ -496,7 +496,7 @@
           </div>
         </div>
 
-        <div class="glass-effect rounded-xl overflow-hidden group flex flex-col">
+        <div class="glass-effect rounded-xl overflow-hidden group flex flex-col reveal">
           <img src="{{ url_for('static', filename='Images/certificate 3.png') }}" alt="Oracle Cloud Certificate"
             class="w-full h-48 object-cover transition-transform duration-500 group-hover:scale-105" />
           <div class="p-6 flex flex-col flex-grow">
@@ -514,7 +514,7 @@
           </div>
         </div>
 
-        <div class="glass-effect rounded-xl overflow-hidden group flex flex-col">
+        <div class="glass-effect rounded-xl overflow-hidden group flex flex-col reveal">
           <img src="{{ url_for('static', filename='Images/certificate 4.png') }}"
             alt="Deloitte Technology Job Simulation Certificate"
             class="w-full h-48 object-cover transition-transform duration-500 group-hover:scale-105" />
@@ -534,7 +534,7 @@
           </div>
         </div>
 
-        <div class="glass-effect rounded-xl overflow-hidden group flex flex-col">
+        <div class="glass-effect rounded-xl overflow-hidden group flex flex-col reveal">
           <img src="{{ url_for('static', filename='Images/aws.png') }}" alt="AWS Machine Learning Basics Certificate"
             class="w-full h-48 object-cover transition-transform duration-500 group-hover:scale-105" />
           <div class="p-6 flex flex-col flex-grow">
@@ -552,7 +552,7 @@
           </div>
         </div>
 
-        <div class="glass-effect rounded-xl overflow-hidden group flex flex-col">
+        <div class="glass-effect rounded-xl overflow-hidden group flex flex-col reveal">
           <img src="{{ url_for('static', filename='Images/cloud_aws.png') }}"
             alt="AWS Cloud Practitioner Essentials Certificate"
             class="w-full h-48 object-cover transition-transform duration-500 group-hover:scale-105" />
@@ -575,13 +575,13 @@
     </section>
 
     <!-- ================= PROJECTS ================= -->
-    <section id="projects" class="py-20 reveal">
+    <section id="projects" class="py-20">
       <h2 class="text-4xl font-bold text-center text-white mb-12">
         My <span class="text-gradient">Projects</span>
       </h2>
 
       <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-        <div class="glass-effect rounded-xl overflow-hidden group flex flex-col">
+        <div class="glass-effect rounded-xl overflow-hidden group flex flex-col reveal">
           <img src="{{ url_for('static', filename='Images/foodscan.png') }}" alt="FoodScan Project"
             class="w-full h-48 object-cover transition-transform duration-500 group-hover:scale-105" />
           <div class="p-6 flex flex-col flex-grow">
@@ -607,7 +607,7 @@
           </div>
         </div>
 
-        <div class="glass-effect rounded-xl overflow-hidden group flex flex-col">
+        <div class="glass-effect rounded-xl overflow-hidden group flex flex-col reveal">
           <img src="{{ url_for('static', filename='Images/spend_smart.png') }}" alt="Spend Smart Project"
             class="w-full h-48 object-cover transition-transform duration-500 group-hover:scale-105" />
           <div class="p-6 flex flex-col flex-grow">
@@ -631,7 +631,7 @@
           </div>
         </div>
 
-        <div class="glass-effect rounded-xl overflow-hidden group flex flex-col">
+        <div class="glass-effect rounded-xl overflow-hidden group flex flex-col reveal">
           <img src="{{ url_for('static', filename='Images/ai_gesture.png') }}" alt="AI Hand Gesture Controller"
             class="w-full h-48 object-cover transition-transform duration-500 group-hover:scale-105" />
           <div class="p-6 flex flex-col flex-grow">
@@ -732,6 +732,26 @@
       </p>
     </div>
   </footer>
+
+  <!-- ================= LIGHTBOX MODAL ================= -->
+  <div id="lightbox" class="fixed inset-0 z-[100] hidden items-center justify-center bg-slate-950/90 backdrop-blur-md opacity-0 transition-opacity duration-300">
+    <button id="lightbox-close" class="absolute top-6 right-6 text-white/70 hover:text-white transition-colors p-2 z-[110]" aria-label="Close lightbox">
+      <i data-lucide="x" class="w-8 h-8"></i>
+    </button>
+    
+    <button id="lightbox-prev" class="absolute left-6 top-1/2 -translate-y-1/2 text-white/70 hover:text-white transition-colors p-3 bg-white/5 rounded-full hover:bg-white/10 z-[110]" aria-label="Previous certificate">
+      <i data-lucide="chevron-left" class="w-8 h-8"></i>
+    </button>
+    
+    <div class="max-w-[90vw] max-h-[80vh] flex flex-col items-center justify-center scale-95 transition-transform duration-300 z-[105]" id="lightbox-content">
+      <img id="lightbox-img" src="" alt="Certificate View" class="max-w-full max-h-[70vh] object-contain rounded-lg shadow-2xl border border-white/10" />
+      <p id="lightbox-title" class="text-white text-lg font-semibold mt-4"></p>
+    </div>
+    
+    <button id="lightbox-next" class="absolute right-6 top-1/2 -translate-y-1/2 text-white/70 hover:text-white transition-colors p-3 bg-white/5 rounded-full hover:bg-white/10 z-[110]" aria-label="Next certificate">
+      <i data-lucide="chevron-right" class="w-8 h-8"></i>
+    </button>
+  </div>
 
   <button id="backToTop" type="button"
     class="fixed right-5 bottom-5 z-50 w-12 h-12 rounded-full bg-blue-600 text-white flex items-center justify-center shadow-xl hover:bg-purple-600 transition-all"
