@@ -765,5 +765,133 @@
         if (e.key === "ArrowLeft") prevCert();
       });
     }
+
+    /* ===============================
+       3D PERSPECTIVE TILT EFFECT (Hero Profile)
+    ================================= */
+    const heroCard = document.getElementById("hero-3d-card");
+    if (heroCard) {
+      const handleTiltMove = (e) => {
+        const rect = heroCard.getBoundingClientRect();
+        const x = e.clientX - rect.left;
+        const y = e.clientY - rect.top;
+        const width = rect.width;
+        const height = rect.height;
+        
+        // Calculate degree of tilt based on cursor position relative to card center
+        const rotateX = ((height / 2 - y) / (height / 2)) * 10; // max 10 degrees tilt
+        const rotateY = ((x - width / 2) / (width / 2)) * 10;
+        
+        heroCard.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) scale3d(1.02, 1.02, 1.02)`;
+      };
+
+      const handleTiltLeave = () => {
+        heroCard.style.transform = `perspective(1000px) rotateX(0deg) rotateY(0deg) scale3d(1, 1, 1)`;
+      };
+
+      heroCard.addEventListener("mousemove", handleTiltMove, { passive: true });
+      heroCard.addEventListener("mouseleave", handleTiltLeave, { passive: true });
+    }
+
+    /* ===============================
+       PROFILE CANVAS PARTICLES
+    ================================= */
+    const profileCanvas = document.getElementById("hero-profile-particles");
+    if (profileCanvas) {
+      const pCtx = profileCanvas.getContext("2d");
+      if (pCtx) {
+        let pWidth = 0;
+        let pHeight = 0;
+        let pParticles = [];
+        let pAnimationId = null;
+
+        const resizeProfileCanvas = () => {
+          const rect = profileCanvas.parentElement.getBoundingClientRect();
+          pWidth = rect.width || 320;
+          pHeight = rect.height || 368;
+          profileCanvas.width = pWidth;
+          profileCanvas.height = pHeight;
+        };
+
+        class ProfileParticle {
+          constructor() {
+            this.reset();
+          }
+
+          reset() {
+            this.x = Math.random() * pWidth;
+            this.y = Math.random() * pHeight;
+            this.size = Math.random() * 2.2 + 0.6;
+            this.speedX = (Math.random() - 0.5) * 0.4;
+            this.speedY = (Math.random() - 0.5) * 0.4;
+            this.alpha = Math.random() * 0.45 + 0.25;
+            this.colorType = Math.floor(Math.random() * 3); // 3 different cool tones
+          }
+
+          update() {
+            this.x += this.speedX;
+            this.y += this.speedY;
+
+            // Fade and bounce at borders
+            if (this.x < 0 || this.x > pWidth) this.speedX *= -1;
+            if (this.y < 0 || this.y > pHeight) this.speedY *= -1;
+          }
+
+          draw() {
+            pCtx.beginPath();
+            pCtx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
+            
+            // Cool cyber tones: cyan, primary blue, violet (strictly NO pink)
+            let color;
+            const isLight = document.documentElement.classList.contains("light");
+            if (isLight) {
+              if (this.colorType === 0) color = `rgba(37, 99, 235, ${this.alpha})`; // primary blue
+              else if (this.colorType === 1) color = `rgba(2, 132, 199, ${this.alpha})`; // sky blue
+              else color = `rgba(124, 58, 237, ${this.alpha})`; // violet
+            } else {
+              if (this.colorType === 0) color = `rgba(56, 189, 248, ${this.alpha})`; // cyan
+              else if (this.colorType === 1) color = `rgba(96, 165, 250, ${this.alpha})`; // light blue
+              else color = `rgba(167, 139, 250, ${this.alpha})`; // purple
+            }
+            pCtx.fillStyle = color;
+            pCtx.shadowBlur = isLight ? 0 : 4;
+            pCtx.shadowColor = isLight ? "transparent" : color;
+            pCtx.fill();
+            pCtx.shadowBlur = 0; // reset
+          }
+        }
+
+        const initProfileParticles = () => {
+          pParticles = [];
+          const count = 35; // clean and performant particle count
+          for (let i = 0; i < count; i++) {
+            pParticles.push(new ProfileParticle());
+          }
+        };
+
+        const animateProfileParticles = () => {
+          pCtx.clearRect(0, 0, pWidth, pHeight);
+          
+          pParticles.forEach((p) => {
+            p.update();
+            p.draw();
+          });
+
+          pAnimationId = requestAnimationFrame(animateProfileParticles);
+        };
+
+        // Initialize and size
+        resizeProfileCanvas();
+        initProfileParticles();
+        animateProfileParticles();
+
+        // Observe resize
+        const resizeObserver = new ResizeObserver(() => {
+          resizeProfileCanvas();
+          initProfileParticles();
+        });
+        resizeObserver.observe(profileCanvas.parentElement);
+      }
+    }
   });
 })();

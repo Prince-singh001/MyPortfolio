@@ -1466,3 +1466,125 @@ html.light .timeline-item span.bg-pink-500\/10 {
   color: #be185d !important;
   border-color: rgba(219, 39, 119, 0.2) !important;
 }
+
+/* ===============================
+   PREMIUM GRADIENT BORDER EFFECTS
+================================= */
+.gradient-border-wrapper {
+  position: relative;
+  border-radius: var(--radius-lg);
+  padding: 3px; /* Border thickness */
+  background: linear-gradient(135deg, var(--cyan), var(--violet), var(--pink-dark), var(--yellow));
+  background-size: 300% 300%;
+  animation: borderGradientMove 8s ease infinite alternate;
+  box-shadow: 0 10px 30px rgba(59, 130, 246, 0.2);
+  transition: transform 0.35s ease, box-shadow 0.35s ease;
+  z-index: 1;
+}
+
+html.light .gradient-border-wrapper {
+  background: linear-gradient(135deg, #2563eb, #7c3aed, #db2777, #fa5252);
+  background-size: 300% 300%;
+  box-shadow: 0 10px 30px rgba(37, 99, 235, 0.08);
+}
+
+.gradient-border-wrapper:hover {
+  transform: translateY(-5px);
+  box-shadow: 
+    0 20px 40px rgba(59, 130, 246, 0.35),
+    0 0 24px rgba(139, 92, 246, 0.25);
+}
+
+html.light .gradient-border-wrapper:hover {
+  box-shadow: 
+    0 20px 40px rgba(37, 99, 235, 0.15),
+    0 0 24px rgba(124, 58, 237, 0.12);
+}
+
+@keyframes borderGradientMove {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+/* ===============================
+   PINK-FREE & 3D INTERACTIVE TILT PROFILE
+================================= */
+
+/* Pink-free variant of gradient border wrapper */
+.gradient-border-wrapper.no-pink {
+  background: linear-gradient(135deg, var(--cyan), var(--primary), var(--violet), var(--green));
+  background-size: 300% 300%;
+}
+
+html.light .gradient-border-wrapper.no-pink {
+  background: linear-gradient(135deg, #2563eb, #3b82f6, #7c3aed, #10b981);
+  background-size: 300% 300%;
+}
+
+/* Background overrides for profile card components */
+.gradient-border-wrapper.no-pink .hero-image-container {
+  background: rgba(15, 23, 42, 0.82);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  border-radius: 30px;
+  animation: none; /* Disable static vertical float to prioritize interactive 3D mouse tilt */
+}
+
+html.light .gradient-border-wrapper.no-pink .hero-image-container {
+  background: rgba(241, 245, 249, 0.82);
+}
+
+/* Remove pink glow in hero container ::before */
+.gradient-border-wrapper.no-pink .hero-image-container::before {
+  background: linear-gradient(135deg, var(--cyan), var(--primary), var(--violet));
+}
+
+html.light .gradient-border-wrapper.no-pink .hero-image-container::before {
+  background: linear-gradient(135deg, #2563eb, #3b82f6, #7c3aed);
+}
+
+/* Remove pink color from shadow drop glow ::after */
+.gradient-border-wrapper.no-pink .hero-image-container::after {
+  background: linear-gradient(
+    to right,
+    transparent,
+    rgba(96, 165, 250, 0.6),
+    rgba(139, 92, 246, 0.35),
+    transparent
+  );
+}
+
+html.light .gradient-border-wrapper.no-pink .hero-image-container::after {
+  background: linear-gradient(
+    to right,
+    transparent,
+    rgba(37, 99, 235, 0.5),
+    rgba(124, 58, 237, 0.25),
+    transparent
+  );
+}
+
+/* Canvas styling for profile particles */
+#hero-profile-particles {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1; /* sitting behind img which has relative z-10 */
+  pointer-events: none;
+  border-radius: 30px;
+}
+
+/* Style for interactive 3D container */
+#hero-3d-card {
+  transform-style: preserve-3d;
+  will-change: transform;
+}
+
