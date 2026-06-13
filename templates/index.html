@@ -7,6 +7,19 @@
   <title>Prince Singh | Portfolio</title>
 
   <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+    }
+    const savedTheme = localStorage.getItem('theme');
+    if (savedTheme === 'light') {
+      document.documentElement.classList.add('light');
+      document.documentElement.classList.remove('dark');
+    } else {
+      document.documentElement.classList.add('dark');
+      document.documentElement.classList.remove('light');
+    }
+  </script>
 
   <script src="https://unpkg.com/lucide@latest"></script>
 
@@ -24,7 +37,7 @@
       <nav class="flex justify-between items-center py-4">
         <a href="#home" class="text-2xl font-bold text-blue-400"> P.S </a>
 
-        <div class="hidden md:flex items-center space-x-8 text-gray-300">
+        <div class="hidden md:flex items-center space-x-8 text-slate-600 dark:text-gray-300">
           <a href="#home" class="hover:text-blue-400 transition-colors">Home</a>
           <a href="#about" class="hover:text-blue-400 transition-colors">About</a>
           <a href="#qualifications" class="hover:text-blue-400 transition-colors">
@@ -41,12 +54,21 @@
           </a>
         </div>
 
-        <a href="#contact"
-          class="hidden md:inline-block bg-blue-600 hover:bg-blue-700 text-white font-medium py-2 px-5 rounded-lg transition-transform duration-300 hover:scale-105">
-          Hire Me
-        </a>
+        <div class="hidden md:flex items-center gap-4">
+          <button id="theme-toggle" type="button"
+            class="text-slate-600 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 transition-colors p-2 rounded-lg"
+            aria-label="Toggle theme">
+            <i id="theme-toggle-icon" data-lucide="moon" class="w-5 h-5"></i>
+          </button>
 
-        <button id="mobile-menu-button" type="button" class="md:hidden text-white" aria-label="Toggle mobile menu">
+          <a href="#contact"
+            class="bg-blue-600 hover:bg-blue-700 text-white font-medium py-2 px-5 rounded-lg transition-transform duration-300 hover:scale-105">
+            Hire Me
+          </a>
+        </div>
+
+        <button id="mobile-menu-button" type="button" class="md:hidden text-slate-800 dark:text-white"
+          aria-label="Toggle mobile menu">
           <i data-lucide="menu"></i>
         </button>
       </nav>
@@ -54,26 +76,40 @@
   </header>
 
   <!-- ================= MOBILE MENU ================= -->
-  <div id="mobile-menu" class="hidden md:hidden fixed top-0 left-0 w-full h-full bg-gray-950/95 backdrop-blur-md z-40">
+  <div id="mobile-menu"
+    class="hidden md:hidden fixed top-0 left-0 w-full h-full bg-white/95 dark:bg-gray-950/95 backdrop-blur-md z-40">
     <div class="flex flex-col items-center justify-center h-full space-y-8">
-      <a href="#home" class="mobile-link text-2xl text-gray-300 hover:text-blue-400">
+      <a href="#home"
+        class="mobile-link text-2xl text-slate-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400">
         Home
       </a>
-      <a href="#about" class="mobile-link text-2xl text-gray-300 hover:text-blue-400">
+      <a href="#about"
+        class="mobile-link text-2xl text-slate-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400">
         About
       </a>
-      <a href="#qualifications" class="mobile-link text-2xl text-gray-300 hover:text-blue-400">
+      <a href="#qualifications"
+        class="mobile-link text-2xl text-slate-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400">
         Qualifications
       </a>
-      <a href="#certificates" class="mobile-link text-2xl text-gray-300 hover:text-blue-400">
+      <a href="#certificates"
+        class="mobile-link text-2xl text-slate-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400">
         Certificates
       </a>
-      <a href="#projects" class="mobile-link text-2xl text-gray-300 hover:text-blue-400">
+      <a href="#projects"
+        class="mobile-link text-2xl text-slate-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400">
         Projects
       </a>
-      <a href="#contact" class="mobile-link text-2xl text-gray-300 hover:text-blue-400">
+      <a href="#contact"
+        class="mobile-link text-2xl text-slate-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400">
         Contact Me
       </a>
+
+      <button id="mobile-theme-toggle" type="button"
+        class="flex items-center gap-2 text-2xl text-slate-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 py-2 border-t border-slate-200 dark:border-white/10 w-48 justify-center mt-4"
+        aria-label="Toggle theme">
+        <i id="mobile-theme-toggle-icon" data-lucide="moon" class="w-6 h-6"></i>
+        <span id="mobile-theme-toggle-text">Dark Mode</span>
+      </button>
     </div>
   </div>
 
@@ -185,14 +221,15 @@
           </h3>
 
           <p class="text-gray-300 mb-4 leading-relaxed">
-            I'm a CSE AIML student and developer focused on building intelligent algorithms, predictive models, and
+            I'm a Computer Science Engineering with specialize with Artificial Intelligence and Machine Learning student
+            and developer focused on building intelligent algorithms, predictive models, and
             robust full-stack systems. With a strong foundation in computer science, I specialize in combining software
             engineering best practices with state-of-the-art machine learning concepts.
           </p>
 
           <p class="text-gray-300 mb-6 leading-relaxed">
             My technical expertise spans Python, C++, Deep Learning, Computer Vision, and full-stack web technologies
-            like Flask and React. I enjoy converting complex data into actionable insights and designing end-to-end
+            like Flask | Django . I enjoy converting complex data into actionable insights and designing end-to-end
             intelligent applications.
           </p>
 
@@ -604,9 +641,9 @@
               <span class="project-tag">Keras</span>
               <span class="project-tag">OpenCV</span>
             </div>
-            <a href="https://github.com/Prince-singh001" target="_blank" rel="noopener noreferrer"
+            <a href="https://www.safebite-sno8.onrender.com" target="_blank" rel="noopener noreferrer"
               class="inline-flex items-center text-blue-400 hover:text-blue-300 font-semibold mt-auto">
-              GitHub Repository
+              Visit Site
               <i data-lucide="arrow-right" class="w-4 h-4 ml-2"></i>
             </a>
           </div>

@@ -27,6 +27,54 @@
     const resumeBtn = document.getElementById("resumeBtn");
     const resumeMenu = document.getElementById("resumeMenu");
 
+    const themeToggleBtn = document.getElementById("theme-toggle");
+    const themeToggleIcon = document.getElementById("theme-toggle-icon");
+    const mobileThemeToggleBtn = document.getElementById("mobile-theme-toggle");
+    const mobileThemeToggleIcon = document.getElementById("mobile-theme-toggle-icon");
+    const mobileThemeToggleText = document.getElementById("mobile-theme-toggle-text");
+
+    const updateThemeUI = (theme) => {
+      if (!themeToggleIcon || !mobileThemeToggleIcon || !mobileThemeToggleText) return;
+      if (theme === 'light') {
+        themeToggleIcon.setAttribute('data-lucide', 'sun');
+        mobileThemeToggleIcon.setAttribute('data-lucide', 'sun');
+        mobileThemeToggleText.textContent = 'Light Mode';
+      } else {
+        themeToggleIcon.setAttribute('data-lucide', 'moon');
+        mobileThemeToggleIcon.setAttribute('data-lucide', 'moon');
+        mobileThemeToggleText.textContent = 'Dark Mode';
+      }
+      if (window.lucide && typeof window.lucide.createIcons === 'function') {
+        window.lucide.createIcons();
+      }
+    };
+
+    const toggleTheme = () => {
+      const currentTheme = document.documentElement.classList.contains('light') ? 'light' : 'dark';
+      const newTheme = currentTheme === 'light' ? 'dark' : 'light';
+      
+      if (newTheme === 'light') {
+        document.documentElement.classList.add('light');
+        document.documentElement.classList.remove('dark');
+        localStorage.setItem('theme', 'light');
+      } else {
+        document.documentElement.classList.add('dark');
+        document.documentElement.classList.remove('light');
+        localStorage.setItem('theme', 'dark');
+      }
+      updateThemeUI(newTheme);
+    };
+
+    const initialTheme = document.documentElement.classList.contains('light') ? 'light' : 'dark';
+    updateThemeUI(initialTheme);
+
+    if (themeToggleBtn) {
+      themeToggleBtn.addEventListener('click', toggleTheme);
+    }
+    if (mobileThemeToggleBtn) {
+      mobileThemeToggleBtn.addEventListener('click', toggleTheme);
+    }
+
     let handleCanvasResize = null;
 
 
@@ -462,7 +510,9 @@
 
         ctx.beginPath();
         ctx.arc(this.x, this.y, this.size + glow * 1.7, 0, Math.PI * 2);
-        ctx.fillStyle = `rgba(125, 211, 252, ${this.alpha + glow * 0.55})`;
+        const isLight = document.documentElement.classList.contains('light');
+        const colorVal = isLight ? '59, 130, 246' : '125, 211, 252';
+        ctx.fillStyle = `rgba(${colorVal}, ${this.alpha + glow * 0.55})`;
         ctx.fill();
       }
     }
@@ -491,7 +541,9 @@
             ctx.beginPath();
             ctx.moveTo(particles[i].x, particles[i].y);
             ctx.lineTo(particles[j].x, particles[j].y);
-            ctx.strokeStyle = `rgba(147, 197, 253, ${opacity * 0.16})`;
+            const isLight = document.documentElement.classList.contains('light');
+            const strokeColor = isLight ? '37, 99, 235' : '147, 197, 253';
+            ctx.strokeStyle = `rgba(${strokeColor}, ${opacity * 0.16})`;
             ctx.lineWidth = 1;
             ctx.stroke();
           }
@@ -511,9 +563,16 @@
         window.innerWidth <= 768 ? 160 : 230,
       );
 
-      gradient.addColorStop(0, "rgba(56, 189, 248, 0.18)");
-      gradient.addColorStop(0.45, "rgba(139, 92, 246, 0.09)");
-      gradient.addColorStop(1, "rgba(2, 12, 57, 0)");
+      const isLight = document.documentElement.classList.contains('light');
+      if (isLight) {
+        gradient.addColorStop(0, "rgba(59, 130, 246, 0.08)");
+        gradient.addColorStop(0.45, "rgba(139, 92, 246, 0.04)");
+        gradient.addColorStop(1, "rgba(255, 255, 255, 0)");
+      } else {
+        gradient.addColorStop(0, "rgba(56, 189, 248, 0.18)");
+        gradient.addColorStop(0.45, "rgba(139, 92, 246, 0.09)");
+        gradient.addColorStop(1, "rgba(2, 12, 57, 0)");
+      }
 
       ctx.fillStyle = gradient;
       ctx.fillRect(0, 0, width, height);
