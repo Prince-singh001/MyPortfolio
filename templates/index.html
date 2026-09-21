@@ -3,13 +3,58 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Prince Singh | Portfolio</title>
+    <title>Prince Singh | AI/ML Engineer &amp; Python Developer</title>
+    <meta
+      name="description"
+      content="Prince Singh — AI/ML Engineer and Python Developer building intelligent applications, machine learning solutions, and computer vision systems."
+    />
+    <meta name="author" content="Prince Singh" />
+    <meta name="theme-color" content="#070b14" />
 
+    <!-- Open Graph / Meta -->
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="Prince Singh | AI/ML Engineer &amp; Python Developer" />
+    <meta
+      property="og:description"
+      content="Portfolio of Prince Singh — AI/ML Engineer and Python Developer specializing in Machine Learning, Deep Learning, Computer Vision, and modern web applications."
+    />
+    <meta property="og:image" content="{{ url_for('static', filename='Images/me.png') }}" />
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- Tailwind CSS CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
       tailwind.config = {
         darkMode: "class",
+        theme: {
+          extend: {
+            fontFamily: {
+              sans: ["'Plus Jakarta Sans'", "sans-serif"],
+              mono: ["'JetBrains Mono'", "monospace"],
+            },
+            colors: {
+              brand: {
+                dark: "#070b14",
+                darker: "#04070d",
+                card: "#0d1424",
+                border: "rgba(56, 189, 248, 0.15)",
+                blue: "#3b82f6",
+                cyan: "#06b6d4",
+                violet: "#8b5cf6",
+              },
+            },
+          },
+        },
       };
+
+      // Theme initialization before paint
       const savedTheme = localStorage.getItem("theme");
       if (savedTheme === "light") {
         document.documentElement.classList.add("light");
@@ -20,13 +65,16 @@
       }
     </script>
 
+    <!-- Lucide Icons -->
     <script src="https://unpkg.com/lucide@latest"></script>
 
+    <!-- Custom Stylesheet -->
     <link
       rel="stylesheet"
       href="{{ url_for('static', filename='css/style.css') }}"
     />
 
+    <!-- Favicon -->
     <link
       rel="icon"
       type="image/x-icon"
@@ -34,227 +82,229 @@
     />
   </head>
 
-  <body class="antialiased">
-    <canvas id="c"></canvas>
+  <body class="antialiased selection:bg-cyan-500/30 selection:text-cyan-200">
+    <!-- Interactive Background Particles -->
+    <canvas id="c" aria-hidden="true"></canvas>
 
-    <!-- ================= HEADER ================= -->
+    <!-- Ambient Gradient Blobs -->
+    <div class="ambient-glow glow-1" aria-hidden="true"></div>
+    <div class="ambient-glow glow-2" aria-hidden="true"></div>
+
+    <!-- ================= NAVBAR ================= -->
     <header
       id="header"
-      class="fixed top-0 left-0 right-0 z-50 transition-all duration-300"
+      class="fixed top-0 left-0 right-0 z-50 transition-all duration-300 backdrop-blur-md"
     >
-      <div class="container mx-auto px-4">
-        <nav class="flex justify-between items-center py-4">
-          <a href="#home" class="text-2xl font-bold text-blue-400"> P.S </a>
-
-          <div
-            class="hidden md:flex items-center space-x-8 text-slate-600 dark:text-gray-300"
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <nav class="flex justify-between items-center h-20">
+          <!-- Logo -->
+          <a
+            href="#home"
+            class="group flex items-center gap-2 text-xl font-bold tracking-tight text-slate-900 dark:text-white transition-transform hover:scale-105"
+            aria-label="Prince Singh Home"
           >
-            <a href="#home" class="hover:text-blue-400 transition-colors"
-              >Home</a
+            <span
+              class="w-10 h-10 rounded-xl bg-gradient-to-br from-blue-600 via-cyan-500 to-violet-600 flex items-center justify-center text-white font-extrabold shadow-lg shadow-blue-500/20 group-hover:shadow-cyan-500/30 transition-all"
             >
-            <a href="#about" class="hover:text-blue-400 transition-colors"
-              >About</a
-            >
-            <a
-              href="#qualifications"
-              class="hover:text-blue-400 transition-colors"
-            >
-              Qualifications
-            </a>
-            <a
-              href="#certificates"
-              class="hover:text-blue-400 transition-colors"
-            >
-              Certificates
-            </a>
-            <a href="#projects" class="hover:text-blue-400 transition-colors">
-              Projects
-            </a>
-            <a href="#contact" class="hover:text-blue-400 transition-colors">
-              Contact Me
-            </a>
+              PS
+            </span>
+            <span class="hidden sm:inline-block font-bold text-slate-900 dark:text-white">
+              Prince<span class="text-cyan-500 dark:text-cyan-400">.</span>Singh
+            </span>
+          </a>
+
+          <!-- Desktop Navigation Links -->
+          <div
+            class="hidden lg:flex items-center gap-1 xl:gap-2 px-4 py-2 rounded-full glass-nav-pill border border-slate-200 dark:border-slate-700/50"
+          >
+            <a href="#home" class="nav-link px-3.5 py-1.5 text-sm font-medium transition-colors">Home</a>
+            <a href="#about" class="nav-link px-3.5 py-1.5 text-sm font-medium transition-colors">About</a>
+            <a href="#skills" class="nav-link px-3.5 py-1.5 text-sm font-medium transition-colors">Skills</a>
+            <a href="#education" class="nav-link px-3.5 py-1.5 text-sm font-medium transition-colors">Education</a>
+            <a href="#certificates" class="nav-link px-3.5 py-1.5 text-sm font-medium transition-colors">Certificates</a>
+            <a href="#projects" class="nav-link px-3.5 py-1.5 text-sm font-medium transition-colors">Projects</a>
+            <a href="#contact" class="nav-link px-3.5 py-1.5 text-sm font-medium transition-colors">Contact</a>
           </div>
 
-          <div class="hidden md:flex items-center gap-4">
+          <!-- Actions: Theme Toggle & CTA -->
+          <div class="hidden md:flex items-center gap-3">
             <button
               id="theme-toggle"
               type="button"
-              class="text-slate-600 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 transition-colors p-2 rounded-lg"
-              aria-label="Toggle theme"
+              class="w-10 h-10 rounded-xl flex items-center justify-center border border-slate-300 dark:border-slate-700/60 bg-white/80 dark:bg-slate-900/60 text-slate-700 dark:text-slate-300 hover:text-cyan-600 dark:hover:text-cyan-400 hover:border-cyan-500/40 transition-all shadow-sm"
+              aria-label="Toggle dark and light theme"
             >
               <i id="theme-toggle-icon" data-lucide="moon" class="w-5 h-5"></i>
             </button>
 
             <a
               href="#contact"
-              class="bg-blue-600 hover:bg-blue-700 text-white font-medium py-2 px-5 rounded-lg transition-transform duration-300 hover:scale-105"
+              class="inline-flex items-center gap-2 text-sm font-semibold text-white px-5 py-2.5 rounded-xl bg-gradient-to-r from-blue-600 to-cyan-600 hover:from-blue-500 hover:to-cyan-500 shadow-lg shadow-blue-600/25 hover:shadow-cyan-500/30 hover:-translate-y-0.5 transition-all"
             >
-              Hire Me
+              <span>Hire Me</span>
+              <i data-lucide="sparkles" class="w-4 h-4"></i>
             </a>
           </div>
 
-          <button
-            id="mobile-menu-button"
-            type="button"
-            class="md:hidden text-slate-800 dark:text-white"
-            aria-label="Toggle mobile menu"
-          >
-            <i data-lucide="menu"></i>
-          </button>
+          <!-- Mobile Hamburger Button -->
+          <div class="flex items-center gap-2 md:hidden">
+            <button
+              id="mobile-theme-toggle-quick"
+              type="button"
+              class="w-9 h-9 rounded-lg flex items-center justify-center border border-slate-300 dark:border-slate-700/60 text-slate-700 dark:text-slate-300 hover:text-cyan-500"
+              aria-label="Toggle theme"
+            >
+              <i id="mobile-quick-theme-icon" data-lucide="moon" class="w-4 h-4"></i>
+            </button>
+
+            <button
+              id="mobile-menu-button"
+              type="button"
+              class="w-10 h-10 rounded-lg flex items-center justify-center text-slate-800 dark:text-slate-200 hover:text-cyan-500 border border-slate-300 dark:border-slate-700/60 bg-white/60 dark:bg-slate-900/40 focus:outline-none shadow-sm"
+              aria-label="Toggle mobile menu"
+              aria-expanded="false"
+            >
+              <i id="mobile-menu-icon" data-lucide="menu" class="w-5 h-5"></i>
+            </button>
+          </div>
         </nav>
       </div>
     </header>
 
-    <!-- ================= MOBILE MENU ================= -->
+    <!-- ================= MOBILE MENU DRAWER ================= -->
     <div
       id="mobile-menu"
-      class="hidden md:hidden fixed top-0 left-0 w-full h-full bg-white/95 dark:bg-gray-950/95 backdrop-blur-md z-40"
+      class="fixed inset-0 z-40 hidden flex-col justify-between p-6 pt-24 bg-white/95 dark:bg-slate-950/95 backdrop-blur-2xl transition-all duration-300 md:hidden"
     >
-      <div class="flex flex-col items-center justify-center h-full space-y-8">
-        <a
-          href="#home"
-          class="mobile-link text-2xl text-slate-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400"
-        >
-          Home
-        </a>
-        <a
-          href="#about"
-          class="mobile-link text-2xl text-slate-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400"
-        >
-          About
-        </a>
-        <a
-          href="#qualifications"
-          class="mobile-link text-2xl text-slate-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400"
-        >
-          Qualifications
-        </a>
-        <a
-          href="#certificates"
-          class="mobile-link text-2xl text-slate-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400"
-        >
-          Certificates
-        </a>
-        <a
-          href="#projects"
-          class="mobile-link text-2xl text-slate-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400"
-        >
-          Projects
-        </a>
-        <a
-          href="#contact"
-          class="mobile-link text-2xl text-slate-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400"
-        >
-          Contact Me
-        </a>
+      <div class="flex flex-col space-y-4">
+        <a href="#home" class="mobile-link text-lg font-medium text-slate-800 dark:text-slate-200 hover:text-cyan-500 py-2 border-b border-slate-200 dark:border-slate-800/80">Home</a>
+        <a href="#about" class="mobile-link text-lg font-medium text-slate-800 dark:text-slate-200 hover:text-cyan-500 py-2 border-b border-slate-200 dark:border-slate-800/80">About</a>
+        <a href="#skills" class="mobile-link text-lg font-medium text-slate-800 dark:text-slate-200 hover:text-cyan-500 py-2 border-b border-slate-200 dark:border-slate-800/80">Skills</a>
+        <a href="#education" class="mobile-link text-lg font-medium text-slate-800 dark:text-slate-200 hover:text-cyan-500 py-2 border-b border-slate-200 dark:border-slate-800/80">Education</a>
+        <a href="#certificates" class="mobile-link text-lg font-medium text-slate-800 dark:text-slate-200 hover:text-cyan-500 py-2 border-b border-slate-200 dark:border-slate-800/80">Certificates</a>
+        <a href="#projects" class="mobile-link text-lg font-medium text-slate-800 dark:text-slate-200 hover:text-cyan-500 py-2 border-b border-slate-200 dark:border-slate-800/80">Projects</a>
+        <a href="#contact" class="mobile-link text-lg font-medium text-slate-800 dark:text-slate-200 hover:text-cyan-500 py-2 border-b border-slate-200 dark:border-slate-800/80">Contact Me</a>
+      </div>
 
+      <div class="pt-6 border-t border-slate-200 dark:border-slate-800 space-y-4">
         <button
           id="mobile-theme-toggle"
           type="button"
-          class="flex items-center gap-2 text-2xl text-slate-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 py-2 border-t border-slate-200 dark:border-white/10 w-48 justify-center mt-4"
-          aria-label="Toggle theme"
+          class="w-full flex items-center justify-center gap-3 py-3 rounded-xl border border-slate-300 dark:border-slate-700/60 bg-slate-100 dark:bg-slate-900/60 text-slate-800 dark:text-slate-200 font-medium"
+          aria-label="Toggle dark/light theme"
         >
-          <i
-            id="mobile-theme-toggle-icon"
-            data-lucide="moon"
-            class="w-6 h-6"
-          ></i>
+          <i id="mobile-theme-toggle-icon" data-lucide="moon" class="w-5 h-5"></i>
           <span id="mobile-theme-toggle-text">Dark Mode</span>
         </button>
+
+        <a
+          href="#contact"
+          class="mobile-link w-full inline-flex items-center justify-center gap-2 py-3 rounded-xl bg-gradient-to-r from-blue-600 to-cyan-600 text-white font-semibold shadow-lg shadow-blue-600/30"
+        >
+          <span>Get in Touch</span>
+          <i data-lucide="arrow-right" class="w-4 h-4"></i>
+        </a>
       </div>
     </div>
 
-    <main class="container mx-auto px-4 pt-24 relative z-10">
+    <!-- ================= MAIN CONTENT ================= -->
+    <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-28 pb-20 relative z-10">
+
       <!-- ================= HERO SECTION ================= -->
       <section
         id="home"
-        class="min-h-[85vh] flex flex-col md:flex-row items-center justify-between gap-12 relative"
+        class="min-h-[85vh] flex flex-col lg:flex-row items-center justify-between gap-12 lg:gap-16 py-12 lg:py-20"
       >
-        <!-- Hero Text -->
-        <div class="md:w-1/2 text-center md:text-left reveal">
-          <p
-            class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/10 border border-white/10 text-cyan-200 text-sm font-semibold mb-5"
-          >
-            <span
-              class="w-2 h-2 bg-green-400 rounded-full animate-pulse"
-            ></span>
-            Available for Projects
-          </p>
+        <!-- Hero Content (Left) -->
+        <div class="w-full lg:w-3/5 text-center lg:text-left reveal">
+          <!-- Availability Badge -->
+          <div class="inline-flex items-center gap-2.5 px-4 py-1.5 rounded-full border border-cyan-500/30 bg-cyan-50 dark:bg-cyan-950/30 backdrop-blur-md mb-6 shadow-sm">
+            <span class="relative flex h-2.5 w-2.5">
+              <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
+              <span class="relative inline-flex rounded-full h-2.5 w-2.5 bg-emerald-500"></span>
+            </span>
+            <span class="text-xs font-semibold tracking-wide uppercase text-cyan-700 dark:text-cyan-300">Available for AI/ML Roles &amp; Projects</span>
+          </div>
 
-          <h1
-            class="text-4xl md:text-6xl font-extrabold text-white leading-tight mb-4"
-          >
+          <!-- Hero Heading -->
+          <h1 class="text-4xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight text-slate-900 dark:text-white leading-[1.15] mb-4">
             Hi, I'm <span class="text-gradient">Prince Singh</span>
           </h1>
 
-          <h2 class="text-2xl md:text-3xl font-medium text-gray-300 mb-6">
-            I'm a <span id="typing-effect" class="text-cyan-300"></span>
-          </h2>
+          <!-- Role Typing Effect -->
+          <div class="flex items-center justify-center lg:justify-start gap-2 text-xl sm:text-2xl lg:text-3xl font-semibold text-slate-700 dark:text-slate-300 mb-6 min-h-[40px]">
+            <span class="text-slate-500 dark:text-slate-400 font-normal">Building as a</span>
+            <span id="typing-effect" class="text-cyan-600 dark:text-cyan-400 border-b-2 border-cyan-500 pb-0.5">AI / ML Engineer</span>
+          </div>
 
-          <p class="text-lg text-gray-400 mb-8 max-w-xl mx-auto md:mx-0">
-            I build intelligent algorithms, machine learning models, and
-            efficient full-stack applications. Specialized in Python and deep
-            learning, with a passion for turning complex datasets into
-            intelligent, scalable solutions.
+          <!-- Recruiter-focused Bio -->
+          <p class="text-base sm:text-lg text-slate-700 dark:text-slate-300 leading-relaxed mb-8 max-w-2xl mx-auto lg:mx-0 font-normal">
+            AI/ML Engineer &amp; Python Developer building intelligent applications with Machine Learning, Deep Learning, Computer Vision, and modern web technologies. Focused on turning complex data into scalable, impactful software solutions.
           </p>
 
-          <!-- Buttons -->
-          <div
-            class="flex flex-col sm:flex-row items-center justify-center md:justify-start gap-4 mb-8"
-          >
-            <a href="#projects" class="btn-primary">
-              View My Work
-              <i data-lucide="arrow-right" class="w-5 h-5"></i>
+          <!-- Hero CTAs -->
+          <div class="flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-4 mb-10">
+            <a href="#projects" class="btn-primary w-full sm:w-auto">
+              <span>View My Work</span>
+              <i data-lucide="arrow-right" class="w-4 h-4"></i>
             </a>
 
-            <div class="relative inline-block w-full sm:w-auto">
-              <button id="resumeBtn" type="button" class="btn-outline">
-                Resume
-                <i data-lucide="chevron-down" class="w-5 h-5"></i>
+            <!-- Resume Dropdown -->
+            <div class="relative w-full sm:w-auto">
+              <button
+                id="resumeBtn"
+                type="button"
+                class="btn-outline w-full sm:w-auto justify-between sm:justify-center"
+                aria-haspopup="true"
+                aria-expanded="false"
+              >
+                <span class="flex items-center gap-2">
+                  <i data-lucide="file-text" class="w-4 h-4 text-cyan-600 dark:text-cyan-400"></i>
+                  <span>View Resume</span>
+                </span>
+                <i data-lucide="chevron-down" class="w-4 h-4 ml-1 transition-transform duration-200"></i>
               </button>
 
               <div
                 id="resumeMenu"
-                class="hidden absolute left-0 mt-3 w-full sm:w-48 z-50"
+                class="hidden absolute left-0 sm:left-auto sm:right-0 mt-2 w-full sm:w-56 z-50 rounded-2xl p-1.5 glass-card border border-slate-200 dark:border-slate-700/80 shadow-2xl backdrop-blur-xl"
               >
                 <a
                   href="{{ url_for('static', filename='assets/resume.pdf') }}"
                   target="_blank"
-                  class="block px-5 py-3 text-gray-200 hover:bg-white/10 hover:text-white"
+                  rel="noopener noreferrer"
+                  class="flex items-center gap-2.5 px-4 py-2.5 text-sm rounded-xl text-slate-700 dark:text-slate-200 hover:text-cyan-600 dark:hover:text-white hover:bg-slate-100 dark:hover:bg-white/10 transition-colors"
                 >
-                  👁 View Resume
+                  <i data-lucide="external-link" class="w-4 h-4 text-cyan-600 dark:text-cyan-400"></i>
+                  <span>Open in New Tab</span>
                 </a>
-
                 <a
                   href="{{ url_for('static', filename='assets/resume.pdf') }}"
-                  download
-                  class="block px-5 py-3 text-gray-200 hover:bg-white/10 hover:text-white"
+                  download="Prince_Singh_Resume.pdf"
+                  class="flex items-center gap-2.5 px-4 py-2.5 text-sm rounded-xl text-slate-700 dark:text-slate-200 hover:text-blue-600 dark:hover:text-white hover:bg-slate-100 dark:hover:bg-white/10 transition-colors"
                 >
-                  ⬇ Download Resume
+                  <i data-lucide="download" class="w-4 h-4 text-blue-600 dark:text-blue-400"></i>
+                  <span>Download PDF</span>
                 </a>
               </div>
             </div>
           </div>
 
-          <!-- Social Icons Fixed -->
-          <div class="flex justify-center md:justify-start items-center gap-5">
+          <!-- Social Links -->
+          <div class="flex items-center justify-center lg:justify-start gap-3">
+            <span class="text-xs font-semibold uppercase tracking-wider text-slate-500 dark:text-slate-400 mr-2">Profiles</span>
+            
             <!-- GitHub -->
             <a
               href="https://github.com/Prince-singh001"
               target="_blank"
               rel="noopener noreferrer"
-              title="GitHub"
-              class="social-icon"
+              class="social-btn"
+              aria-label="GitHub Profile"
+              title="GitHub: Prince-singh001"
             >
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                viewBox="0 0 24 24"
-                fill="currentColor"
-                class="w-6 h-6"
-              >
-                <path
-                  d="M12 0C5.37 0 0 5.37 0 12a12 12 0 0 0 8.2 11.39c.6.11.82-.26.82-.58v-2.02c-3.34.73-4.04-1.42-4.04-1.42-.55-1.38-1.33-1.75-1.33-1.75-1.08-.74.08-.73.08-.73 1.2.08 1.83 1.22 1.83 1.22 1.06 1.82 2.79 1.3 3.47.99.11-.77.42-1.3.76-1.6-2.67-.31-5.47-1.33-5.47-5.9 0-1.3.47-2.37 1.22-3.2-.12-.3-.53-1.56.12-3.24 0 0 1-.32 3.3 1.22a11.5 11.5 0 0 1 6 0c2.3-1.54 3.3-1.22 3.3-1.22.65 1.68.24 2.94.12 3.24.76.83 1.22 1.9 1.22 3.2 0 4.58-2.8 5.58-5.48 5.89.43.38.82 1.1.82 2.23v3.3c0 .32.21.7.83.58A12 12 0 0 0 24 12c0-6.63-5.37-12-12-12Z"
-                />
+              <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                <path fill-rule="evenodd" d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.53 1.032 1.53 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z" clip-rule="evenodd"/>
               </svg>
             </a>
 
@@ -263,18 +313,26 @@
               href="https://www.linkedin.com/in/prince-singh05/"
               target="_blank"
               rel="noopener noreferrer"
-              title="LinkedIn"
-              class="social-icon hover-blue"
+              class="social-btn hover-blue"
+              aria-label="LinkedIn Profile"
+              title="LinkedIn: Prince Singh"
             >
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                viewBox="0 0 24 24"
-                fill="currentColor"
-                class="w-6 h-6"
-              >
-                <path
-                  d="M20.45 20.45H16.9v-5.57c0-1.33-.03-3.04-1.85-3.04-1.85 0-2.13 1.45-2.13 2.95v5.66H9.37V9h3.4v1.56h.05c.47-.9 1.63-1.85 3.35-1.85 3.58 0 4.24 2.36 4.24 5.43v6.31ZM5.34 7.43a2.06 2.06 0 1 1 0-4.12 2.06 2.06 0 0 1 0 4.12ZM7.11 20.45H3.56V9h3.55v11.45ZM22.23 0H1.77A1.77 1.77 0 0 0 0 1.77v20.46C0 23.2.8 24 1.77 24h20.46A1.77 1.77 0 0 0 24 22.23V1.77A1.77 1.77 0 0 0 22.23 0Z"
-                />
+              <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                <path d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14m-.5 15.5v-5.3a3.26 3.26 0 0 0-3.26-3.26c-.85 0-1.84.52-2.28 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-.77.62-1.4 1.39-1.4a1.4 1.4 0 0 1 1.4 1.4v4.93h2.75M6.88 8.56a1.68 1.68 0 0 0 1.68-1.68c0-.93-.75-1.69-1.68-1.69a1.69 1.69 0 0 0-1.69 1.69c0 .93.76 1.68 1.69 1.68m1.39 9.94v-8.37H5.5v8.37h2.77z"/>
+              </svg>
+            </a>
+
+            <!-- LeetCode -->
+            <a
+              href="https://leetcode.com/u/SPrince01/"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="social-btn hover-amber"
+              aria-label="LeetCode Profile"
+              title="LeetCode: SPrince01"
+            >
+              <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                <path d="M13.483 0a1.374 1.374 0 0 0-.961.438L7.116 6.226l-3.854 4.126a5.266 5.266 0 0 0-1.209 2.104 5.35 5.35 0 0 0-.125.513 5.527 5.527 0 0 0 .062 2.362 5.83 5.83 0 0 0 .349 1.017 5.938 5.938 0 0 0 4.818 3.654 5.94 5.94 0 0 0 3.32-.424l3.774-2.179 4.316-2.493a1.382 1.382 0 0 0 .688-1.198 1.38 1.38 0 0 0-.688-1.198l-3.23-1.865a1.38 1.38 0 0 0-1.378 0 1.38 1.38 0 0 0-.688 1.198v.025l-3.13 1.808a3.178 3.178 0 0 1-1.602.43 3.175 3.175 0 0 1-2.57-1.328 3.14 3.14 0 0 1-.444-2.42 3.15 3.15 0 0 1 1.082-1.928l2.97-3.18 5.406-5.792a1.38 1.38 0 0 0-.96-2.353zM18.8 8.046a1.38 1.38 0 0 0-.976.405l-4.14 4.14a1.38 1.38 0 0 0 1.952 1.952l4.14-4.14a1.38 1.38 0 0 0-.976-2.357z"/>
               </svg>
             </a>
 
@@ -283,631 +341,663 @@
               href="https://wa.me/919661261973"
               target="_blank"
               rel="noopener noreferrer"
-              title="WhatsApp"
-              class="social-icon hover-green"
+              class="social-btn hover-green"
+              aria-label="WhatsApp Contact"
+              title="Chat on WhatsApp"
             >
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                viewBox="0 0 24 24"
-                fill="currentColor"
-                class="w-6 h-6"
-              >
-                <path
-                  d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"
-                />
+              <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                <path d="M12.04 2c-5.46 0-9.91 4.45-9.91 9.91 0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38c1.45.79 3.08 1.21 4.74 1.21 5.46 0 9.91-4.45 9.91-9.91 0-2.65-1.03-5.14-2.9-7.01A9.816 9.816 0 0 0 12.04 2m.01 1.67c2.2 0 4.26.86 5.82 2.42a8.225 8.225 0 0 1 2.41 5.83c0 4.54-3.7 8.24-8.24 8.24-1.48 0-2.93-.4-4.2-1.15l-.3-.18-3.12.82.83-3.04-.2-.31a8.196 8.196 0 0 1-1.26-4.38c0-4.54 3.7-8.24 8.24-8.24m4.52 11.66c-.25-.13-1.47-.72-1.7-.81-.23-.08-.39-.13-.56.13-.16.25-.64.81-.79.97-.15.16-.29.19-.54.06-.25-.13-1.05-.39-2-1.23-.74-.66-1.24-1.47-1.38-1.72-.15-.25-.02-.38.11-.51.11-.11.25-.29.37-.44.13-.15.17-.25.25-.42.08-.17.04-.31-.02-.44-.06-.13-.56-1.35-.77-1.85-.2-.49-.41-.42-.56-.43h-.48c-.17 0-.44.06-.67.31-.23.25-.88.86-.88 2.1s.9 2.44 1.03 2.61c.13.17 1.77 2.7 4.29 3.78.6.26 1.07.41 1.44.53.6.19 1.15.16 1.58.1.48-.07 1.47-.6 1.68-1.18.21-.58.21-1.08.15-1.18-.06-.1-.22-.17-.47-.29z"/>
               </svg>
             </a>
           </div>
         </div>
 
-        <!-- Hero Image with 3D Tilt, Particle Canvas, and No-Pink Gradient -->
-        <div class="mt-12 md:mt-0 md:w-1/2 flex flex-col items-center reveal">
+        <!-- Hero Profile Presentation (Right) -->
+        <div class="w-full lg:w-2/5 flex justify-center reveal">
           <div
             id="hero-3d-card"
-            class="gradient-border-wrapper no-pink rounded-[34px] p-[4px] cursor-pointer"
+            class="relative group cursor-pointer transition-transform duration-300"
           >
-            <div
-              class="relative w-80 h-92 flex items-center justify-center hero-image-container overflow-hidden rounded-[30px]"
-            >
-              <!-- Particle Background Canvas behind the cutout -->
-              <canvas id="hero-profile-particles"></canvas>
+            <!-- Decorative Ambient Rings -->
+            <div class="absolute -inset-2 rounded-[36px] bg-gradient-to-tr from-blue-600/30 via-cyan-500/20 to-violet-600/30 blur-xl opacity-70 group-hover:opacity-100 transition-opacity"></div>
 
-              <img
-                src="{{ url_for('static', filename='Images/me.png') }}"
-                class="relative z-10 w-full h-full object-cover hero-image-shadow rounded-[30px] pointer-events-none"
-                alt="Prince Singh"
-                onerror="
-                  this.onerror = null;
-                  this.src =
-                    'https://placehold.co/320x368/111827/d1d5db?text=Prince';
-                "
-              />
+            <!-- Frame Container with Gradient Border -->
+            <div class="relative rounded-[32px] p-[2px] bg-gradient-to-b from-cyan-400/60 via-blue-500/30 to-violet-500/50 shadow-2xl">
+              <div class="relative w-72 sm:w-80 h-96 sm:h-[400px] rounded-[30px] overflow-hidden bg-slate-900 flex items-center justify-center">
+                
+                <!-- Profile Background Particles Canvas -->
+                <canvas id="hero-profile-particles" class="absolute inset-0 z-0"></canvas>
+
+                <!-- Profile Photo -->
+                <img
+                  src="{{ url_for('static', filename='Images/me.png') }}"
+                  alt="Prince Singh"
+                  class="relative z-10 w-full h-full object-cover object-center pointer-events-none transition-transform duration-500 group-hover:scale-105"
+                  onerror="this.onerror=null; this.src='https://placehold.co/320x400/0f172a/94a3b8?text=Prince+Singh';"
+                />
+
+                <!-- Bottom Glass Gradient Overlay -->
+                <div class="absolute inset-x-0 bottom-0 h-28 bg-gradient-to-t from-slate-950/90 via-slate-950/40 to-transparent z-10 pointer-events-none"></div>
+
+                <!-- Floating Corner Tech Badges -->
+                <div class="absolute bottom-4 left-4 z-20 flex items-center gap-2 px-3 py-1.5 rounded-xl glass-badge border border-slate-700/60 shadow-lg">
+                  <i data-lucide="cpu" class="w-4 h-4 text-cyan-400"></i>
+                  <span class="text-xs font-semibold text-slate-200">AI / ML</span>
+                </div>
+
+                <div class="absolute top-4 right-4 z-20 flex items-center gap-2 px-3 py-1.5 rounded-xl glass-badge border border-slate-700/60 shadow-lg">
+                  <i data-lucide="terminal" class="w-4 h-4 text-blue-400"></i>
+                  <span class="text-xs font-semibold text-slate-200">Python</span>
+                </div>
+              </div>
             </div>
           </div>
         </div>
       </section>
 
       <!-- ================= ABOUT SECTION ================= -->
-      <section id="about" class="py-20 reveal">
-        <h2 class="text-4xl font-bold text-center text-white mb-12">
-          About <span class="text-gradient">Me</span>
-        </h2>
-
-        <div class="flex flex-col md:flex-row items-center gap-12">
-          <div class="md:w-2/3 card">
-            <h3 class="text-2xl font-semibold text-white mb-4">
-              Get to know me!
-            </h3>
-
-            <p class="text-gray-300 mb-4 leading-relaxed">
-              I'm a Computer Science Engineering with specialize with Artificial
-              Intelligence and Machine Learning student and developer focused on
-              building intelligent algorithms, predictive models, and robust
-              full-stack systems. With a strong foundation in computer science,
-              I specialize in combining software engineering best practices with
-              state-of-the-art machine learning concepts.
-            </p>
-
-            <p class="text-gray-300 mb-6 leading-relaxed">
-              My technical expertise spans Python, C++, Deep Learning, Computer
-              Vision, and full-stack web technologies like Flask | Django . I
-              enjoy converting complex data into actionable insights and
-              designing end-to-end intelligent applications.
-            </p>
-
-            <a
-              href="#contact"
-              class="text-blue-400 font-semibold hover:underline"
-            >
-              Let's connect!
-            </a>
+      <section id="about" class="py-20 lg:py-28 reveal">
+        <!-- Section Header -->
+        <div class="text-center max-w-3xl mx-auto mb-16">
+          <div class="inline-flex items-center gap-2 px-3.5 py-1 rounded-full border border-blue-500/20 bg-blue-500/10 text-xs font-semibold text-blue-500 dark:text-blue-400 uppercase tracking-wider mb-3">
+            <i data-lucide="user" class="w-3.5 h-3.5"></i>
+            <span>About Me</span>
           </div>
-
-          <div class="md:w-1/3 w-full card">
-            <h3 class="text-2xl font-semibold text-white mb-4">My Skills</h3>
-
-            <div class="flex flex-wrap gap-3">
-              <span class="skill-chip">Python</span>
-              <span class="skill-chip">Artificial Intelligence</span>
-              <span class="skill-chip">Machine Learning</span>
-              <span class="skill-chip">Deep Learning</span>
-              <span class="skill-chip">TensorFlow</span>
-              <span class="skill-chip">Scikit-Learn</span>
-              <span class="skill-chip">Flask</span>
-              <span class="skill-chip">Django</span>
-              <span class="skill-chip">REST APIs</span>
-              <span class="skill-chip">MySQL</span>
-              <span class="skill-chip">NumPy</span>
-              <span class="skill-chip">Pandas</span>
-              <span class="skill-chip">Matplotlib</span>
-              <span class="skill-chip">Seaborn</span>
-              <span class="skill-chip">Git & GitHub</span>
-              <span class="skill-chip">HTML</span>
-              <span class="skill-chip">CSS</span>
-              <span class="skill-chip">JavaScript</span>
-              <span class="skill-chip">C/C++</span>
-              <span class="skill-chip">OpenCV</span>
-            </div>
-          </div>
+          <h2 class="text-3xl sm:text-4xl font-extrabold text-slate-900 dark:text-white tracking-tight">
+            Engineering <span class="text-gradient">Intelligent Systems</span>
+          </h2>
+          <p class="mt-3 text-base text-slate-600 dark:text-slate-400">
+            A closer look at my background, philosophy, and what drives my work.
+          </p>
         </div>
-      </section>
 
-      <!-- ================= QUALIFICATIONS ================= -->
-      <section id="qualifications" class="py-20 reveal">
-        <h2 class="text-4xl font-bold text-center text-white mb-16">
-          Skills & <span class="text-gradient">Education</span>
-        </h2>
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-stretch">
+          <!-- Biography Card (Left) -->
+          <div class="lg:col-span-7 glass-card p-8 sm:p-10 rounded-3xl border border-slate-200 dark:border-slate-800 flex flex-col justify-between">
+            <div class="space-y-5">
+              <h3 class="text-2xl font-bold text-slate-900 dark:text-white flex items-center gap-3">
+                <span>Who I Am</span>
+                <span class="h-px flex-1 bg-gradient-to-r from-cyan-500/40 to-transparent"></span>
+              </h3>
 
-        <div class="grid grid-cols-1 lg:grid-cols-2 gap-12">
-          <!-- SKILLS COLUMN -->
-          <div class="card">
-            <h3
-              class="text-2xl font-semibold text-white mb-6 flex items-center gap-3"
-            >
-              <i data-lucide="code-2" class="w-6 h-6 text-cyan-400"></i>
-              Technical Skills
-            </h3>
+              <p class="text-slate-700 dark:text-slate-300 leading-relaxed text-base sm:text-lg">
+                I'm an Artificial Intelligence and Machine Learning student and developer focused on building practical intelligent applications, machine learning solutions, and reliable software systems.
+              </p>
 
-            <div class="tabs-container mb-8">
-              <button
-                class="tab-button active flex items-center text-sm"
-                data-tab="aiml"
-              >
-                <i data-lucide="brain" class="w-4 h-4 mr-2"></i>
-                AI / ML
-              </button>
-              <button
-                class="tab-button flex items-center text-sm"
-                data-tab="web"
-              >
-                <i data-lucide="layout" class="w-4 h-4 mr-2"></i>
-                Full Stack
-              </button>
-              <button
-                class="tab-button flex items-center text-sm"
-                data-tab="languages"
-              >
-                <i data-lucide="braces" class="w-4 h-4 mr-2"></i>
-                Core Languages
-              </button>
+              <p class="text-slate-600 dark:text-slate-400 leading-relaxed text-sm sm:text-base">
+                My technical journey combines deep learning theory with hands-on software engineering. I specialize in designing convolutional architectures, computer vision pipelines, natural language models, and integrating them into robust backend web architectures with Flask, Django, and FastAPI.
+              </p>
+
+              <p class="text-slate-600 dark:text-slate-400 leading-relaxed text-sm sm:text-base">
+                Whether deploying trained vision models or architecting full-stack systems with Python and modern web frameworks, my focus is delivering high-performance, maintainable, and recruiter-ready code.
+              </p>
             </div>
 
-            <!-- AI / ML Panel -->
-            <div id="aiml-panel" class="skills-panel active space-y-5">
-              <div class="skill">
-                <div class="flex justify-between mb-2">
-                  <span class="text-gray-300"
-                    >Machine Learning (Scikit-Learn)</span
-                  >
-                  <span class="text-cyan-400">88%</span>
-                </div>
-                <div class="w-full bg-slate-800/80 rounded-full h-2.5">
-                  <div
-                    class="skill-bar-fill h-2.5 rounded-full"
-                    data-width="88%"
-                    style="width: 88%"
-                  ></div>
-                </div>
+            <!-- Highlights Pill Row -->
+            <div class="pt-6 mt-6 border-t border-slate-200 dark:border-slate-800/80 flex flex-wrap gap-3">
+              <div class="flex items-center gap-2 text-xs font-medium text-slate-700 dark:text-slate-300 bg-slate-100 dark:bg-slate-800/50 px-3 py-1.5 rounded-lg border border-slate-200 dark:border-slate-700/50">
+                <i data-lucide="check-circle" class="w-3.5 h-3.5 text-cyan-500"></i>
+                <span>Problem Solver</span>
               </div>
-
-              <div class="skill">
-                <div class="flex justify-between mb-2">
-                  <span class="text-gray-300"
-                    >Deep Learning (TensorFlow & Keras)</span
-                  >
-                  <span class="text-cyan-400">82%</span>
-                </div>
-                <div class="w-full bg-slate-800/80 rounded-full h-2.5">
-                  <div
-                    class="skill-bar-fill h-2.5 rounded-full"
-                    data-width="82%"
-                    style="width: 82%"
-                  ></div>
-                </div>
+              <div class="flex items-center gap-2 text-xs font-medium text-slate-700 dark:text-slate-300 bg-slate-100 dark:bg-slate-800/50 px-3 py-1.5 rounded-lg border border-slate-200 dark:border-slate-700/50">
+                <i data-lucide="check-circle" class="w-3.5 h-3.5 text-blue-500"></i>
+                <span>Deep Learning Enthusiast</span>
               </div>
-
-              <div class="skill">
-                <div class="flex justify-between mb-2">
-                  <span class="text-gray-300">Computer Vision (OpenCV)</span>
-                  <span class="text-cyan-400">80%</span>
-                </div>
-                <div class="w-full bg-slate-800/80 rounded-full h-2.5">
-                  <div
-                    class="skill-bar-fill h-2.5 rounded-full"
-                    data-width="80%"
-                    style="width: 80%"
-                  ></div>
-                </div>
-              </div>
-
-              <div class="skill">
-                <div class="flex justify-between mb-2">
-                  <span class="text-gray-300"
-                    >Data Analysis (Pandas & NumPy)</span
-                  >
-                  <span class="text-cyan-400">85%</span>
-                </div>
-                <div class="w-full bg-slate-800/80 rounded-full h-2.5">
-                  <div
-                    class="skill-bar-fill h-2.5 rounded-full"
-                    data-width="85%"
-                    style="width: 85%"
-                  ></div>
-                </div>
-              </div>
-            </div>
-
-            <!-- Full Stack Panel -->
-            <div id="web-panel" class="skills-panel space-y-5">
-              <div class="skill">
-                <div class="flex justify-between mb-2">
-                  <span class="text-gray-300">HTML5 & CSS3 (Tailwind CSS)</span>
-                  <span class="text-cyan-400">90%</span>
-                </div>
-                <div class="w-full bg-slate-800/80 rounded-full h-2.5">
-                  <div
-                    class="skill-bar-fill h-2.5 rounded-full"
-                    data-width="90%"
-                    style="width: 90%"
-                  ></div>
-                </div>
-              </div>
-
-              <div class="skill">
-                <div class="flex justify-between mb-2">
-                  <span class="text-gray-300">JavaScript (ES6+)</span>
-                  <span class="text-cyan-400">80%</span>
-                </div>
-                <div class="w-full bg-slate-800/80 rounded-full h-2.5">
-                  <div
-                    class="skill-bar-fill h-2.5 rounded-full"
-                    data-width="80%"
-                    style="width: 80%"
-                  ></div>
-                </div>
-              </div>
-
-              <div class="skill">
-                <div class="flex justify-between mb-2">
-                  <span class="text-gray-300"
-                    >Backend APIs (Flask & Django)</span
-                  >
-                  <span class="text-cyan-400">85%</span>
-                </div>
-                <div class="w-full bg-slate-800/80 rounded-full h-2.5">
-                  <div
-                    class="skill-bar-fill h-2.5 rounded-full"
-                    data-width="85%"
-                    style="width: 85%"
-                  ></div>
-                </div>
-              </div>
-
-              <div class="skill">
-                <div class="flex justify-between mb-2">
-                  <span class="text-gray-300">Databases (MySQL & MongoDB)</span>
-                  <span class="text-cyan-400">80%</span>
-                </div>
-                <div class="w-full bg-slate-800/80 rounded-full h-2.5">
-                  <div
-                    class="skill-bar-fill h-2.5 rounded-full"
-                    data-width="80%"
-                    style="width: 80%"
-                  ></div>
-                </div>
-              </div>
-            </div>
-
-            <!-- Core Languages Panel -->
-            <div id="languages-panel" class="skills-panel space-y-5">
-              <div class="skill">
-                <div class="flex justify-between mb-2">
-                  <span class="text-gray-300">Python Programming</span>
-                  <span class="text-cyan-400">90%</span>
-                </div>
-                <div class="w-full bg-slate-800/80 rounded-full h-2.5">
-                  <div
-                    class="skill-bar-fill h-2.5 rounded-full"
-                    data-width="90%"
-                    style="width: 90%"
-                  ></div>
-                </div>
-              </div>
-
-              <div class="skill">
-                <div class="flex justify-between mb-2">
-                  <span class="text-gray-300">C++ Programming</span>
-                  <span class="text-cyan-400">80%</span>
-                </div>
-                <div class="w-full bg-slate-800/80 rounded-full h-2.5">
-                  <div
-                    class="skill-bar-fill h-2.5 rounded-full"
-                    data-width="80%"
-                    style="width: 80%"
-                  ></div>
-                </div>
-              </div>
-
-              <div class="skill">
-                <div class="flex justify-between mb-2">
-                  <span class="text-gray-300"
-                    >Data Structures & Algorithms</span
-                  >
-                  <span class="text-cyan-400">78%</span>
-                </div>
-                <div class="w-full bg-slate-800/80 rounded-full h-2.5">
-                  <div
-                    class="skill-bar-fill h-2.5 rounded-full"
-                    data-width="78%"
-                    style="width: 78%"
-                  ></div>
-                </div>
-              </div>
-
-              <div class="skill">
-                <div class="flex justify-between mb-2">
-                  <span class="text-gray-300"
-                    >Git & GitHub (Version Control)</span
-                  >
-                  <span class="text-cyan-400">85%</span>
-                </div>
-                <div class="w-full bg-slate-800/80 rounded-full h-2.5">
-                  <div
-                    class="skill-bar-fill h-2.5 rounded-full"
-                    data-width="85%"
-                    style="width: 85%"
-                  ></div>
-                </div>
+              <div class="flex items-center gap-2 text-xs font-medium text-slate-700 dark:text-slate-300 bg-slate-100 dark:bg-slate-800/50 px-3 py-1.5 rounded-lg border border-slate-200 dark:border-slate-700/50">
+                <i data-lucide="check-circle" class="w-3.5 h-3.5 text-violet-500"></i>
+                <span>Full Stack Python</span>
               </div>
             </div>
           </div>
 
-          <!-- EDUCATION COLUMN -->
-          <div class="card glow-yellow">
-            <h3
-              class="text-2xl font-semibold text-white mb-8 flex items-center gap-3"
-            >
-              <i
-                data-lucide="graduation-cap"
-                class="w-6 h-6 text-yellow-400"
-              ></i>
-              Education
-            </h3>
-
-            <div class="relative border-l-2 border-slate-700/80 pl-8 space-y-8">
-              <div class="relative timeline-item">
-                <span
-                  class="timeline-marker absolute -left-[42px] top-2"
-                ></span>
-                <span
-                  class="inline-block px-3 py-1 text-xs font-semibold rounded-full bg-blue-500/10 text-blue-300 border border-blue-500/20 mb-2"
-                >
-                  2023 – 2027
-                </span>
-                <h4 class="font-bold text-lg text-white">
-                  Bachelor of Technology - CSE AIML
-                </h4>
-                <p class="text-gray-400 text-sm mt-1">
-                  Rajiv Gandhi Proudyogiki Vishwavidyalaya, Bhopal, Madhya
-                  Pradesh
-                </p>
-                <p class="text-gray-500 text-xs mt-2 italic leading-relaxed">
-                  Focused on Artificial Intelligence & Machine Learning core
-                  algorithms, deep learning architectures, data analysis, and
-                  mathematical modeling.
-                </p>
+          <!-- Quick Stats / Core Focus Card (Right) -->
+          <div class="lg:col-span-5 flex flex-col gap-6">
+            <!-- Academic Card -->
+            <div class="glass-card p-6 sm:p-7 rounded-3xl border border-slate-200 dark:border-slate-800">
+              <div class="flex items-center gap-4 mb-4">
+                <div class="w-12 h-12 rounded-2xl bg-blue-500/10 border border-blue-500/20 flex items-center justify-center text-blue-500 dark:text-blue-400">
+                  <i data-lucide="graduation-cap" class="w-6 h-6"></i>
+                </div>
+                <div>
+                  <h4 class="text-base font-bold text-slate-900 dark:text-white">Undergraduate Scholar</h4>
+                  <p class="text-xs text-slate-500 dark:text-slate-400">B.Tech in CSE (AI &amp; ML) · 2023–2027</p>
+                </div>
               </div>
+              <p class="text-xs sm:text-sm text-slate-600 dark:text-slate-300 leading-relaxed">
+                Affiliated with R.G.P.V Bhopal / SISTec with intensive coursework in machine learning, mathematics, algorithm design, and data structures.
+              </p>
+            </div>
 
-              <div class="relative timeline-item">
-                <span
-                  class="timeline-marker absolute -left-[42px] top-2"
-                ></span>
-                <span
-                  class="inline-block px-3 py-1 text-xs font-semibold rounded-full bg-yellow-500/10 text-yellow-300 border border-yellow-500/20 mb-2"
-                >
-                  2021 – 2023
-                </span>
-                <h4 class="font-bold text-lg text-white">
-                  Higher Secondary Education (PCM)
-                </h4>
-                <p class="text-gray-400 text-sm mt-1">
-                  +2 Tapeswari Kunwar High School, Dosma, Aurangabad, Bihar
-                </p>
-                <p class="text-gray-500 text-xs mt-2 italic leading-relaxed">
-                  Completed science-stream schooling with a heavy concentration
-                  in Physics, Chemistry, and Mathematics.
-                </p>
-              </div>
+            <!-- Core Areas Card -->
+            <div class="glass-card p-6 sm:p-7 rounded-3xl border border-slate-200 dark:border-slate-800 flex-1">
+              <h4 class="text-base font-bold text-slate-900 dark:text-white mb-4 flex items-center gap-2">
+                <i data-lucide="target" class="w-4 h-4 text-cyan-500 dark:text-cyan-400"></i>
+                <span>Core Skill Matrix</span>
+              </h4>
 
-              <div class="relative timeline-item">
-                <span
-                  class="timeline-marker absolute -left-[42px] top-2"
-                ></span>
-                <span
-                  class="inline-block px-3 py-1 text-xs font-semibold rounded-full bg-pink-500/10 text-pink-300 border border-pink-500/20 mb-2"
-                >
-                  2020 – 2021
-                </span>
-                <h4 class="font-bold text-lg text-white">
-                  Secondary Education
-                </h4>
-                <p class="text-gray-400 text-sm mt-1">
-                  Bright Life Public School, Aurangabad, Bihar
-                </p>
-                <p class="text-gray-500 text-xs mt-2 italic leading-relaxed">
-                  Graduated with foundational skills and strong
-                  science/mathematics coursework.
-                </p>
+              <div class="flex flex-wrap gap-2">
+                <span class="skill-chip">Python</span>
+                <span class="skill-chip">Machine Learning</span>
+                <span class="skill-chip">Deep Learning</span>
+                <span class="skill-chip">Computer Vision</span>
+                <span class="skill-chip">TensorFlow</span>
+                <span class="skill-chip">Scikit-learn</span>
+                <span class="skill-chip">OpenCV</span>
+                <span class="skill-chip">Flask</span>
+                <span class="skill-chip">Django</span>
+                <span class="skill-chip">NumPy</span>
+                <span class="skill-chip">Pandas</span>
+                <span class="skill-chip">MySQL</span>
+                <span class="skill-chip">Git &amp; GitHub</span>
+                <span class="skill-chip">C++</span>
               </div>
             </div>
           </div>
         </div>
       </section>
 
-      <!-- ================= CERTIFICATES ================= -->
-      <section id="certificates" class="py-20">
-        <h2 class="text-4xl font-bold text-center text-white mb-12">
-          My <span class="text-gradient">Certificates</span>
-        </h2>
+      <!-- ================= SKILLS SECTION ================= -->
+      <section id="skills" class="py-20 lg:py-28 reveal">
+        <!-- Section Header -->
+        <div class="text-center max-w-3xl mx-auto mb-16">
+          <div class="inline-flex items-center gap-2 px-3.5 py-1 rounded-full border border-cyan-500/20 bg-cyan-500/10 text-xs font-semibold text-cyan-600 dark:text-cyan-400 uppercase tracking-wider mb-3">
+            <i data-lucide="layers" class="w-3.5 h-3.5"></i>
+            <span>Skills &amp; Expertise</span>
+          </div>
+          <h2 class="text-3xl sm:text-4xl font-extrabold text-slate-900 dark:text-white tracking-tight">
+            Technologies I Use to Build <span class="text-gradient">Intelligent Apps</span>
+          </h2>
+          <p class="mt-3 text-base text-slate-600 dark:text-slate-400">
+            A comprehensive, transparent breakdown of tools and frameworks in my active stack.
+          </p>
+        </div>
+
+        <!-- Skills Grid Organized by Real Categories -->
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+          
+          <!-- Category 1: AI / Machine Learning -->
+          <div class="glass-card p-6 sm:p-7 rounded-3xl border border-slate-200 dark:border-slate-800 hover:border-cyan-500/40 transition-all group">
+            <div class="flex items-center justify-between mb-5">
+              <div class="w-12 h-12 rounded-2xl bg-cyan-500/10 border border-cyan-500/20 flex items-center justify-center text-cyan-500 dark:text-cyan-400 group-hover:scale-110 transition-transform">
+                <i data-lucide="brain" class="w-6 h-6"></i>
+              </div>
+              <span class="text-xs font-semibold uppercase tracking-wider text-cyan-600 dark:text-cyan-400 bg-cyan-100 dark:bg-cyan-950/40 px-3 py-1 rounded-full border border-cyan-500/20">Core Focus</span>
+            </div>
+            <h3 class="text-xl font-bold text-slate-900 dark:text-white mb-2">AI / Machine Learning</h3>
+            <p class="text-xs text-slate-600 dark:text-slate-400 mb-5">Data preprocessing, model training, computer vision pipelines, and deep neural nets.</p>
+            <div class="flex flex-wrap gap-2">
+              <span class="tech-badge">Machine Learning</span>
+              <span class="tech-badge">Deep Learning</span>
+              <span class="tech-badge">Computer Vision</span>
+              <span class="tech-badge">Scikit-learn</span>
+              <span class="tech-badge">TensorFlow</span>
+              <span class="tech-badge">OpenCV</span>
+              <span class="tech-badge">NumPy</span>
+              <span class="tech-badge">Pandas</span>
+            </div>
+          </div>
+
+          <!-- Category 2: Programming Languages -->
+          <div class="glass-card p-6 sm:p-7 rounded-3xl border border-slate-200 dark:border-slate-800 hover:border-blue-500/40 transition-all group">
+            <div class="flex items-center justify-between mb-5">
+              <div class="w-12 h-12 rounded-2xl bg-blue-500/10 border border-blue-500/20 flex items-center justify-center text-blue-500 dark:text-blue-400 group-hover:scale-110 transition-transform">
+                <i data-lucide="code-2" class="w-6 h-6"></i>
+              </div>
+              <span class="text-xs font-semibold uppercase tracking-wider text-blue-600 dark:text-blue-400 bg-blue-100 dark:bg-blue-950/40 px-3 py-1 rounded-full border border-blue-500/20">Languages</span>
+            </div>
+            <h3 class="text-xl font-bold text-slate-900 dark:text-white mb-2">Programming Languages</h3>
+            <p class="text-xs text-slate-600 dark:text-slate-400 mb-5">Algorithmic problem solving, object-oriented systems, and application logic.</p>
+            <div class="flex flex-wrap gap-2">
+              <span class="tech-badge">Python (Primary)</span>
+              <span class="tech-badge">C++</span>
+              <span class="tech-badge">JavaScript (ES6+)</span>
+            </div>
+          </div>
+
+          <!-- Category 3: Backend & APIs -->
+          <div class="glass-card p-6 sm:p-7 rounded-3xl border border-slate-200 dark:border-slate-800 hover:border-violet-500/40 transition-all group">
+            <div class="flex items-center justify-between mb-5">
+              <div class="w-12 h-12 rounded-2xl bg-violet-500/10 border border-violet-500/20 flex items-center justify-center text-violet-500 dark:text-violet-400 group-hover:scale-110 transition-transform">
+                <i data-lucide="server" class="w-6 h-6"></i>
+              </div>
+              <span class="text-xs font-semibold uppercase tracking-wider text-violet-600 dark:text-violet-400 bg-violet-100 dark:bg-violet-950/40 px-3 py-1 rounded-full border border-violet-500/20">Backend</span>
+            </div>
+            <h3 class="text-xl font-bold text-slate-900 dark:text-white mb-2">Backend &amp; APIs</h3>
+            <p class="text-xs text-slate-600 dark:text-slate-400 mb-5">Building scalable RESTful APIs and model serving endpoints.</p>
+            <div class="flex flex-wrap gap-2">
+              <span class="tech-badge">Flask</span>
+              <span class="tech-badge">Django</span>
+              <span class="tech-badge">FastAPI</span>
+              <span class="tech-badge">REST APIs</span>
+            </div>
+          </div>
+
+          <!-- Category 4: Databases -->
+          <div class="glass-card p-6 sm:p-7 rounded-3xl border border-slate-200 dark:border-slate-800 hover:border-emerald-500/40 transition-all group">
+            <div class="flex items-center justify-between mb-5">
+              <div class="w-12 h-12 rounded-2xl bg-emerald-500/10 border border-emerald-500/20 flex items-center justify-center text-emerald-500 dark:text-emerald-400 group-hover:scale-110 transition-transform">
+                <i data-lucide="database" class="w-6 h-6"></i>
+              </div>
+              <span class="text-xs font-semibold uppercase tracking-wider text-emerald-600 dark:text-emerald-400 bg-emerald-100 dark:bg-emerald-950/40 px-3 py-1 rounded-full border border-emerald-500/20">Data</span>
+            </div>
+            <h3 class="text-xl font-bold text-slate-900 dark:text-white mb-2">Databases</h3>
+            <p class="text-xs text-slate-600 dark:text-slate-400 mb-5">Structured schemas and document-oriented persistence layers.</p>
+            <div class="flex flex-wrap gap-2">
+              <span class="tech-badge">MySQL</span>
+              <span class="tech-badge">MongoDB</span>
+              <span class="tech-badge">SQL Querying</span>
+            </div>
+          </div>
+
+          <!-- Category 5: Tools & Workflow -->
+          <div class="glass-card p-6 sm:p-7 rounded-3xl border border-slate-200 dark:border-slate-800 hover:border-amber-500/40 transition-all group">
+            <div class="flex items-center justify-between mb-5">
+              <div class="w-12 h-12 rounded-2xl bg-amber-500/10 border border-amber-500/20 flex items-center justify-center text-amber-500 dark:text-amber-400 group-hover:scale-110 transition-transform">
+                <i data-lucide="git-branch" class="w-6 h-6"></i>
+              </div>
+              <span class="text-xs font-semibold uppercase tracking-wider text-amber-600 dark:text-amber-400 bg-amber-100 dark:bg-amber-950/40 px-3 py-1 rounded-full border border-amber-500/20">DevOps</span>
+            </div>
+            <h3 class="text-xl font-bold text-slate-900 dark:text-white mb-2">Tools &amp; Workflow</h3>
+            <p class="text-xs text-slate-600 dark:text-slate-400 mb-5">Version control, collaborative workflows, and environment setups.</p>
+            <div class="flex flex-wrap gap-2">
+              <span class="tech-badge">Git</span>
+              <span class="tech-badge">GitHub</span>
+              <span class="tech-badge">VS Code</span>
+              <span class="tech-badge">Jupyter Notebooks</span>
+            </div>
+          </div>
+
+          <!-- Category 6: Frontend Integration -->
+          <div class="glass-card p-6 sm:p-7 rounded-3xl border border-slate-200 dark:border-slate-800 hover:border-pink-500/40 transition-all group">
+            <div class="flex items-center justify-between mb-5">
+              <div class="w-12 h-12 rounded-2xl bg-pink-500/10 border border-pink-500/20 flex items-center justify-center text-pink-500 dark:text-pink-400 group-hover:scale-110 transition-transform">
+                <i data-lucide="layout" class="w-6 h-6"></i>
+              </div>
+              <span class="text-xs font-semibold uppercase tracking-wider text-pink-600 dark:text-pink-400 bg-pink-100 dark:bg-pink-950/40 px-3 py-1 rounded-full border border-pink-500/20">Frontend</span>
+            </div>
+            <h3 class="text-xl font-bold text-slate-900 dark:text-white mb-2">Frontend</h3>
+            <p class="text-xs text-slate-600 dark:text-slate-400 mb-5">Responsive user interfaces and interactive web client integration.</p>
+            <div class="flex flex-wrap gap-2">
+              <span class="tech-badge">HTML5</span>
+              <span class="tech-badge">CSS3</span>
+              <span class="tech-badge">Tailwind CSS</span>
+              <span class="tech-badge">JavaScript</span>
+              <span class="tech-badge">React.js</span>
+            </div>
+          </div>
+
+        </div>
+      </section>
+
+      <!-- ================= EDUCATION SECTION ================= -->
+      <section id="education" class="py-20 lg:py-28 reveal">
+        <!-- Section Header -->
+        <div class="text-center max-w-3xl mx-auto mb-16">
+          <div class="inline-flex items-center gap-2 px-3.5 py-1 rounded-full border border-violet-500/20 bg-violet-500/10 text-xs font-semibold text-violet-600 dark:text-violet-400 uppercase tracking-wider mb-3">
+            <i data-lucide="graduation-cap" class="w-3.5 h-3.5"></i>
+            <span>Education</span>
+          </div>
+          <h2 class="text-3xl sm:text-4xl font-extrabold text-slate-900 dark:text-white tracking-tight">
+            Academic <span class="text-gradient">Journey</span>
+          </h2>
+          <p class="mt-3 text-base text-slate-600 dark:text-slate-400">
+            Foundational schooling and specialized engineering degree coursework.
+          </p>
+        </div>
+
+        <div class="max-w-4xl mx-auto">
+          <!-- Timeline Container -->
+          <div class="relative pl-6 sm:pl-10 space-y-10 border-l-2 border-slate-300 dark:border-slate-800">
+            
+            <!-- Item 1: B.Tech -->
+            <div class="relative group">
+              <!-- Timeline Dot -->
+              <div class="absolute -left-[31px] sm:-left-[47px] top-1.5 w-4 h-4 rounded-full bg-cyan-500 ring-4 ring-slate-100 dark:ring-slate-950 border-2 border-white dark:border-slate-900 group-hover:scale-125 transition-transform"></div>
+
+              <div class="glass-card p-6 sm:p-8 rounded-3xl border border-slate-200 dark:border-slate-800 group-hover:border-cyan-500/40 transition-all">
+                <div class="flex flex-wrap items-center justify-between gap-2 mb-2">
+                  <span class="px-3 py-1 rounded-full text-xs font-semibold bg-cyan-100 dark:bg-cyan-500/10 text-cyan-700 dark:text-cyan-300 border border-cyan-500/30">
+                    2023 – 2027 (Expected)
+                  </span>
+                  <span class="text-xs text-slate-500 dark:text-slate-400">Bhopal, Madhya Pradesh</span>
+                </div>
+                <h3 class="text-xl font-bold text-slate-900 dark:text-white mt-1">Bachelor of Technology in CSE — AI &amp; ML</h3>
+                <h4 class="text-sm font-semibold text-cyan-600 dark:text-cyan-400 mt-1">Rajiv Gandhi Proudyogiki Vishwavidyalaya (R.G.P.V) / SISTec</h4>
+                <p class="text-sm text-slate-600 dark:text-slate-300 mt-3 leading-relaxed">
+                  Focusing on core Artificial Intelligence, Machine Learning algorithms, Deep Learning architectures, Computer Vision, mathematical modeling, and distributed computing.
+                </p>
+              </div>
+            </div>
+
+            <!-- Item 2: Higher Secondary -->
+            <div class="relative group">
+              <!-- Timeline Dot -->
+              <div class="absolute -left-[31px] sm:-left-[47px] top-1.5 w-4 h-4 rounded-full bg-blue-500 ring-4 ring-slate-100 dark:ring-slate-950 border-2 border-white dark:border-slate-900 group-hover:scale-125 transition-transform"></div>
+
+              <div class="glass-card p-6 sm:p-8 rounded-3xl border border-slate-200 dark:border-slate-800 group-hover:border-blue-500/40 transition-all">
+                <div class="flex flex-wrap items-center justify-between gap-2 mb-2">
+                  <span class="px-3 py-1 rounded-full text-xs font-semibold bg-blue-100 dark:bg-blue-500/10 text-blue-700 dark:text-blue-300 border border-blue-500/30">
+                    2021 – 2023
+                  </span>
+                  <span class="text-xs text-slate-500 dark:text-slate-400">Aurangabad, Bihar</span>
+                </div>
+                <h3 class="text-xl font-bold text-slate-900 dark:text-white mt-1">Higher Secondary Education (PCM)</h3>
+                <h4 class="text-sm font-semibold text-blue-600 dark:text-blue-400 mt-1">+2 Tapeswari Kunwar High School</h4>
+                <p class="text-sm text-slate-600 dark:text-slate-300 mt-3 leading-relaxed">
+                  Completed science-stream schooling with coursework centered in Physics, Chemistry, and Mathematics.
+                </p>
+              </div>
+            </div>
+
+            <!-- Item 3: Secondary -->
+            <div class="relative group">
+              <!-- Timeline Dot -->
+              <div class="absolute -left-[31px] sm:-left-[47px] top-1.5 w-4 h-4 rounded-full bg-violet-500 ring-4 ring-slate-100 dark:ring-slate-950 border-2 border-white dark:border-slate-900 group-hover:scale-125 transition-transform"></div>
+
+              <div class="glass-card p-6 sm:p-8 rounded-3xl border border-slate-200 dark:border-slate-800 group-hover:border-violet-500/40 transition-all">
+                <div class="flex flex-wrap items-center justify-between gap-2 mb-2">
+                  <span class="px-3 py-1 rounded-full text-xs font-semibold bg-violet-100 dark:bg-violet-500/10 text-violet-700 dark:text-violet-300 border border-violet-500/30">
+                    2020 – 2021
+                  </span>
+                  <span class="text-xs text-slate-500 dark:text-slate-400">Aurangabad, Bihar</span>
+                </div>
+                <h3 class="text-xl font-bold text-slate-900 dark:text-white mt-1">Secondary Education</h3>
+                <h4 class="text-sm font-semibold text-violet-600 dark:text-violet-400 mt-1">Bright Life Public School</h4>
+                <p class="text-sm text-slate-600 dark:text-slate-300 mt-3 leading-relaxed">
+                  Graduated with strong foundations in mathematics and science sciences.
+                </p>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </section>
+
+      <!-- ================= CERTIFICATES SECTION ================= -->
+      <section id="certificates" class="py-20 lg:py-28 reveal">
+        <!-- Section Header -->
+        <div class="text-center max-w-3xl mx-auto mb-16">
+          <div class="inline-flex items-center gap-2 px-3.5 py-1 rounded-full border border-amber-500/20 bg-amber-500/10 text-xs font-semibold text-amber-600 dark:text-amber-400 uppercase tracking-wider mb-3">
+            <i data-lucide="award" class="w-3.5 h-3.5"></i>
+            <span>Certificates</span>
+          </div>
+          <h2 class="text-3xl sm:text-4xl font-extrabold text-slate-900 dark:text-white tracking-tight">
+            Professional <span class="text-gradient">Certifications</span>
+          </h2>
+          <p class="mt-3 text-base text-slate-600 dark:text-slate-400">
+            Verified credentials in Python, AI, Cloud Infrastructure, and software job simulations.
+          </p>
+        </div>
 
         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          <div class="gradient-border-wrapper p-[2px] rounded-xl">
-            <div class="cert-card glass-effect reveal group">
+          
+          <!-- Cert 1: Python Essentials -->
+          <div class="cert-card-wrap glass-card rounded-3xl overflow-hidden border border-slate-200 dark:border-slate-800 hover:border-cyan-500/40 flex flex-col transition-all group">
+            <div class="relative h-48 sm:h-52 w-full overflow-hidden bg-slate-900 flex items-center justify-center p-2">
               <img
                 src="{{ url_for('static', filename='Images/python_essential.png') }}"
                 alt="Python Essentials Certificate"
+                loading="lazy"
+                class="w-full h-full object-contain transition-transform duration-500 group-hover:scale-105"
               />
-              <div class="cert-card-overlay">
-                <h3 class="cert-card-title">Python Essentials</h3>
-                <div class="cert-card-details">
-                  <p class="cert-card-desc">
-                    Complete Python programming course from basics to advanced.
-                  </p>
-                  <a
-                    href="{{ url_for('static', filename='Images/python_essential.png') }}"
-                    target="_blank"
-                    class="cert-card-link"
-                  >
-                    View Certificate
-                    <i data-lucide="arrow-right" class="w-4 h-4 ml-2"></i>
-                  </a>
-                </div>
+              <div class="absolute inset-0 bg-slate-950/40 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
+                <span class="px-3.5 py-1.5 rounded-full bg-cyan-600 text-white text-xs font-semibold flex items-center gap-1.5 shadow-lg">
+                  <i data-lucide="zoom-in" class="w-3.5 h-3.5"></i>
+                  <span>Preview</span>
+                </span>
               </div>
+            </div>
+            <div class="p-6 flex flex-col flex-1">
+              <span class="text-xs font-semibold text-cyan-600 dark:text-cyan-400 uppercase tracking-wider mb-1">Cisco / Python Institute</span>
+              <h3 class="text-lg font-bold text-slate-900 dark:text-white mb-2">Python Essentials</h3>
+              <p class="text-xs text-slate-600 dark:text-slate-400 mb-5 flex-1">Comprehensive programming certification covering core algorithms, OOP, data structures, and Python essentials.</p>
+              <a
+                href="{{ url_for('static', filename='Images/python_essential.png') }}"
+                class="cert-lightbox-trigger inline-flex items-center justify-between text-sm font-semibold text-cyan-600 dark:text-cyan-400 hover:text-cyan-500 pt-3 border-t border-slate-200 dark:border-slate-800"
+              >
+                <span>View Certificate</span>
+                <i data-lucide="arrow-right" class="w-4 h-4"></i>
+              </a>
             </div>
           </div>
 
-          <div class="gradient-border-wrapper p-[2px] rounded-xl">
-            <div class="cert-card glass-effect reveal group">
+          <!-- Cert 2: Modern AI -->
+          <div class="cert-card-wrap glass-card rounded-3xl overflow-hidden border border-slate-200 dark:border-slate-800 hover:border-blue-500/40 flex flex-col transition-all group">
+            <div class="relative h-48 sm:h-52 w-full overflow-hidden bg-slate-900 flex items-center justify-center p-2">
               <img
                 src="{{ url_for('static', filename='Images/certificate2.png') }}"
-                alt="Modern AI Certificate"
+                alt="Introduction to Modern AI Certificate"
+                loading="lazy"
+                class="w-full h-full object-contain transition-transform duration-500 group-hover:scale-105"
               />
-              <div class="cert-card-overlay">
-                <h3 class="cert-card-title">Introduction to Modern AI</h3>
-                <div class="cert-card-details">
-                  <p class="cert-card-desc">
-                    Basics of Artificial Intelligence and its applications.
-                  </p>
-                  <a
-                    href="{{ url_for('static', filename='Images/certificate2.png') }}"
-                    target="_blank"
-                    class="cert-card-link"
-                  >
-                    View Certificate
-                    <i data-lucide="arrow-right" class="w-4 h-4 ml-2"></i>
-                  </a>
-                </div>
+              <div class="absolute inset-0 bg-slate-950/40 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
+                <span class="px-3.5 py-1.5 rounded-full bg-blue-600 text-white text-xs font-semibold flex items-center gap-1.5 shadow-lg">
+                  <i data-lucide="zoom-in" class="w-3.5 h-3.5"></i>
+                  <span>Preview</span>
+                </span>
               </div>
+            </div>
+            <div class="p-6 flex flex-col flex-1">
+              <span class="text-xs font-semibold text-blue-600 dark:text-blue-400 uppercase tracking-wider mb-1">Artificial Intelligence</span>
+              <h3 class="text-lg font-bold text-slate-900 dark:text-white mb-2">Introduction to Modern AI</h3>
+              <p class="text-xs text-slate-600 dark:text-slate-400 mb-5 flex-1">Fundamental principles of artificial intelligence, model paradigms, and modern ML workflow implementations.</p>
+              <a
+                href="{{ url_for('static', filename='Images/certificate2.png') }}"
+                class="cert-lightbox-trigger inline-flex items-center justify-between text-sm font-semibold text-blue-600 dark:text-blue-400 hover:text-blue-500 pt-3 border-t border-slate-200 dark:border-slate-800"
+              >
+                <span>View Certificate</span>
+                <i data-lucide="arrow-right" class="w-4 h-4"></i>
+              </a>
             </div>
           </div>
 
-          <div class="gradient-border-wrapper p-[2px] rounded-xl">
-            <div class="cert-card glass-effect reveal group">
+          <!-- Cert 3: Oracle Cloud AI Associate -->
+          <div class="cert-card-wrap glass-card rounded-3xl overflow-hidden border border-slate-200 dark:border-slate-800 hover:border-violet-500/40 flex flex-col transition-all group">
+            <div class="relative h-48 sm:h-52 w-full overflow-hidden bg-slate-900 flex items-center justify-center p-2">
               <img
                 src="{{ url_for('static', filename='Images/oracle_cloud.png') }}"
-                alt="Oracle Cloud Certificate"
+                alt="Oracle Cloud Infrastructure AI Associate Certificate"
+                loading="lazy"
+                class="w-full h-full object-contain transition-transform duration-500 group-hover:scale-105"
               />
-              <div class="cert-card-overlay">
-                <h3 class="cert-card-title">
-                  Oracle Cloud Infrastructure AI Associate
-                </h3>
-                <div class="cert-card-details">
-                  <p class="cert-card-desc">
-                    Foundational knowledge of AI and ML concepts on Oracle
-                    Cloud.
-                  </p>
-                  <a
-                    href="{{ url_for('static', filename='Images/oracle_cloud.png') }}"
-                    target="_blank"
-                    class="cert-card-link"
-                  >
-                    View Certificate
-                    <i data-lucide="arrow-right" class="w-4 h-4 ml-2"></i>
-                  </a>
-                </div>
+              <div class="absolute inset-0 bg-slate-950/40 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
+                <span class="px-3.5 py-1.5 rounded-full bg-violet-600 text-white text-xs font-semibold flex items-center gap-1.5 shadow-lg">
+                  <i data-lucide="zoom-in" class="w-3.5 h-3.5"></i>
+                  <span>Preview</span>
+                </span>
               </div>
+            </div>
+            <div class="p-6 flex flex-col flex-1">
+              <span class="text-xs font-semibold text-violet-600 dark:text-violet-400 uppercase tracking-wider mb-1">Oracle</span>
+              <h3 class="text-lg font-bold text-slate-900 dark:text-white mb-2">OCI AI Associate</h3>
+              <p class="text-xs text-slate-600 dark:text-slate-400 mb-5 flex-1">Foundational knowledge of AI and machine learning concepts on Oracle Cloud Infrastructure and automated workflows.</p>
+              <a
+                href="{{ url_for('static', filename='Images/oracle_cloud.png') }}"
+                class="cert-lightbox-trigger inline-flex items-center justify-between text-sm font-semibold text-violet-600 dark:text-violet-400 hover:text-violet-500 pt-3 border-t border-slate-200 dark:border-slate-800"
+              >
+                <span>View Certificate</span>
+                <i data-lucide="arrow-right" class="w-4 h-4"></i>
+              </a>
             </div>
           </div>
 
-          <div class="gradient-border-wrapper p-[2px] rounded-xl">
-            <div class="cert-card glass-effect reveal group">
+          <!-- Cert 4: Deloitte Simulation -->
+          <div class="cert-card-wrap glass-card rounded-3xl overflow-hidden border border-slate-200 dark:border-slate-800 hover:border-emerald-500/40 flex flex-col transition-all group">
+            <div class="relative h-48 sm:h-52 w-full overflow-hidden bg-slate-900 flex items-center justify-center p-2">
               <img
                 src="{{ url_for('static', filename='Images/deloitte.png') }}"
                 alt="Deloitte Technology Job Simulation Certificate"
+                loading="lazy"
+                class="w-full h-full object-contain transition-transform duration-500 group-hover:scale-105"
               />
-              <div class="cert-card-overlay">
-                <h3 class="cert-card-title">
-                  Deloitte Technology Job Simulation
-                </h3>
-                <div class="cert-card-details">
-                  <p class="cert-card-desc">
-                    Completed practical tasks in coding and software development
-                    as part of the Deloitte Technology Job Simulation.
-                  </p>
-                  <a
-                    href="{{ url_for('static', filename='Images/deloitte.png') }}"
-                    target="_blank"
-                    class="cert-card-link"
-                  >
-                    View Certificate
-                    <i data-lucide="arrow-right" class="w-4 h-4 ml-2"></i>
-                  </a>
-                </div>
+              <div class="absolute inset-0 bg-slate-950/40 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
+                <span class="px-3.5 py-1.5 rounded-full bg-emerald-600 text-white text-xs font-semibold flex items-center gap-1.5 shadow-lg">
+                  <i data-lucide="zoom-in" class="w-3.5 h-3.5"></i>
+                  <span>Preview</span>
+                </span>
               </div>
+            </div>
+            <div class="p-6 flex flex-col flex-1">
+              <span class="text-xs font-semibold text-emerald-600 dark:text-emerald-400 uppercase tracking-wider mb-1">Deloitte · Forage</span>
+              <h3 class="text-lg font-bold text-slate-900 dark:text-white mb-2">Deloitte Technology Simulation</h3>
+              <p class="text-xs text-slate-600 dark:text-slate-400 mb-5 flex-1">Completed practical developer tasks in coding, software architecture, and technology consulting as part of Deloitte's program.</p>
+              <a
+                href="{{ url_for('static', filename='Images/deloitte.png') }}"
+                class="cert-lightbox-trigger inline-flex items-center justify-between text-sm font-semibold text-emerald-600 dark:text-emerald-400 hover:text-emerald-500 pt-3 border-t border-slate-200 dark:border-slate-800"
+              >
+                <span>View Certificate</span>
+                <i data-lucide="arrow-right" class="w-4 h-4"></i>
+              </a>
             </div>
           </div>
 
-          <div class="gradient-border-wrapper p-[2px] rounded-xl">
-            <div class="cert-card glass-effect reveal group">
+          <!-- Cert 5: AWS Machine Learning Basics -->
+          <div class="cert-card-wrap glass-card rounded-3xl overflow-hidden border border-slate-200 dark:border-slate-800 hover:border-amber-500/40 flex flex-col transition-all group">
+            <div class="relative h-48 sm:h-52 w-full overflow-hidden bg-slate-900 flex items-center justify-center p-2">
               <img
                 src="{{ url_for('static', filename='Images/aws.png') }}"
                 alt="AWS Machine Learning Basics Certificate"
+                loading="lazy"
+                class="w-full h-full object-contain transition-transform duration-500 group-hover:scale-105"
               />
-              <div class="cert-card-overlay">
-                <h3 class="cert-card-title">
-                  AWS Foundations: Machine Learning Basics
-                </h3>
-                <div class="cert-card-details">
-                  <p class="cert-card-desc">
-                    Foundational training on core machine learning concepts,
-                    algorithms, and applications on AWS.
-                  </p>
-                  <a
-                    href="{{ url_for('static', filename='Images/aws.pdf') }}"
-                    target="_blank"
-                    class="cert-card-link"
-                  >
-                    View Certificate
-                    <i data-lucide="arrow-right" class="w-4 h-4 ml-2"></i>
-                  </a>
-                </div>
+              <div class="absolute inset-0 bg-slate-950/40 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
+                <span class="px-3.5 py-1.5 rounded-full bg-amber-600 text-white text-xs font-semibold flex items-center gap-1.5 shadow-lg">
+                  <i data-lucide="zoom-in" class="w-3.5 h-3.5"></i>
+                  <span>Preview</span>
+                </span>
               </div>
+            </div>
+            <div class="p-6 flex flex-col flex-1">
+              <span class="text-xs font-semibold text-amber-600 dark:text-amber-400 uppercase tracking-wider mb-1">Amazon Web Services</span>
+              <h3 class="text-lg font-bold text-slate-900 dark:text-white mb-2">AWS ML Foundations</h3>
+              <p class="text-xs text-slate-600 dark:text-slate-400 mb-5 flex-1">Foundational training on core machine learning concepts, algorithms, data pipelining, and cloud-hosted ML services.</p>
+              <a
+                href="{{ url_for('static', filename='Images/aws.png') }}"
+                class="cert-lightbox-trigger inline-flex items-center justify-between text-sm font-semibold text-amber-600 dark:text-amber-400 hover:text-amber-500 pt-3 border-t border-slate-200 dark:border-slate-800"
+              >
+                <span>View Certificate</span>
+                <i data-lucide="arrow-right" class="w-4 h-4"></i>
+              </a>
             </div>
           </div>
 
-          <div class="gradient-border-wrapper p-[2px] rounded-xl">
-            <div class="cert-card glass-effect reveal group">
+          <!-- Cert 6: AWS Cloud Practitioner -->
+          <div class="cert-card-wrap glass-card rounded-3xl overflow-hidden border border-slate-200 dark:border-slate-800 hover:border-pink-500/40 flex flex-col transition-all group">
+            <div class="relative h-48 sm:h-52 w-full overflow-hidden bg-slate-900 flex items-center justify-center p-2">
               <img
                 src="{{ url_for('static', filename='Images/cloud_aws.png') }}"
                 alt="AWS Cloud Practitioner Essentials Certificate"
+                loading="lazy"
+                class="w-full h-full object-contain transition-transform duration-500 group-hover:scale-105"
               />
-              <div class="cert-card-overlay">
-                <h3 class="cert-card-title">
-                  AWS Cloud Practitioner Essentials
-                </h3>
-                <div class="cert-card-details">
-                  <p class="cert-card-desc">
-                    Acquired foundational knowledge of cloud concepts, security,
-                    architecture, and services on Amazon Web Services.
-                  </p>
-                  <a
-                    href="{{ url_for('static', filename='Images/cloud_aws.png') }}"
-                    target="_blank"
-                    class="cert-card-link"
-                  >
-                    View Certificate
-                    <i data-lucide="arrow-right" class="w-4 h-4 ml-2"></i>
-                  </a>
-                </div>
+              <div class="absolute inset-0 bg-slate-950/40 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
+                <span class="px-3.5 py-1.5 rounded-full bg-pink-600 text-white text-xs font-semibold flex items-center gap-1.5 shadow-lg">
+                  <i data-lucide="zoom-in" class="w-3.5 h-3.5"></i>
+                  <span>Preview</span>
+                </span>
               </div>
             </div>
+            <div class="p-6 flex flex-col flex-1">
+              <span class="text-xs font-semibold text-pink-600 dark:text-pink-400 uppercase tracking-wider mb-1">Amazon Web Services</span>
+              <h3 class="text-lg font-bold text-slate-900 dark:text-white mb-2">AWS Cloud Practitioner</h3>
+              <p class="text-xs text-slate-600 dark:text-slate-400 mb-5 flex-1">Essential knowledge of cloud infrastructure, security models, compute resources, and AWS core cloud architecture.</p>
+              <a
+                href="{{ url_for('static', filename='Images/cloud_aws.png') }}"
+                class="cert-lightbox-trigger inline-flex items-center justify-between text-sm font-semibold text-pink-600 dark:text-pink-400 hover:text-pink-500 pt-3 border-t border-slate-200 dark:border-slate-800"
+              >
+                <span>View Certificate</span>
+                <i data-lucide="arrow-right" class="w-4 h-4"></i>
+              </a>
+            </div>
           </div>
+
         </div>
       </section>
 
-      <!-- ================= PROJECTS ================= -->
-      <!-- ================= PROJECTS ================= -->
-      <section id="projects" class="py-20">
-        <h2 class="text-4xl font-bold text-center text-white mb-12">
-          My <span class="text-gradient">Projects</span>
-        </h2>
+      <!-- ================= PROJECTS SECTION ================= -->
+      <section id="projects" class="py-20 lg:py-28 reveal">
+        <!-- Section Header -->
+        <div class="text-center max-w-3xl mx-auto mb-12">
+          <div class="inline-flex items-center gap-2 px-3.5 py-1 rounded-full border border-blue-500/20 bg-blue-500/10 text-xs font-semibold text-blue-500 dark:text-blue-400 uppercase tracking-wider mb-3">
+            <i data-lucide="folder-code" class="w-3.5 h-3.5"></i>
+            <span>Featured Projects</span>
+          </div>
+          <h2 class="text-3xl sm:text-4xl font-extrabold text-slate-900 dark:text-white tracking-tight">
+            Selected Work &amp; <span class="text-gradient">Intelligent Applications</span>
+          </h2>
+          <p class="mt-3 text-base text-slate-600 dark:text-slate-400">
+            Real-world systems, machine learning architectures, and full-stack software.
+          </p>
+        </div>
 
-        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          <!-- AI InterviewerBuddy -->
-          <div
-            class="glass-effect rounded-xl overflow-hidden group flex flex-col reveal"
+        <!-- Project Category Tabs Filter -->
+        <div class="flex items-center justify-center gap-2 mb-12 flex-wrap">
+          <button
+            type="button"
+            class="project-tab-btn active px-4 py-2 rounded-xl text-xs sm:text-sm font-semibold transition-all"
+            data-filter="all"
           >
-            <img
-              src="{{ url_for('static', filename='Images/AI-InterviewBuddy.png') }}"
-              alt="AI InterviewBuddy Project"
-              class="w-full h-48 object-cover transition-transform duration-500 group-hover:scale-105"
-            />
+            All Projects
+          </button>
+          <button
+            type="button"
+            class="project-tab-btn px-4 py-2 rounded-xl text-xs sm:text-sm font-semibold transition-all"
+            data-filter="aiml"
+          >
+            AI / ML &amp; LLMs
+          </button>
+          <button
+            type="button"
+            class="project-tab-btn px-4 py-2 rounded-xl text-xs sm:text-sm font-semibold transition-all"
+            data-filter="cv"
+          >
+            Computer Vision
+          </button>
+          <button
+            type="button"
+            class="project-tab-btn px-4 py-2 rounded-xl text-xs sm:text-sm font-semibold transition-all"
+            data-filter="web"
+          >
+            Web Development
+          </button>
+        </div>
 
-            <div class="p-6 flex flex-col flex-grow">
-              <h3
-                class="text-xl font-bold text-white mb-2 group-hover:text-blue-400 transition-colors"
-              >
-                AI InterviewerBuddy
+        <!-- Projects Grid -->
+        <div id="projects-grid" class="grid grid-cols-1 md:grid-cols-2 gap-8 items-stretch">
+          
+          <!-- Project 1: InterviewerBuddy AI (Featured Star) -->
+          <div
+            class="project-card glass-card rounded-3xl overflow-hidden border border-slate-200 dark:border-slate-800 hover:border-cyan-500/50 flex flex-col transition-all group"
+            data-category="aiml web"
+          >
+            <div class="relative h-56 sm:h-64 w-full overflow-hidden bg-slate-900">
+              <img
+                src="{{ url_for('static', filename='Images/AI-InterviewBuddy.png') }}"
+                alt="InterviewerBuddy AI"
+                loading="lazy"
+                class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+              />
+              <div class="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/20 to-transparent"></div>
+              
+              <div class="absolute top-4 left-4">
+                <span class="px-3 py-1 rounded-full text-xs font-bold bg-cyan-500 text-slate-950 flex items-center gap-1 shadow-lg shadow-cyan-500/30">
+                  <i data-lucide="star" class="w-3.5 h-3.5 fill-current"></i>
+                  <span>Flagship Project</span>
+                </span>
+              </div>
+            </div>
+
+            <div class="p-6 sm:p-8 flex flex-col flex-1">
+              <h3 class="text-2xl font-bold text-slate-900 dark:text-white mb-2 group-hover:text-cyan-600 dark:group-hover:text-cyan-400 transition-colors">
+                InterviewerBuddy AI
               </h3>
 
-              <p class="text-gray-400 mb-4 text-sm flex-grow">
-                An AI-powered interview preparation platform designed to
-                simulate interactive interviews, generate role-based questions,
-                evaluate responses, and provide personalized feedback and
-                insights.
+              <p class="text-slate-700 dark:text-slate-300 text-sm sm:text-base leading-relaxed mb-6 flex-1">
+                AI-powered interview preparation platform designed to simulate interactive interviews, generate role-based questions, evaluate responses, and provide personalized feedback and insights.
               </p>
 
-              <div class="flex flex-wrap gap-2 mb-4">
+              <!-- Tags -->
+              <div class="flex flex-wrap gap-2 mb-6">
                 <span class="project-tag">AI/ML</span>
                 <span class="project-tag">Python</span>
                 <span class="project-tag">FastAPI</span>
@@ -916,42 +1006,63 @@
                 <span class="project-tag">AI Interview</span>
               </div>
 
-              <a
-                href="https://ai-interviewbuddy-1.onrender.com"
-                target="_blank"
-                rel="noopener noreferrer"
-                class="inline-flex items-center text-blue-400 hover:text-blue-300 font-semibold mt-auto"
-              >
-                Live Demo
-                <i data-lucide="external-link" class="w-4 h-4 ml-2"></i>
-              </a>
+              <!-- Buttons -->
+              <div class="flex items-center gap-4 pt-4 border-t border-slate-200 dark:border-slate-800">
+                <a
+                  href="https://ai-interviewbuddy-1.onrender.com"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  class="btn-primary py-2.5 px-5 text-sm"
+                >
+                  <span>Live Demo</span>
+                  <i data-lucide="external-link" class="w-4 h-4"></i>
+                </a>
+
+                <a
+                  href="https://github.com/Prince-singh001"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  class="btn-outline py-2.5 px-5 text-sm"
+                >
+                  <i data-lucide="github" class="w-4 h-4"></i>
+                  <span>GitHub</span>
+                </a>
+              </div>
             </div>
           </div>
 
-          <!-- SafeBite-AI -->
+          <!-- Project 2: SafeBite-AI -->
           <div
-            class="glass-effect rounded-xl overflow-hidden group flex flex-col reveal"
+            class="project-card glass-card rounded-3xl overflow-hidden border border-slate-200 dark:border-slate-800 hover:border-blue-500/50 flex flex-col transition-all group"
+            data-category="aiml cv"
           >
-            <img
-              src="{{ url_for('static', filename='Images/foodscan.png') }}"
-              alt="FoodScan Project"
-              class="w-full h-48 object-cover transition-transform duration-500 group-hover:scale-105"
-            />
+            <div class="relative h-56 sm:h-64 w-full overflow-hidden bg-slate-900">
+              <img
+                src="{{ url_for('static', filename='Images/foodscan.png') }}"
+                alt="SafeBite-AI Project"
+                loading="lazy"
+                class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+              />
+              <div class="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/20 to-transparent"></div>
+              
+              <div class="absolute top-4 left-4">
+                <span class="px-3 py-1 rounded-full text-xs font-semibold bg-blue-500/20 text-blue-700 dark:text-blue-300 border border-blue-500/30 backdrop-blur-md">
+                  Computer Vision &amp; CNN
+                </span>
+              </div>
+            </div>
 
-            <div class="p-6 flex flex-col flex-grow">
-              <h3
-                class="text-xl font-bold text-white mb-2 group-hover:text-blue-400 transition-colors"
-              >
+            <div class="p-6 sm:p-8 flex flex-col flex-1">
+              <h3 class="text-2xl font-bold text-slate-900 dark:text-white mb-2 group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors">
                 SafeBite-AI
               </h3>
 
-              <p class="text-gray-400 mb-4 text-sm flex-grow">
-                An intelligent food recognition system utilizing a MobileNet CNN
-                architecture trained on a custom food dataset to classify food
-                items and estimate their nutritional values.
+              <p class="text-slate-700 dark:text-slate-300 text-sm sm:text-base leading-relaxed mb-6 flex-1">
+                An intelligent food recognition system utilizing a MobileNet CNN architecture trained on custom food datasets to classify food items and estimate their nutritional values in real-time.
               </p>
 
-              <div class="flex flex-wrap gap-2 mb-4">
+              <!-- Tags -->
+              <div class="flex flex-wrap gap-2 mb-6">
                 <span class="project-tag">Python</span>
                 <span class="project-tag">MobileNet CNN</span>
                 <span class="project-tag">TensorFlow</span>
@@ -959,80 +1070,63 @@
                 <span class="project-tag">OpenCV</span>
               </div>
 
-              <a
-                href="https://safebite-sno8.onrender.com"
-                target="_blank"
-                rel="noopener noreferrer"
-                class="inline-flex items-center text-blue-400 hover:text-blue-300 font-semibold mt-auto"
-              >
-                Visit Site
-                <i data-lucide="arrow-right" class="w-4 h-4 ml-2"></i>
-              </a>
-            </div>
-          </div>
+              <!-- Buttons -->
+              <div class="flex items-center gap-4 pt-4 border-t border-slate-200 dark:border-slate-800">
+                <a
+                  href="https://safebite-sno8.onrender.com"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  class="btn-primary py-2.5 px-5 text-sm"
+                >
+                  <span>Live Demo</span>
+                  <i data-lucide="external-link" class="w-4 h-4"></i>
+                </a>
 
-          <!-- Spend Smart -->
-          <div
-            class="glass-effect rounded-xl overflow-hidden group flex flex-col reveal"
-          >
-            <img
-              src="{{ url_for('static', filename='Images/spend_smart.png') }}"
-              alt="Spend Smart Project"
-              class="w-full h-48 object-cover transition-transform duration-500 group-hover:scale-105"
-            />
-
-            <div class="p-6 flex flex-col flex-grow">
-              <h3 class="text-xl font-bold text-white mb-2">Spend Smart</h3>
-
-              <p class="text-gray-400 mb-4 text-sm flex-grow">
-                A MERN stack expense management web app that tracks income,
-                expenses, and financial records.
-              </p>
-
-              <div class="flex flex-wrap gap-2 mb-4">
-                <span class="project-tag">React.js</span>
-                <span class="project-tag">Node.js</span>
-                <span class="project-tag">Express.js</span>
-                <span class="project-tag">MongoDB</span>
-                <span class="project-tag">Tailwind</span>
+                <a
+                  href="https://github.com/Prince-singh001"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  class="btn-outline py-2.5 px-5 text-sm"
+                >
+                  <i data-lucide="github" class="w-4 h-4"></i>
+                  <span>GitHub</span>
+                </a>
               </div>
-
-              <a
-                href="https://spend-smart-tawny-xi.vercel.app/"
-                target="_blank"
-                rel="noopener noreferrer"
-                class="inline-flex items-center text-blue-400 hover:text-blue-300 font-semibold mt-auto"
-              >
-                Live Demo
-                <i data-lucide="arrow-right" class="w-4 h-4 ml-2"></i>
-              </a>
             </div>
           </div>
 
-          <!-- AI Hand Gesture Controller -->
+          <!-- Project 3: AI Hand Gesture Controller -->
           <div
-            class="glass-effect rounded-xl overflow-hidden group flex flex-col reveal"
+            class="project-card glass-card rounded-3xl overflow-hidden border border-slate-200 dark:border-slate-800 hover:border-violet-500/50 flex flex-col transition-all group"
+            data-category="aiml cv"
           >
-            <img
-              src="{{ url_for('static', filename='Images/ai_gesture.png') }}"
-              alt="AI Hand Gesture Controller"
-              class="w-full h-48 object-cover transition-transform duration-500 group-hover:scale-105"
-            />
+            <div class="relative h-56 sm:h-64 w-full overflow-hidden bg-slate-900">
+              <img
+                src="{{ url_for('static', filename='Images/ai_gesture.png') }}"
+                alt="AI Hand Gesture Controller"
+                loading="lazy"
+                class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+              />
+              <div class="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/20 to-transparent"></div>
+              
+              <div class="absolute top-4 left-4">
+                <span class="px-3 py-1 rounded-full text-xs font-semibold bg-violet-500/20 text-violet-700 dark:text-violet-300 border border-violet-500/30 backdrop-blur-md">
+                  Touchless Interface
+                </span>
+              </div>
+            </div>
 
-            <div class="p-6 flex flex-col flex-grow">
-              <h3
-                class="text-xl font-bold text-white mb-2 group-hover:text-blue-400 transition-colors"
-              >
+            <div class="p-6 sm:p-8 flex flex-col flex-1">
+              <h3 class="text-2xl font-bold text-slate-900 dark:text-white mb-2 group-hover:text-violet-600 dark:group-hover:text-violet-400 transition-colors">
                 AI Hand Gesture Controller
               </h3>
 
-              <p class="text-gray-400 mb-4 text-sm flex-grow">
-                A computer vision application using MediaPipe and OpenCV to
-                track hand movements in real-time, mapping gestures to system
-                controls for a touchless UI.
+              <p class="text-slate-700 dark:text-slate-300 text-sm sm:text-base leading-relaxed mb-6 flex-1">
+                A computer vision system utilizing MediaPipe landmark detection and OpenCV to track real-time hand movements, translating complex gestures directly into native OS system controls.
               </p>
 
-              <div class="flex flex-wrap gap-2 mb-4">
+              <!-- Tags -->
+              <div class="flex flex-wrap gap-2 mb-6">
                 <span class="project-tag">Python</span>
                 <span class="project-tag">OpenCV</span>
                 <span class="project-tag">MediaPipe</span>
@@ -1040,201 +1134,338 @@
                 <span class="project-tag">PyAutoGUI</span>
               </div>
 
-              <a
-                href="https://github.com/Prince-singh001"
-                target="_blank"
-                rel="noopener noreferrer"
-                class="inline-flex items-center text-blue-400 hover:text-blue-300 font-semibold mt-auto"
-              >
-                GitHub Repository
-                <i data-lucide="arrow-right" class="w-4 h-4 ml-2"></i>
-              </a>
+              <!-- Buttons -->
+              <div class="flex items-center gap-4 pt-4 border-t border-slate-200 dark:border-slate-800">
+                <a
+                  href="https://github.com/Prince-singh001"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  class="btn-primary py-2.5 px-5 text-sm"
+                >
+                  <i data-lucide="github" class="w-4 h-4"></i>
+                  <span>GitHub Repository</span>
+                </a>
+              </div>
             </div>
           </div>
+
+          <!-- Project 4: Spend Smart -->
+          <div
+            class="project-card glass-card rounded-3xl overflow-hidden border border-slate-200 dark:border-slate-800 hover:border-emerald-500/50 flex flex-col transition-all group"
+            data-category="web"
+          >
+            <div class="relative h-56 sm:h-64 w-full overflow-hidden bg-slate-900">
+              <img
+                src="{{ url_for('static', filename='Images/spend_smart.png') }}"
+                alt="Spend Smart Project"
+                loading="lazy"
+                class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+              />
+              <div class="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/20 to-transparent"></div>
+              
+              <div class="absolute top-4 left-4">
+                <span class="px-3 py-1 rounded-full text-xs font-semibold bg-emerald-500/20 text-emerald-700 dark:text-emerald-300 border border-emerald-500/30 backdrop-blur-md">
+                  Full Stack Web
+                </span>
+              </div>
+            </div>
+
+            <div class="p-6 sm:p-8 flex flex-col flex-1">
+              <h3 class="text-2xl font-bold text-slate-900 dark:text-white mb-2 group-hover:text-emerald-600 dark:group-hover:text-emerald-400 transition-colors">
+                Spend Smart
+              </h3>
+
+              <p class="text-slate-700 dark:text-slate-300 text-sm sm:text-base leading-relaxed mb-6 flex-1">
+                A full-featured MERN stack financial management web application that securely tracks income streams, categorizes expenses, and generates insightful financial statements.
+              </p>
+
+              <!-- Tags -->
+              <div class="flex flex-wrap gap-2 mb-6">
+                <span class="project-tag">React.js</span>
+                <span class="project-tag">Node.js</span>
+                <span class="project-tag">Express.js</span>
+                <span class="project-tag">MongoDB</span>
+                <span class="project-tag">Tailwind</span>
+              </div>
+
+              <!-- Buttons -->
+              <div class="flex items-center gap-4 pt-4 border-t border-slate-200 dark:border-slate-800">
+                <a
+                  href="https://spend-smart-tawny-xi.vercel.app/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  class="btn-primary py-2.5 px-5 text-sm"
+                >
+                  <span>Live Demo</span>
+                  <i data-lucide="external-link" class="w-4 h-4"></i>
+                </a>
+
+                <a
+                  href="https://github.com/Prince-singh001"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  class="btn-outline py-2.5 px-5 text-sm"
+                >
+                  <i data-lucide="github" class="w-4 h-4"></i>
+                  <span>GitHub</span>
+                </a>
+              </div>
+            </div>
+          </div>
+
         </div>
       </section>
 
-      <!-- ================= CONTACT ================= -->
-      <section id="contact" class="py-20 reveal">
-        <h2 class="text-4xl font-bold text-center text-white mb-4">
-          Connect with <span class="text-gradient">Me</span>
-        </h2>
+      <!-- ================= CONTACT SECTION ================= -->
+      <section id="contact" class="py-20 lg:py-28 reveal">
+        <!-- Section Header -->
+        <div class="text-center max-w-3xl mx-auto mb-16">
+          <div class="inline-flex items-center gap-2 px-3.5 py-1 rounded-full border border-cyan-500/20 bg-cyan-500/10 text-xs font-semibold text-cyan-600 dark:text-cyan-400 uppercase tracking-wider mb-3">
+            <i data-lucide="message-square" class="w-3.5 h-3.5"></i>
+            <span>Let's Connect</span>
+          </div>
+          <h2 class="text-3xl sm:text-4xl font-extrabold text-slate-900 dark:text-white tracking-tight">
+            Let's Build Something <span class="text-gradient">Useful</span>
+          </h2>
+          <p class="mt-3 text-base text-slate-600 dark:text-slate-400">
+            Have an internship opening, ML project, collaboration, or question? Send a message.
+          </p>
+        </div>
 
-        <p class="text-center text-gray-400 mb-12 max-w-2xl mx-auto">
-          Have a project idea, question, collaboration opportunity, or just want
-          to say hello? Fill out the form and I will get back to you.
-        </p>
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-14 items-start">
+          
+          <!-- Contact Details (Left Column) -->
+          <div class="lg:col-span-5 space-y-6">
+            <div class="glass-card p-8 rounded-3xl border border-slate-200 dark:border-slate-800">
+              <h3 class="text-2xl font-bold text-slate-900 dark:text-white mb-3">Get in Touch</h3>
+              <p class="text-slate-700 dark:text-slate-300 text-sm leading-relaxed mb-8">
+                I am actively seeking software engineering internships and AI/ML project collaborations. Reach out directly or submit the form.
+              </p>
 
-        <div class="max-w-xl mx-auto card">
-          <form action="https://api.web3forms.com/submit" method="POST">
-            <input
-              type="hidden"
-              name="access_key"
-              value="f301e758-67e6-46d1-b89a-b17283f96420"
-            />
+              <div class="space-y-5">
+                <!-- Location -->
+                <div class="flex items-center gap-4">
+                  <div class="w-11 h-11 rounded-2xl bg-cyan-500/10 border border-cyan-500/20 flex items-center justify-center text-cyan-600 dark:text-cyan-400">
+                    <i data-lucide="map-pin" class="w-5 h-5"></i>
+                  </div>
+                  <div>
+                    <span class="text-xs uppercase tracking-wider text-slate-500 dark:text-slate-400 font-semibold block">Location</span>
+                    <span class="text-sm font-medium text-slate-800 dark:text-slate-200">Bhopal, MP / Aurangabad, Bihar, India</span>
+                  </div>
+                </div>
 
-            <div class="mb-4">
-              <label class="block text-gray-300 mb-2">Your Name</label>
-              <input
-                type="text"
-                name="name"
-                required
-                placeholder="Enter your name"
-              />
+                <!-- GitHub -->
+                <div class="flex items-center gap-4">
+                  <div class="w-11 h-11 rounded-2xl bg-blue-500/10 border border-blue-500/20 flex items-center justify-center text-blue-600 dark:text-blue-400">
+                    <i data-lucide="github" class="w-5 h-5"></i>
+                  </div>
+                  <div>
+                    <span class="text-xs uppercase tracking-wider text-slate-500 dark:text-slate-400 font-semibold block">GitHub</span>
+                    <a href="https://github.com/Prince-singh001" target="_blank" rel="noopener noreferrer" class="text-sm font-medium text-cyan-600 dark:text-cyan-400 hover:underline">
+                      github.com/Prince-singh001
+                    </a>
+                  </div>
+                </div>
+
+                <!-- LinkedIn -->
+                <div class="flex items-center gap-4">
+                  <div class="w-11 h-11 rounded-2xl bg-violet-500/10 border border-violet-500/20 flex items-center justify-center text-violet-600 dark:text-violet-400">
+                    <i data-lucide="linkedin" class="w-5 h-5"></i>
+                  </div>
+                  <div>
+                    <span class="text-xs uppercase tracking-wider text-slate-500 dark:text-slate-400 font-semibold block">LinkedIn</span>
+                    <a href="https://www.linkedin.com/in/prince-singh05/" target="_blank" rel="noopener noreferrer" class="text-sm font-medium text-cyan-600 dark:text-cyan-400 hover:underline">
+                      linkedin.com/in/prince-singh05
+                    </a>
+                  </div>
+                </div>
+
+                <!-- LeetCode -->
+                <div class="flex items-center gap-4">
+                  <div class="w-11 h-11 rounded-2xl bg-amber-500/10 border border-amber-500/20 flex items-center justify-center text-amber-600 dark:text-amber-400">
+                    <i data-lucide="code" class="w-5 h-5"></i>
+                  </div>
+                  <div>
+                    <span class="text-xs uppercase tracking-wider text-slate-500 dark:text-slate-400 font-semibold block">LeetCode</span>
+                    <a href="https://leetcode.com/u/SPrince01/" target="_blank" rel="noopener noreferrer" class="text-sm font-medium text-cyan-600 dark:text-cyan-400 hover:underline">
+                      leetcode.com/u/SPrince01
+                    </a>
+                  </div>
+                </div>
+              </div>
             </div>
+          </div>
 
-            <div class="mb-4">
-              <label class="block text-gray-300 mb-2">Email</label>
-              <input
-                type="email"
-                name="email"
-                required
-                placeholder="example@gmail.com"
-              />
+          <!-- Contact Form (Right Column) -->
+          <div class="lg:col-span-7">
+            <div class="glass-card p-8 sm:p-10 rounded-3xl border border-slate-200 dark:border-slate-800">
+              <form action="https://api.web3forms.com/submit" method="POST" id="contact-form" class="space-y-6">
+                <!-- Web3Forms Access Key -->
+                <input
+                  type="hidden"
+                  name="access_key"
+                  value="f301e758-67e6-46d1-b89a-b17283f96420"
+                />
+                <input type="checkbox" name="botcheck" class="hidden" style="display: none;" />
+
+                <div>
+                  <label for="name" class="block text-sm font-semibold text-slate-800 dark:text-slate-200 mb-2">Your Name</label>
+                  <input
+                    type="text"
+                    id="name"
+                    name="name"
+                    required
+                    placeholder="e.g. Alex Johnson"
+                    class="form-input"
+                  />
+                </div>
+
+                <div>
+                  <label for="email" class="block text-sm font-semibold text-slate-800 dark:text-slate-200 mb-2">Your Email</label>
+                  <input
+                    type="email"
+                    id="email"
+                    name="email"
+                    required
+                    placeholder="e.g. alex@company.com"
+                    class="form-input"
+                  />
+                </div>
+
+                <div>
+                  <label for="message" class="block text-sm font-semibold text-slate-800 dark:text-slate-200 mb-2">Your Message</label>
+                  <textarea
+                    id="message"
+                    name="message"
+                    required
+                    rows="5"
+                    placeholder="Tell me about your project, role, or proposal..."
+                    class="form-input resize-none"
+                  ></textarea>
+                </div>
+
+                <button
+                  type="submit"
+                  id="contact-submit-btn"
+                  class="btn-primary w-full py-3.5 text-base justify-center shadow-xl shadow-blue-600/30"
+                >
+                  <span id="btn-text">Send Message</span>
+                  <i data-lucide="send" class="w-4 h-4 ml-2"></i>
+                </button>
+              </form>
             </div>
+          </div>
 
-            <div class="mb-4">
-              <label class="block text-gray-300 mb-2">Message</label>
-              <textarea
-                name="message"
-                required
-                rows="5"
-                placeholder="Write your message here..."
-              ></textarea>
-            </div>
-
-            <button type="submit" class="btn-primary w-full">
-              Send Message
-              <i data-lucide="send" class="w-5 h-5"></i>
-            </button>
-          </form>
         </div>
       </section>
+
     </main>
 
     <!-- ================= FOOTER ================= -->
-    <footer class="border-t border-gray-800 mt-20 relative z-10">
-      <div class="container mx-auto px-4 py-8 text-center text-gray-400">
-        <div class="flex justify-center items-center gap-5 mb-4">
-          <a
-            href="https://github.com/Prince-singh001"
-            target="_blank"
-            rel="noopener noreferrer"
-            title="GitHub"
-            class="footer-social-icon"
-          >
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              viewBox="0 0 24 24"
-              fill="currentColor"
-              class="w-6 h-6"
-            >
-              <path
-                d="M12 0C5.37 0 0 5.37 0 12a12 12 0 0 0 8.2 11.39c.6.11.82-.26.82-.58v-2.02c-3.34.73-4.04-1.42-4.04-1.42-.55-1.38-1.33-1.75-1.33-1.75-1.08-.74.08-.73.08-.73 1.2.08 1.83 1.22 1.83 1.22 1.06 1.82 2.79 1.3 3.47.99.11-.77.42-1.3.76-1.6-2.67-.31-5.47-1.33-5.47-5.9 0-1.3.47-2.37 1.22-3.2-.12-.3-.53-1.56.12-3.24 0 0 1-.32 3.3 1.22a11.5 11.5 0 0 1 6 0c2.3-1.54 3.3-1.22 3.3-1.22.65 1.68.24 2.94.12 3.24.76.83 1.22 1.9 1.22 3.2 0 4.58-2.8 5.58-5.48 5.89.43.38.82 1.1.82 2.23v3.3c0 .32.21.7.83.58A12 12 0 0 0 24 12c0-6.63-5.37-12-12-12Z"
-              />
-            </svg>
-          </a>
+    <footer class="border-t border-slate-200 dark:border-slate-800/80 mt-20 relative z-10 bg-slate-100/70 dark:bg-slate-950/70 backdrop-blur-xl">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+        <div class="flex flex-col md:flex-row items-center justify-between gap-6">
+          <div class="text-center md:text-left">
+            <div class="flex items-center justify-center md:justify-start gap-2.5 mb-2">
+              <span class="w-8 h-8 rounded-lg bg-gradient-to-br from-blue-600 to-cyan-500 flex items-center justify-center text-white font-bold text-sm shadow">
+                PS
+              </span>
+              <span class="text-lg font-bold text-slate-900 dark:text-white tracking-tight">Prince Singh</span>
+            </div>
+            <p class="text-xs text-slate-600 dark:text-slate-400">AI/ML Engineer · Python Developer</p>
+          </div>
 
-          <a
-            href="https://www.linkedin.com/in/prince-singh05/"
-            target="_blank"
-            rel="noopener noreferrer"
-            title="LinkedIn"
-            class="footer-social-icon hover-blue"
-          >
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              viewBox="0 0 24 24"
-              fill="currentColor"
-              class="w-6 h-6"
-            >
-              <path
-                d="M20.45 20.45H16.9v-5.57c0-1.33-.03-3.04-1.85-3.04-1.85 0-2.13 1.45-2.13 2.95v5.66H9.37V9h3.4v1.56h.05c.47-.9 1.63-1.85 3.35-1.85 3.58 0 4.24 2.36 4.24 5.43v6.31ZM5.34 7.43a2.06 2.06 0 1 1 0-4.12 2.06 2.06 0 0 1 0 4.12ZM7.11 20.45H3.56V9h3.55v11.45ZM22.23 0H1.77A1.77 1.77 0 0 0 0 1.77v20.46C0 23.2.8 24 1.77 24h20.46A1.77 1.77 0 0 0 24 22.23V1.77A1.77 1.77 0 0 0 22.23 0Z"
-              />
-            </svg>
-          </a>
+          <!-- Quick Navigation Links -->
+          <div class="flex flex-wrap justify-center gap-6 text-sm text-slate-600 dark:text-slate-400 font-medium">
+            <a href="#home" class="hover:text-cyan-600 dark:hover:text-cyan-400 transition-colors">Home</a>
+            <a href="#about" class="hover:text-cyan-600 dark:hover:text-cyan-400 transition-colors">About</a>
+            <a href="#skills" class="hover:text-cyan-600 dark:hover:text-cyan-400 transition-colors">Skills</a>
+            <a href="#education" class="hover:text-cyan-600 dark:hover:text-cyan-400 transition-colors">Education</a>
+            <a href="#certificates" class="hover:text-cyan-600 dark:hover:text-cyan-400 transition-colors">Certificates</a>
+            <a href="#projects" class="hover:text-cyan-600 dark:hover:text-cyan-400 transition-colors">Projects</a>
+            <a href="#contact" class="hover:text-cyan-600 dark:hover:text-cyan-400 transition-colors">Contact</a>
+          </div>
 
-          <a
-            href="https://wa.me/919661261973"
-            target="_blank"
-            rel="noopener noreferrer"
-            title="WhatsApp"
-            class="footer-social-icon hover-green"
-          >
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              viewBox="0 0 24 24"
-              fill="currentColor"
-              class="w-6 h-6"
-            >
-              <path
-                d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"
-              />
-            </svg>
-          </a>
+          <!-- Socials -->
+          <div class="flex items-center gap-3">
+            <a href="https://github.com/Prince-singh001" target="_blank" rel="noopener noreferrer" class="social-btn" aria-label="GitHub">
+              <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><path fill-rule="evenodd" d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.53 1.032 1.53 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z" clip-rule="evenodd"/></svg>
+            </a>
+            <a href="https://www.linkedin.com/in/prince-singh05/" target="_blank" rel="noopener noreferrer" class="social-btn hover-blue" aria-label="LinkedIn">
+              <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><path d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14m-.5 15.5v-5.3a3.26 3.26 0 0 0-3.26-3.26c-.85 0-1.84.52-2.28 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-.77.62-1.4 1.39-1.4a1.4 1.4 0 0 1 1.4 1.4v4.93h2.75M6.88 8.56a1.68 1.68 0 0 0 1.68-1.68c0-.93-.75-1.69-1.68-1.69a1.69 1.69 0 0 0-1.69 1.69c0 .93.76 1.68 1.69 1.68m1.39 9.94v-8.37H5.5v8.37h2.77z"/></svg>
+            </a>
+            <a href="https://leetcode.com/u/SPrince01/" target="_blank" rel="noopener noreferrer" class="social-btn hover-amber" aria-label="LeetCode">
+              <i data-lucide="code" class="w-4 h-4"></i>
+            </a>
+          </div>
         </div>
 
-        <p class="text-sm text-gray-300">
-          © 2026 Prince Singh. All Rights Reserved.
-        </p>
+        <div class="mt-8 pt-8 border-t border-slate-200 dark:border-slate-800/80 text-center text-xs text-slate-500 dark:text-slate-400">
+          <p>&copy; 2026 Prince Singh. All Rights Reserved. Built with Flask, Jinja2 &amp; Tailwind CSS.</p>
+        </div>
       </div>
     </footer>
 
-    <!-- ================= LIGHTBOX MODAL ================= -->
+    <!-- ================= CERTIFICATE LIGHTBOX MODAL ================= -->
     <div
       id="lightbox"
-      class="fixed inset-0 z-[100] hidden items-center justify-center bg-slate-950/90 backdrop-blur-md opacity-0 transition-opacity duration-300"
+      class="fixed inset-0 z-[100] hidden items-center justify-center bg-slate-950/90 backdrop-blur-md opacity-0 transition-opacity duration-300 p-4"
+      role="dialog"
+      aria-modal="true"
+      aria-label="Certificate Image Viewer"
     >
       <button
         id="lightbox-close"
-        class="absolute top-6 right-6 text-white/70 hover:text-white transition-colors p-2 z-[110]"
+        class="absolute top-6 right-6 text-slate-300 hover:text-white transition-colors p-2.5 rounded-full bg-slate-900/80 border border-slate-700/80 hover:bg-slate-800 z-[110]"
         aria-label="Close lightbox"
       >
-        <i data-lucide="x" class="w-8 h-8"></i>
+        <i data-lucide="x" class="w-6 h-6"></i>
       </button>
 
       <button
         id="lightbox-prev"
-        class="absolute left-6 top-1/2 -translate-y-1/2 text-white/70 hover:text-white transition-colors p-3 bg-white/5 rounded-full hover:bg-white/10 z-[110]"
+        class="absolute left-4 sm:left-6 top-1/2 -translate-y-1/2 text-slate-300 hover:text-white transition-colors p-3 bg-slate-900/80 border border-slate-700/80 rounded-full hover:bg-slate-800 z-[110]"
         aria-label="Previous certificate"
       >
-        <i data-lucide="chevron-left" class="w-8 h-8"></i>
+        <i data-lucide="chevron-left" class="w-6 h-6"></i>
       </button>
 
       <div
-        class="max-w-[90vw] max-h-[80vh] flex flex-col items-center justify-center scale-95 transition-transform duration-300 z-[105]"
+        class="max-w-[90vw] max-h-[85vh] flex flex-col items-center justify-center scale-95 transition-transform duration-300 z-[105]"
         id="lightbox-content"
       >
         <img
           id="lightbox-img"
           src=""
-          alt="Certificate View"
-          class="max-w-full max-h-[70vh] object-contain rounded-lg shadow-2xl border border-white/10"
+          alt="Certificate Preview"
+          class="max-w-full max-h-[75vh] object-contain rounded-2xl shadow-2xl border border-slate-700/80"
         />
         <p
           id="lightbox-title"
-          class="text-white text-lg font-semibold mt-4"
+          class="text-white text-base sm:text-lg font-bold mt-4 text-center"
         ></p>
       </div>
 
       <button
         id="lightbox-next"
-        class="absolute right-6 top-1/2 -translate-y-1/2 text-white/70 hover:text-white transition-colors p-3 bg-white/5 rounded-full hover:bg-white/10 z-[110]"
+        class="absolute right-4 sm:right-6 top-1/2 -translate-y-1/2 text-slate-300 hover:text-white transition-colors p-3 bg-slate-900/80 border border-slate-700/80 rounded-full hover:bg-slate-800 z-[110]"
         aria-label="Next certificate"
       >
-        <i data-lucide="chevron-right" class="w-8 h-8"></i>
+        <i data-lucide="chevron-right" class="w-6 h-6"></i>
       </button>
     </div>
 
+    <!-- Back To Top Floating Action Button -->
     <button
       id="backToTop"
       type="button"
-      class="fixed right-5 bottom-5 z-50 w-12 h-12 rounded-full bg-blue-600 text-white flex items-center justify-center shadow-xl hover:bg-purple-600 transition-all"
+      class="fixed right-6 bottom-6 z-50 w-11 h-11 rounded-xl bg-gradient-to-r from-blue-600 to-cyan-600 text-white flex items-center justify-center shadow-xl shadow-cyan-600/30 hover:scale-110 active:scale-95 transition-all opacity-0 pointer-events-none"
       aria-label="Back to top"
     >
       <i data-lucide="arrow-up" class="w-5 h-5"></i>
     </button>
 
+    <!-- Scripts -->
     <script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.12"></script>
     <script src="{{ url_for('static', filename='js/script.js') }}"></script>
 
